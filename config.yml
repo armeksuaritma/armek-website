@@ -14,6 +14,7 @@ collections:
         format: "json"
         fields:
           - {label: "İşletme adı", name: "businessName", widget: "string"}
+          - {label: "Logo Görseli", name: "logoImage", widget: "image"}
           - {label: "Üst küçük başlık", name: "heroEyebrow", widget: "string"}
           - {label: "Ana başlık", name: "heroTitle", widget: "string"}
           - {label: "Ana açıklama", name: "heroText", widget: "text"}
