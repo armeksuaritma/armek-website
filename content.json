@@ -11,7 +11,7 @@
   "facebook": "https://www.facebook.com/profile.php?id=61590761387063",
   "heroText": "Ev ve iş yerleri için pompalı & pompasız cihaz seçenekleri, filtre değişimi ve teknik servis.",
   "pricesVisible": true,
-  "footerText": "ARMEK Su Arıtma Cihazları",
+  "footerText": "ARMEK Su Arıtma",
   "phoneLink": "905525223575",
   "campaignTitle": "Su Arıtma Cihazı Kampanyası",
   "prices": [
@@ -31,53 +31,25 @@
       "note": "Montaj dahil kampanya fiyatı"
     }
   ],
-  "campaignImage": "/uploads/gemini_generated_image_le45t1le45t1le45.png",
+  "campaignImage": "armek-kampanya.jpg",
   "businessName": "ARMEK Su Arıtma",
   "heroEyebrow": "ARMEK SU ARITMA SERVİSİ",
-  "logoImage": "/uploads/logo.jpg",
+  "logoImage": "armek-logo.jpg",
   "instagram": "https://www.instagram.com/aritmamekanik/",
   "phoneDisplay": "0552 522 35 75",
   "whatsappMessage": "Merhaba, su arıtma hizmetleri hakkında bilgi almak istiyorum.",
   "faqs": [
     {
       "q": "Filtreler kaç ayda değişir?",
-      "a": "Kullanım miktarı ve şebeke suyuna göre değişkenlik gösterirken aynı zaman da genel olarak 6 aylık periyodlarla değişim önerilir."
+      "a": "Kullanım miktarı ve şebeke suyuna göre değişir. Genel olarak düzenli kontrol ve periyodik değişim önerilir."
     },
     {
-      "q": "Evim için pompalı mı yoksa pompasız su arıtma cihazı mı tercih etmeliyim?",
-      "a": "Bu durum tamamen evinizdeki şebeke suyu basıncı ile ilgilidir. Eğer oturduğunuz binada su basıncı düşükse (3 barın altındaysa) cihazın verimli çalışması ve yeterli su üretebilmesi için pompalı (elektrikli) model tercih edilmelidir. Su basıncının yüksek olduğu (4 bar ve üzeri) üst katlar veya hidroforlu binalarda ise pompasız model sessiz ve ekonomik bir alternatif olarak rahatlıkla kullanılabilir."
+      "q": "Pompalı mı pompasız mı almalıyım?",
+      "a": "Şebeke basıncı düşükse pompalı, yeterliyse pompasız cihaz tercih edilebilir."
     },
     {
       "q": "Antalya'nın hangi bölgelerine servis var?",
       "a": "Kepez, Muratpaşa, Konyaaltı, Döşemealtı ve Aksu başta olmak üzere Antalya genelinde hizmet veriyoruz."
-    },
-    {
-      "q": "Filtre değişiminden sonra suyun TDS (toplam çözünmüş katı madde) değeri kaç olmalı?",
-      "a": "Yeni filtrelerin takılmasının ve sistemin durulanmasının ardından ideal TDS değeri standart olarak 5 - 70 ppm arasında olmalıdır. Filtre değişimi sonrasında sistemin tamamen oturması ve bu ideal değerlere ulaşması için ilk 2-3 tank dolusu suyun akıtılması ve tüketilmemesi gerekir."
-    },
-    {
-      "q": "Filtre değişimi sonrasında suyun tadında veya renginde neden değişiklik olur?",
-      "a": "Yeni takılan aktif karbon filtrelerden ilk geçen su, sisteme bağlı olarak hafif grileşmeye veya hava kabarcıklarından dolayı beyaz (bulutlu) bir görünüme neden olabilir. Bu durum tamamen normaldir. İlk 2-3 depo suyu tahliye ettikten sonra suyunuz tamamen berraklaşacak, post karbon (tatlandırıcı) filtrenin de devreye girmesiyle ideal yumuşaklık ve lezzetine kavuşacaktır."
-    },
-    {
-      "q": "Filtrelerin zamanında değiştirilmemesi durumunda ne olur?",
-      "a": "Filtrelerin kullanım ömrü dolduğunda gözenekleri tıkanır ve su arıtma performansı düşer. Zamanında yapılmayan değişimler; suyun tadının ve kokusunun bozulmasına, cihazın su üretim hızının azalmasına ve en önemlisi en maliyetli parça olan membran filtrenin erken ömür tüketmesine yol açar. Sağlığınız ve cihaz ömrü için filtrelerinizi periyodik olarak değiştirmenizi öneririz."
-    },
-    {
-      "q": "Cihazın atık su vermesi normal midir? Bu su değerlendirilebilir mi?",
-      "a": "Evet, ters ozmos (Reverse Osmosis) teknolojisiyle çalışan tüm kaliteli arıtma cihazları temiz su üretirken sudaki ağır metalleri ve bakterileri ayırarak atık su hattından dışarı atar. Bu, cihazın sağlıklı çalıştığının göstergesidir. İsterseniz atık su hortumunu bir kovaya veya bidona yönlendirerek bu suyu temizlik yaparken, balkon yıkarken veya çiçek sularken değerlendirebilirsiniz."
-    },
-    {
-      "q": "Arıtma cihazının genleşme (su) tankının patlaması veya içine su alması (hava kaçırması) nasıl anlaşılır? Belirtileri nelerdir?",
-      "a": "Tankın içerisindeki hava şambreli patladığında veya havası bittiğinde tank tamamen suyla dolar ve ağırlaşır ancak musluğu açtığınızda su ya hiç akmaz ya da sadece 1-2 bardak tazyikli akıp hemen kesilir. Tankı salladığınızda içinde yoğun su sesi gelmesine rağmen musluktan su alamıyorsanız tankın havası kaçmış veya membranı (şambreli) patlamıştır. Bu durumda tankın havasının yenilenmesi veya tankın tamamen değiştirilmesi gerekir."
-    },
-    {
-      "q": "Filtreler zamanında değiştirilmezse cihazlarda ne gibi sorunlar yaşanır?",
-      "a": "Ömrünü tamamlamış filtreler (özellikle kireç ve mineralleri süzen membran filtre) işlevini yitirdiğinde, şebeke suyundaki kireç ve ağır metaller doğrudan kullanım suyuna karışır. Bu durum çaydanlık, kahve makinası, çay kazanı ve kettle'larınızın tabanında çok kısa sürede kalın kireç tabakaları oluşmasına neden olur. Kireçlenme; ısı iletimini engelleyerek cihazlarınızın elektrik tüketimini artırır, kahve ve çay makinelerinin ince su borularını tıkayarak cihazların erken bozulmasına ve garanti dışı kalmasına yol açar."
-    },
-    {
-      "q": "Zamanı geçen filtreleri kullanmaya devam etmek sağlığımızı nasıl etkiler?",
-      "a": "Süresi geçen filtreler artık süzme yapamaz, aksine üzerinde biriktirdiği bakteri, çamur, pas ve ağır metalleri tazyikli suyun etkisiyle yavaş yavaş temiz suya salmaya başlar. Aktif karbon filtrelerin ömrü bittiğinde sudaki klor ve organik kimyasallar süzülemez. Bu kirli suyun tüketilmesi; mide ve bağırsak rahatsızlıklarına, bağışıklık sisteminin zayıflamasına ve uzun vadede vücutta ağır metal birikimine sebep olabilir. Temiz ve sağlıklı su içmek için filtre değişim periyotlarına mutlaka uyulmalıdır."
     }
   ],
   "campaignText": "Nakit ödemeye özel kampanyalı fiyatlar.",
