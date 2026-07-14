@@ -1,9 +1,15 @@
 backend:
   name: git-gateway
   branch: main
+
+site_url: https://nimble-pastelito-ab6304.netlify.app
+display_url: https://nimble-pastelito-ab6304.netlify.app
+logo_url: /armek-logo.jpg
+locale: tr
 media_folder: "uploads"
 public_folder: "/uploads"
-locale: "tr"
+publish_mode: simple
+
 collections:
   - name: "site"
     label: "Site Ayarları"
@@ -14,6 +20,7 @@ collections:
         format: "json"
         fields:
           - {label: "İşletme adı", name: "businessName", widget: "string"}
+          - {label: "Logo", name: "logoImage", widget: "image"}
           - {label: "Üst küçük başlık", name: "heroEyebrow", widget: "string"}
           - {label: "Ana başlık", name: "heroTitle", widget: "string"}
           - {label: "Ana açıklama", name: "heroText", widget: "text"}
@@ -24,9 +31,19 @@ collections:
           - {label: "Kampanya başlığı", name: "campaignTitle", widget: "string"}
           - {label: "Kampanya açıklaması", name: "campaignText", widget: "text"}
           - {label: "Kampanya görseli", name: "campaignImage", widget: "image"}
+          - {label: "Fiyat kartları görünsün", name: "pricesVisible", widget: "boolean", default: true}
+          - label: "Fiyatlar"
+            name: "prices"
+            widget: "list"
+            summary: "{{fields.title}} — {{fields.price}}"
+            fields:
+              - {label: "Ürün/Hizmet", name: "title", widget: "string"}
+              - {label: "Fiyat", name: "price", widget: "string"}
+              - {label: "Alt not", name: "note", widget: "string", required: false}
           - label: "Hizmetler"
             name: "services"
             widget: "list"
+            summary: "{{fields.title}}"
             fields:
               - {label: "Başlık", name: "title", widget: "string"}
               - {label: "Açıklama", name: "text", widget: "text"}
@@ -34,6 +51,7 @@ collections:
           - label: "Sık Sorulan Sorular"
             name: "faqs"
             widget: "list"
+            summary: "{{fields.q}}"
             fields:
               - {label: "Soru", name: "q", widget: "string"}
               - {label: "Cevap", name: "a", widget: "text"}
