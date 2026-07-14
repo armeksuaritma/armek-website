@@ -31,6 +31,13 @@ collections:
             fields:
               - {label: "Başlık", name: "title", widget: "string"}
               - {label: "Açıklama", name: "text", widget: "text"}
+          - label: "Yaptığımız İşler (Galeri)"
+            name: "gallery"
+            widget: "list"
+            required: false
+            fields:
+              - {label: "İş/Proje Adı", name: "title", widget: "string"}
+              - {label: "Fotoğraf", name: "image", widget: "image"}
           - {label: "Hizmet bölgeleri", name: "areas", widget: "list"}
           - label: "Sık Sorulan Sorular"
             name: "faqs"
@@ -42,10 +49,3 @@ collections:
           - {label: "Instagram", name: "instagram", widget: "string"}
           - {label: "Adres/Hizmet alanı", name: "addressText", widget: "string"}
           - {label: "Alt bilgi", name: "footerText", widget: "string"}
-          - label: "Yaptığımız İşler (Galeri)"
-            name: "gallery"
-            widget: "list"
-            required: false
-            fields:
-              - {label: "İş/Proje Adı", name: "title", widget: "string"}
-              - {label: "Fotoğraf", name: "image", widget: "image"}
