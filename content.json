@@ -11,7 +11,7 @@
   "facebook": "https://www.facebook.com/profile.php?id=61590761387063",
   "heroText": "Ev ve iş yerleri için pompalı & pompasız cihaz seçenekleri, filtre değişimi ve teknik servis.",
   "pricesVisible": true,
-  "footerText": "ARMEK Su Arıtma",
+  "footerText": "ARMEK Su Arıtma Cihazları",
   "phoneLink": "905525223575",
   "campaignTitle": "Su Arıtma Cihazı Kampanyası",
   "prices": [
@@ -66,6 +66,14 @@
     {
       "q": "Cihazın atık su vermesi normal midir? Bu su değerlendirilebilir mi?",
       "a": "Evet, ters ozmos (Reverse Osmosis) teknolojisiyle çalışan tüm kaliteli arıtma cihazları temiz su üretirken sudaki ağır metalleri ve bakterileri ayırarak atık su hattından dışarı atar. Bu, cihazın sağlıklı çalıştığının göstergesidir. İsterseniz atık su hortumunu bir kovaya veya bidona yönlendirerek bu suyu temizlik yaparken, balkon yıkarken veya çiçek sularken değerlendirebilirsiniz."
+    },
+    {
+      "q": "Arıtma cihazının genleşme (su) tankının patlaması veya içine su alması (hava kaçırması) nasıl anlaşılır? Belirtileri nelerdir?",
+      "a": "Tankın içerisindeki hava şambreli patladığında veya havası bittiğinde tank tamamen suyla dolar ve ağırlaşır ancak musluğu açtığınızda su ya hiç akmaz ya da sadece 1-2 bardak tazyikli akıp hemen kesilir. Tankı salladığınızda içinde yoğun su sesi gelmesine rağmen musluktan su alamıyorsanız tankın havası kaçmış veya membranı (şambreli) patlamıştır. Bu durumda tankın havasının yenilenmesi veya tankın tamamen değiştirilmesi gerekir."
+    },
+    {
+      "q": "Filtreler zamanında değiştirilmezse cihazlarda ne gibi sorunlar yaşanır?",
+      "a": "Ömrünü tamamlamış filtreler (özellikle kireç ve mineralleri süzen membran filtre) işlevini yitirdiğinde, şebeke suyundaki kireç ve ağır metaller doğrudan kullanım suyuna karışır. Bu durum çaydanlık, kahve makinası, çay kazanı ve kettle'larınızın tabanında çok kısa sürede kalın kireç tabakaları oluşmasına neden olur. Kireçlenme; ısı iletimini engelleyerek cihazlarınızın elektrik tüketimini artırır, kahve ve çay makinelerinin ince su borularını tıkayarak cihazların erken bozulmasına ve garanti dışı kalmasına yol açar."
     }
   ],
   "campaignText": "Nakit ödemeye özel kampanyalı fiyatlar.",
