@@ -42,9 +42,9 @@ collections:
           - {label: "Adres/Hizmet alanı", name: "addressText", widget: "string"}
           - {label: "Alt bilgi", name: "footerText", widget: "string"}
           - label: "Yaptığımız İşler (Galeri)"
-        name: "gallery"
-        widget: "list"
-        required: false
-        fields:
-          - { label: "İş/Proje Adı", name: "title", widget: "string" }
-          - { label: "Fotoğraf", name: "image", widget: "image" }
+            name: "gallery"
+            widget: "list"
+            required: false
+            fields:
+              - {label: "İş/Proje Adı", name: "title", widget: "string"}
+              - {label: "Fotoğraf", name: "image", widget: "image"}
