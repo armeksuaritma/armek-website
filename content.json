@@ -1,17 +1,19 @@
 {
-  "businessName": "ARMEK Su Arıtma",
-  "logoImage": "armek-logo.jpg",
-  "heroEyebrow": "ANTALYA SU ARITMA SERVİSİ",
-  "heroTitle": "Su Arıtma Cihazı Satış, Montaj ve Filtre Değişimi",
-  "heroText": "Ev ve iş yerleri için pompalı–pompasız cihaz seçenekleri, 5 aşamalı filtre değişimi ve teknik servis.",
-  "phoneDisplay": "0552 522 35 75",
-  "phoneLink": "905525223575",
-  "whatsappMessage": "Merhaba, su arıtma hizmetleri hakkında bilgi almak istiyorum.",
-  "campaignTitle": "Su Arıtma Cihazı Kampanyası",
-  "campaignText": "Nakit ödemeye özel kampanyalı fiyatlar.",
-  "campaignImage": "armek-kampanya.jpg",
+  "addressText": "Antalya",
   "campaignVisible": true,
+  "areas": [
+    "Kepez",
+    "Muratpaşa",
+    "Konyaaltı",
+    "Döşemealtı",
+    "Aksu"
+  ],
+  "facebook": "https://www.facebook.com/profile.php?id=61590761387063",
+  "heroText": "Ev ve iş yerleri için pompalı–pompasız cihaz seçenekleri, filtre değişimi ve teknik servis.",
   "pricesVisible": true,
+  "footerText": "ARMEK Su Arıtma",
+  "phoneLink": "905525223575",
+  "campaignTitle": "Su Arıtma Cihazı Kampanyası",
   "prices": [
     {
       "title": "5 Aşamalı Filtre Değişimi",
@@ -29,6 +31,28 @@
       "note": "Montaj dahil kampanya fiyatı"
     }
   ],
+  "campaignImage": "armek-kampanya.jpg",
+  "businessName": "ARMEK Su Arıtma",
+  "heroEyebrow": "ANTALYA SU ARITMA SERVİSİ",
+  "logoImage": "armek-logo.jpg",
+  "instagram": "https://www.instagram.com/aritmamekanik/",
+  "phoneDisplay": "0552 522 35 75",
+  "whatsappMessage": "Merhaba, su arıtma hizmetleri hakkında bilgi almak istiyorum.",
+  "faqs": [
+    {
+      "q": "Filtreler kaç ayda değişir?",
+      "a": "Kullanım miktarı ve şebeke suyuna göre değişir. Genel olarak düzenli kontrol ve periyodik değişim önerilir."
+    },
+    {
+      "q": "Pompalı mı pompasız mı almalıyım?",
+      "a": "Şebeke basıncı düşükse pompalı, yeterliyse pompasız cihaz tercih edilebilir."
+    },
+    {
+      "q": "Antalya'nın hangi bölgelerine servis var?",
+      "a": "Kepez, Muratpaşa, Konyaaltı, Döşemealtı ve Aksu başta olmak üzere Antalya genelinde hizmet veriyoruz."
+    }
+  ],
+  "campaignText": "Nakit ödemeye özel kampanyalı fiyatlar.",
   "services": [
     {
       "title": "5 Aşamalı Filtre Değişimi",
@@ -47,29 +71,5 @@
       "text": "Su kaçağı, basınç, tank, musluk ve bağlantı sorunlarında servis desteği."
     }
   ],
-  "areas": [
-    "Kepez",
-    "Muratpaşa",
-    "Konyaaltı",
-    "Döşemealtı",
-    "Aksu"
-  ],
-  "faqs": [
-    {
-      "q": "Filtreler kaç ayda değişir?",
-      "a": "Kullanım miktarı ve şebeke suyuna göre değişir. Genel olarak düzenli kontrol ve periyodik değişim önerilir."
-    },
-    {
-      "q": "Pompalı mı pompasız mı almalıyım?",
-      "a": "Şebeke basıncı düşükse pompalı, yeterliyse pompasız cihaz tercih edilebilir."
-    },
-    {
-      "q": "Antalya'nın hangi bölgelerine servis var?",
-      "a": "Kepez, Muratpaşa, Konyaaltı, Döşemealtı ve Aksu başta olmak üzere Antalya genelinde hizmet veriyoruz."
-    }
-  ],
-  "facebook": "https://www.facebook.com/profile.php?id=61590761387063",
-  "instagram": "https://www.instagram.com/aritmamekanik/",
-  "addressText": "Antalya",
-  "footerText": "ARMEK Su Arıtma"
+  "heroTitle": "Su Arıtma Cihazı Satış, Montaj ve Filtre Değişimi"
 }
