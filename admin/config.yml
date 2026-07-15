@@ -21,6 +21,7 @@ collections:
         fields:
           - {label: "İşletme adı", name: "businessName", widget: "string"}
           - {label: "Logo", name: "logoImage", widget: "image"}
+          - {label: "Ana sayfa sağ görseli", name: "heroImage", widget: "image", hint: "Ana sayfada sağ tarafta görünen cihaz/filtre fotoğrafı"}
           - {label: "Üst küçük başlık", name: "heroEyebrow", widget: "string"}
           - {label: "Ana başlık", name: "heroTitle", widget: "string"}
           - {label: "Ana açıklama", name: "heroText", widget: "text"}

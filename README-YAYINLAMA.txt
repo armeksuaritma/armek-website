@@ -18,3 +18,8 @@ GİRİŞ:
 https://nimble-pastelito-ab6304.netlify.app/admin/
 
 E-posta doğrulama bağlantısı ana siteyi açarsa bekleyin; giriş penceresi açılır. Ardından /admin/ adresine gidip giriş yapın.
+
+GÜNCELLEME - LOGO / ANA SAYFA GÖRSELİ AYRILDI
+- Yönetim panelindeki "Logo" yalnızca üst menü logosunu ve favicon'u değiştirir.
+- Yeni "Ana sayfa sağ görseli" alanı, ana sayfanın sağındaki cihaz/filtre görselini değiştirir.
+- İlk açılışta eski görselin kısa süre görünüp geri gelmesine neden olan ortak görsel bağlantısı kaldırıldı.

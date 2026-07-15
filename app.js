@@ -23,7 +23,8 @@ function render(data){
   ['heroEyebrow','heroTitle','heroText','campaignTitle','campaignText','addressText','footerText'].forEach(k=>setText(k,data[k]));
   makeLinks(data);
   const logo=data.logoImage||'armek-logo.jpg';
-  ['headerLogo','heroLogo'].forEach(id=>{const el=document.getElementById(id);if(el)el.src=logo});
+  const headerLogo=document.getElementById('headerLogo');if(headerLogo)headerLogo.src=logo;
+  const heroImage=document.getElementById('heroImage');if(heroImage)heroImage.src=data.heroImage||logo;
   const favicon=document.getElementById('favicon');if(favicon)favicon.href=logo;
   const campaign=document.getElementById('campaignImage');if(campaign)campaign.src=data.campaignImage||'';
   const campaignSection=document.getElementById('kampanya');if(campaignSection)campaignSection.style.display=data.campaignVisible===false?'none':'';
