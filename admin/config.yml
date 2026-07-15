@@ -26,233 +26,146 @@ collections:
             name: "generalHeading"
             widget: "hidden"
             default: "general"
+          - {label: "İşletme adı", name: "businessName", widget: "string"}
+          - {label: "Logo", name: "logoImage", widget: "image"}
+          - {label: "Üst bilgi", name: "topbarText", widget: "string", required: false}
+          - {label: "Telefon görünümü", name: "phoneDisplay", widget: "string"}
+          - {label: "Telefon/WhatsApp (90 ile)", name: "phoneLink", widget: "string"}
+          - {label: "WhatsApp hazır mesajı", name: "whatsappMessage", widget: "text"}
+          - {label: "Facebook", name: "facebook", widget: "string", required: false}
+          - {label: "Instagram", name: "instagram", widget: "string", required: false}
+          - {label: "Adres / hizmet alanı", name: "addressText", widget: "string"}
+          - {label: "Alt bilgi", name: "footerText", widget: "string"}
 
-          - label: "İşletme adı"
-            name: "businessName"
-            widget: "string"
+          - label: "2. Bölüm Görünürlükleri"
+            name: "visibility"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Ürünler görünsün", name: "products", widget: "boolean", default: true}
+              - {label: "Kampanya görünsün", name: "campaign", widget: "boolean", default: true}
+              - {label: "Hizmetler görünsün", name: "services", widget: "boolean", default: true}
+              - {label: "Yaptığımız işler görünsün", name: "works", widget: "boolean", default: true}
+              - {label: "Kurumsal bölüm görünsün", name: "about", widget: "boolean", default: true}
+              - {label: "Müşteri yorumları görünsün", name: "testimonials", widget: "boolean", default: true}
+              - {label: "Hizmet bölgeleri görünsün", name: "areas", widget: "boolean", default: true}
+              - {label: "S.S.S. görünsün", name: "faq", widget: "boolean", default: true}
 
-          - label: "Logo"
-            name: "logoImage"
-            widget: "image"
-
-          - label: "Üst bilgi"
-            name: "topbarText"
-            widget: "string"
-
-          - label: "Telefon görünümü"
-            name: "phoneDisplay"
-            widget: "string"
-
-          - label: "Telefon/WhatsApp (90 ile)"
-            name: "phoneLink"
-            widget: "string"
-
-          - label: "WhatsApp hazır mesajı"
-            name: "whatsappMessage"
-            widget: "text"
-
-          - label: "Facebook"
-            name: "facebook"
-            widget: "string"
-            required: false
-
-          - label: "Instagram"
-            name: "instagram"
-            widget: "string"
-            required: false
-
-          - label: "Adres / hizmet alanı"
-            name: "addressText"
-            widget: "string"
-
-          - label: "Alt bilgi"
-            name: "footerText"
-            widget: "string"
-
-          - label: "2. Ana Sayfa"
+          - label: "3. Ana Sayfa"
             name: "homeHeading"
             widget: "hidden"
             default: "home"
-
-          - label: "Ana sayfa büyük görsel"
-            name: "heroImage"
-            widget: "image"
-
-          - label: "Üst küçük başlık"
-            name: "heroEyebrow"
-            widget: "string"
-
-          - label: "Ana başlık"
-            name: "heroTitle"
-            widget: "string"
-
-          - label: "Ana açıklama"
-            name: "heroText"
-            widget: "text"
-
-          - label: "Deneyim sayacı"
-            name: "statExperience"
-            widget: "string"
-
-          - label: "Servis sayacı"
-            name: "statService"
-            widget: "string"
-
-          - label: "Kurumsal görsel"
-            name: "aboutImage"
-            widget: "image"
-
-          - label: "Kurumsal başlık"
-            name: "aboutTitle"
-            widget: "string"
-
-          - label: "Kurumsal açıklama"
-            name: "aboutText"
-            widget: "text"
-
-          - label: "Avantajlarımız"
-            name: "advantages"
+          - {label: "Üst küçük başlık", name: "heroEyebrow", widget: "string"}
+          - {label: "Ana başlık", name: "heroTitle", widget: "string"}
+          - {label: "Ana açıklama", name: "heroText", widget: "text"}
+          - {label: "Tek ana görsel (eski uyumluluk)", name: "heroImage", widget: "image", required: false}
+          - label: "Hareketli ana görseller"
+            name: "heroSlides"
             widget: "list"
-            field:
-              label: "Avantaj"
-              name: "item"
-              widget: "string"
+            required: false
+            summary: "{{fields.alt}}"
+            fields:
+              - {label: "Görsel", name: "image", widget: "image"}
+              - {label: "Görsel açıklaması", name: "alt", widget: "string", required: false}
+          - {label: "Deneyim sayacı", name: "statExperience", widget: "string", required: false}
+          - {label: "Servis sayacı", name: "statService", widget: "string", required: false}
+          - {label: "Kurumsal görsel", name: "aboutImage", widget: "image"}
+          - {label: "Kurumsal başlık", name: "aboutTitle", widget: "string"}
+          - {label: "Kurumsal açıklama", name: "aboutText", widget: "text"}
+          - {label: "Avantajlarımız", name: "advantages", widget: "list", field: {label: "Avantaj", name: "item", widget: "string"}}
 
-          - label: "3. Hizmetler"
+          - label: "4. Ürünler"
+            name: "productsHeading"
+            widget: "hidden"
+            default: "products"
+          - {label: "Ürünler bölüm başlığı", name: "productsTitle", widget: "string", default: "Cihaz, filtre ve yedek parça seçenekleri"}
+          - {label: "Ürünler bölüm açıklaması", name: "productsText", widget: "text", required: false}
+          - label: "Ürün listesi"
+            name: "products"
+            widget: "list"
+            add_to_top: true
+            summary: "{{fields.name}} — {{fields.category}}"
+            fields:
+              - {label: "Ürün fotoğrafı", name: "image", widget: "image"}
+              - {label: "Ürün adı", name: "name", widget: "string"}
+              - {label: "Kategori", name: "category", widget: "select", options: ["Su Arıtma Cihazları", "Filtreler", "Tanklar", "Yedek Parçalar", "Diğer"]}
+              - {label: "Kısa açıklama", name: "description", widget: "text"}
+              - {label: "Fiyat", name: "price", widget: "string", required: false}
+              - {label: "Kampanya etiketi", name: "badge", widget: "string", required: false, hint: "Örn: Yeni, Kampanya, Çok Satan"}
+              - label: "Özellikler"
+                name: "features"
+                widget: "list"
+                required: false
+                field: {label: "Özellik", name: "item", widget: "string"}
+
+          - label: "5. Hizmetler"
             name: "services"
             widget: "list"
             summary: "{{fields.title}}"
             fields:
-              - label: "Başlık"
-                name: "title"
-                widget: "string"
+              - {label: "Başlık", name: "title", widget: "string"}
+              - {label: "Açıklama", name: "text", widget: "text"}
 
-              - label: "Açıklama"
-                name: "text"
-                widget: "text"
-
-          - label: "4. Yaptığımız İşler / Galeri"
+          - label: "6. Yaptığımız İşler"
             name: "works"
             widget: "list"
             summary: "{{fields.title}} — {{fields.location}}"
             add_to_top: true
             fields:
-              - label: "İş fotoğrafı"
-                name: "image"
-                widget: "image"
-
-              - label: "Başlık"
-                name: "title"
-                widget: "string"
-
-              - label: "Kategori"
-                name: "category"
-                widget: "select"
-                options:
-                  - "Montaj"
-                  - "Filtre Değişimi"
-                  - "Teknik Servis"
-                  - "Cihaz Satışı"
-                  - "Diğer"
-
-              - label: "Konum / ilçe"
-                name: "location"
-                widget: "string"
+              - {label: "Kapak fotoğrafı", name: "image", widget: "image"}
+              - label: "Diğer iş fotoğrafları"
+                name: "images"
+                widget: "list"
                 required: false
+                fields:
+                  - {label: "Fotoğraf", name: "image", widget: "image"}
+              - {label: "Başlık", name: "title", widget: "string"}
+              - {label: "Kategori", name: "category", widget: "select", options: ["Montaj", "Filtre Değişimi", "Teknik Servis", "Cihaz Satışı", "Diğer"]}
+              - {label: "Konum / ilçe", name: "location", widget: "string", required: false}
+              - {label: "Tarih", name: "date", widget: "datetime", format: "DD.MM.YYYY", date_format: "DD.MM.YYYY", time_format: false, required: false}
+              - {label: "Açıklama", name: "text", widget: "text", required: false}
 
-              - label: "Tarih"
-                name: "date"
-                widget: "datetime"
-                format: "DD.MM.YYYY"
-                date_format: "DD.MM.YYYY"
-                time_format: false
-                required: false
-
-              - label: "Açıklama"
-                name: "text"
-                widget: "text"
-                required: false
-
-          - label: "5. Kampanya ve Fiyatlar"
+          - label: "7. Kampanya ve Fiyatlar"
             name: "campaignHeading"
             widget: "hidden"
             default: "campaign"
-
-          - label: "Kampanya görünsün"
-            name: "campaignVisible"
-            widget: "boolean"
-            default: true
-
-          - label: "Kampanya başlığı"
-            name: "campaignTitle"
-            widget: "string"
-
-          - label: "Kampanya açıklaması"
-            name: "campaignText"
-            widget: "text"
-
-          - label: "Kampanya görseli"
-            name: "campaignImage"
-            widget: "image"
-
-          - label: "Fiyat kartları görünsün"
-            name: "pricesVisible"
-            widget: "boolean"
-            default: true
-
+          - {label: "Kampanya görünsün (eski uyumluluk)", name: "campaignVisible", widget: "boolean", default: true}
+          - {label: "Kampanya başlığı", name: "campaignTitle", widget: "string"}
+          - {label: "Kampanya açıklaması", name: "campaignText", widget: "text"}
+          - {label: "Kampanya görseli", name: "campaignImage", widget: "image"}
+          - {label: "Fiyat kartları görünsün", name: "pricesVisible", widget: "boolean", default: true}
           - label: "Fiyatlar"
             name: "prices"
             widget: "list"
             summary: "{{fields.title}} — {{fields.price}}"
             fields:
-              - label: "Ürün/Hizmet"
-                name: "title"
-                widget: "string"
+              - {label: "Ürün/Hizmet", name: "title", widget: "string"}
+              - {label: "Fiyat", name: "price", widget: "string"}
+              - {label: "Alt not", name: "note", widget: "string", required: false}
 
-              - label: "Fiyat"
-                name: "price"
-                widget: "string"
-
-              - label: "Alt not"
-                name: "note"
-                widget: "string"
-                required: false
-
-          - label: "6. Müşteri Yorumları"
+          - label: "8. Müşteri Yorumları"
             name: "testimonials"
             widget: "list"
-            summary: "{{fields.name}}"
+            summary: "{{fields.name}} — {{fields.rating}} yıldız"
             fields:
-              - label: "Müşteri adı"
-                name: "name"
-                widget: "string"
+              - {label: "Müşteri adı", name: "name", widget: "string"}
+              - {label: "İlçe / konum", name: "location", widget: "string", required: false}
+              - {label: "Yıldız puanı", name: "rating", widget: "number", min: 1, max: 5, value_type: "int", default: 5}
+              - {label: "Yorum", name: "text", widget: "text"}
 
-              - label: "Konum"
-                name: "location"
-                widget: "string"
-                required: false
-
-              - label: "Yorum"
-                name: "text"
-                widget: "text"
-
-          - label: "7. Hizmet bölgeleri"
-            name: "areas"
-            widget: "list"
-            field:
-              label: "Bölge"
-              name: "item"
-              widget: "string"
-
-          - label: "8. Sık Sorulan Sorular"
+          - {label: "9. Hizmet bölgeleri", name: "areas", widget: "list", field: {label: "Bölge", name: "item", widget: "string"}}
+          - label: "10. Sık Sorulan Sorular"
             name: "faqs"
             widget: "list"
             summary: "{{fields.q}}"
             fields:
-              - label: "Soru"
-                name: "q"
-                widget: "string"
+              - {label: "Soru", name: "q", widget: "string"}
+              - {label: "Cevap", name: "a", widget: "text"}
 
-              - label: "Cevap"
-                name: "a"
-                widget: "text"
+          - label: "11. SEO ve Sosyal Paylaşım"
+            name: "seoHeading"
+            widget: "hidden"
+            default: "seo"
+          - {label: "Sayfa başlığı", name: "seoTitle", widget: "string", required: false, hint: "Google sonuçlarında görünen başlık"}
+          - {label: "Sayfa açıklaması", name: "seoDescription", widget: "text", required: false, hint: "Google sonuçlarında görünen kısa açıklama"}
+          - {label: "Sosyal paylaşım görseli", name: "seoImage", widget: "image", required: false}
