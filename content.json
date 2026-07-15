@@ -1,6 +1,34 @@
 {
+  "heroImage": "/uploads/gemini_generated_image_xmulihxmulihxmul.png",
+  "statService": "1000+",
   "addressText": "Antalya",
   "campaignVisible": true,
+  "works": [
+    {
+      "image": "/uploads/gemini_generated_image_xmulihxmulihxmul.png",
+      "title": "5 Aşamalı Filtre Değişimi",
+      "category": "Filtre Değişimi",
+      "location": "Antalya",
+      "date": "15.07.2026",
+      "text": "Filtre seti yenilendi, bağlantılar kontrol edildi ve cihaz performans testi tamamlandı."
+    },
+    {
+      "image": "/uploads/ortimax-600x900w.jpg",
+      "title": "Ev Tipi Su Arıtma Cihazı Montajı",
+      "category": "Montaj",
+      "location": "Kepez",
+      "date": "14.07.2026",
+      "text": "Mutfak tezgâh altına uygun konumlandırma, temiz su musluğu ve tank kurulumu yapıldı."
+    },
+    {
+      "image": "/armek-kampanya.jpg",
+      "title": "Pompalı Cihaz Teslimatı",
+      "category": "Cihaz Satışı",
+      "location": "Muratpaşa",
+      "date": "12.07.2026",
+      "text": "Düşük şebeke basıncına uygun pompalı cihaz kurulumu ve kullanıcı bilgilendirmesi yapıldı."
+    }
+  ],
   "areas": [
     "Kepez",
     "Muratpaşa",
@@ -12,6 +40,14 @@
   "heroText": "Ev ve iş yerleri için pompalı & pompasız cihaz seçenekleri, filtre değişimi ve teknik servis.",
   "pricesVisible": true,
   "footerText": "ARMEK Su Arıtma Cihazları",
+  "advantages": [
+    "İhtiyaca uygun cihaz seçimi",
+    "Temiz ve düzenli montaj",
+    "Kaliteli filtre ve ekipman",
+    "Şeffaf fiyatlandırma",
+    "Her marka cihaza servis",
+    "Servis sonrası destek"
+  ],
   "phoneLink": "905525223575",
   "campaignTitle": "Su Arıtma Cihazı Kampanyası",
   "prices": [
@@ -31,13 +67,46 @@
       "note": "Montaj dahil kampanya fiyatı"
     }
   ],
+  "topbarText": "Antalya genelinde hızlı servis • Ücretsiz ön bilgi",
   "campaignImage": "/uploads/gemini_generated_image_le45t1le45t1le45.png",
   "businessName": "ARMEK Su Arıtma",
+  "aboutTitle": "Satıştan servise güven veren yaklaşım",
+  "aboutImage": "/uploads/ortimax-600x900w.jpg",
   "heroEyebrow": "ARMEK SU ARITMA SERVİSİ",
   "logoImage": "/armek-logo.jpg",
+  "visibility": {
+    "works": true,
+    "products": true,
+    "areas": true,
+    "brands": false,
+    "about": true,
+    "campaign": true,
+    "testimonials": true,
+    "faq": true,
+    "beforeAfter": false,
+    "services": true
+  },
   "instagram": "https://www.instagram.com/aritmamekanik/",
   "phoneDisplay": "0552 522 35 75",
+  "testimonials": [
+    {
+      "name": "Mehmet K.",
+      "location": "Kepez",
+      "text": "Randevu saatinde geldiler, montaj temiz yapıldı ve cihazla ilgili her şeyi detaylı anlattılar."
+    },
+    {
+      "name": "Ayşe T.",
+      "location": "Muratpaşa",
+      "text": "Filtre değişimi hızlı ve düzenli yapıldı. Fiyat konusunda da önceden net bilgi verdiler."
+    },
+    {
+      "name": "Serkan D.",
+      "location": "Konyaaltı",
+      "text": "Arıza için aynı gün destek aldım. Sorun kısa sürede çözüldü, ilgilerinden memnun kaldım."
+    }
+  ],
   "whatsappMessage": "Merhaba, su arıtma hizmetleri hakkında bilgi almak istiyorum.",
+  "aboutText": "ARMEK Su Arıtma olarak Antalya’da ev ve iş yerlerine uygun çözümler sunuyor; doğru cihaz seçimi, özenli montaj ve zamanında teknik servis anlayışıyla çalışıyoruz.",
   "faqs": [
     {
       "q": "Filtreler kaç ayda değişir?",
@@ -100,62 +169,5 @@
     }
   ],
   "heroTitle": "Su Arıtma Cihazı Satış, Montaj ve Filtre Değişimi",
-  "heroImage": "/uploads/gemini_generated_image_xmulihxmulihxmul.png",
-  "aboutImage": "/uploads/ortimax-600x900w.jpg",
-  "topbarText": "Antalya genelinde hızlı servis • Ücretsiz ön bilgi",
-  "statExperience": "7+",
-  "statService": "1000+",
-  "aboutTitle": "Satıştan servise güven veren yaklaşım",
-  "aboutText": "ARMEK Su Arıtma olarak Antalya’da ev ve iş yerlerine uygun çözümler sunuyor; doğru cihaz seçimi, özenli montaj ve zamanında teknik servis anlayışıyla çalışıyoruz.",
-  "advantages": [
-    "İhtiyaca uygun cihaz seçimi",
-    "Temiz ve düzenli montaj",
-    "Kaliteli filtre ve ekipman",
-    "Şeffaf fiyatlandırma",
-    "Her marka cihaza servis",
-    "Servis sonrası destek"
-  ],
-  "works": [
-    {
-      "image": "/uploads/gemini_generated_image_xmulihxmulihxmul.png",
-      "title": "5 Aşamalı Filtre Değişimi",
-      "category": "Filtre Değişimi",
-      "location": "Antalya",
-      "date": "15.07.2026",
-      "text": "Filtre seti yenilendi, bağlantılar kontrol edildi ve cihaz performans testi tamamlandı."
-    },
-    {
-      "image": "/uploads/ortimax-600x900w.jpg",
-      "title": "Ev Tipi Su Arıtma Cihazı Montajı",
-      "category": "Montaj",
-      "location": "Kepez",
-      "date": "14.07.2026",
-      "text": "Mutfak tezgâh altına uygun konumlandırma, temiz su musluğu ve tank kurulumu yapıldı."
-    },
-    {
-      "image": "/armek-kampanya.jpg",
-      "title": "Pompalı Cihaz Teslimatı",
-      "category": "Cihaz Satışı",
-      "location": "Muratpaşa",
-      "date": "12.07.2026",
-      "text": "Düşük şebeke basıncına uygun pompalı cihaz kurulumu ve kullanıcı bilgilendirmesi yapıldı."
-    }
-  ],
-  "testimonials": [
-    {
-      "name": "Mehmet K.",
-      "location": "Kepez",
-      "text": "Randevu saatinde geldiler, montaj temiz yapıldı ve cihazla ilgili her şeyi detaylı anlattılar."
-    },
-    {
-      "name": "Ayşe T.",
-      "location": "Muratpaşa",
-      "text": "Filtre değişimi hızlı ve düzenli yapıldı. Fiyat konusunda da önceden net bilgi verdiler."
-    },
-    {
-      "name": "Serkan D.",
-      "location": "Konyaaltı",
-      "text": "Arıza için aynı gün destek aldım. Sorun kısa sürede çözüldü, ilgilerinden memnun kaldım."
-    }
-  ]
+  "statExperience": "7+"
 }
