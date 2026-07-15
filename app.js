@@ -12,6 +12,33 @@ const whatsapp=(phone,msg)=>`https://wa.me/${String(phone).replace(/\D/g,"")}?te
 function setText(id,val){const el=document.getElementById(id);if(el)el.textContent=safe(val)}
 function setLink(id,href,text){const el=document.getElementById(id);if(!el)return;el.href=href;if(text)el.textContent=text}
 function setImg(id,src){const el=document.getElementById(id);if(el&&src)el.src=src}
+function loadAnalytics(measurementId){
+ const id=String(measurementId||"").trim();
+ if(!/^G-[A-Z0-9]+$/i.test(id)||window.__armekAnalyticsLoaded)return;
+ window.__armekAnalyticsLoaded=true;
+ window.dataLayer=window.dataLayer||[];
+ window.gtag=window.gtag||function(){window.dataLayer.push(arguments)};
+ const script=document.createElement("script");
+ script.async=true;script.src=`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(id)}`;
+ document.head.appendChild(script);
+ window.gtag("js",new Date());
+ window.gtag("config",id,{send_page_view:true});
+}
+function trackEvent(name,params={}){
+ if(typeof window.gtag!=="function")return;
+ window.gtag("event",name,params);
+}
+function bindAnalyticsClicks(){
+ document.addEventListener("click",event=>{
+  const link=event.target.closest("a");if(!link)return;
+  const href=link.getAttribute("href")||"";
+  if(/^https:\/\/wa\.me\//i.test(href)){
+   trackEvent("whatsapp_click",{link_text:(link.textContent||"").trim(),link_url:href,page_location:location.href});
+  }else if(/^tel:/i.test(href)){
+   trackEvent("phone_click",{link_text:(link.textContent||"").trim(),phone_number:href.replace(/^tel:/i,""),page_location:location.href});
+  }
+ },{capture:true});
+}
 function stars(n){const v=Math.max(1,Math.min(5,Number(n)||5));return "★".repeat(v)+"☆".repeat(5-v)}
 function productFeatures(product){
  const out=[];
@@ -85,6 +112,7 @@ function openProduct(product){
  $("#productThumbs").innerHTML=photos.map((src,i)=>`<button class="product-thumb ${i===0?"active":""}" data-product-photo="${src}"><img src="${src}" alt="${product.name||"Ürün"} ${i+1}"></button>`).join("");
  $$("[data-product-photo]").forEach(btn=>btn.onclick=()=>{$("#productModalImage").src=btn.dataset.productPhoto;$$('.product-thumb').forEach(x=>x.classList.remove('active'));btn.classList.add('active')});
  $("#productModalWhatsapp").href=whatsapp(DATA.phoneLink,`${product.name||"Ürün"} hakkında bilgi almak istiyorum.`);
+ trackEvent("view_product",{item_name:product.name||"Ürün",item_category:product.category||"Ürün",item_brand:product.brand||"",value:product.price||""});
  modal.classList.add("open");modal.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";
 }
 function closeProduct(){const modal=$("#productModal");modal.classList.remove("open");modal.setAttribute("aria-hidden","true");document.body.style.overflow=""}
@@ -105,7 +133,7 @@ function renderProducts(items=[]){
  window.selectProductCategory=cat=>{const target=[...filters.querySelectorAll('[data-category]')].find(x=>x.dataset.category===cat);if(target)target.click()};
 }
 function normalizePhotos(work){const photos=[];if(work.image)photos.push(work.image);(work.images||[]).forEach(x=>{const src=typeof x==="string"?x:x.image;if(src&&!photos.includes(src))photos.push(src)});return photos}
-function openLightbox(work,index=0){currentGallery=normalizePhotos(work);if(!currentGallery.length)return;galleryIndex=index;updateLightbox(work);$("#lightbox").classList.add("open");$("#lightbox").setAttribute("aria-hidden","false")}
+function openLightbox(work,index=0){currentGallery=normalizePhotos(work);if(!currentGallery.length)return;galleryIndex=index;updateLightbox(work);trackEvent("view_work",{work_title:work.title||"Yaptığımız İş",work_category:work.category||"",work_location:work.location||""});$("#lightbox").classList.add("open");$("#lightbox").setAttribute("aria-hidden","false")}
 function updateLightbox(work){$("#lightboxImage").src=currentGallery[galleryIndex];$("#lightboxCaption").textContent=[work.title,work.location,work.date].filter(Boolean).join(" • ")}
 function renderWorks(items=[]){
  items=(items||[]).filter(x=>x&&x.active!==false);
@@ -147,6 +175,7 @@ function updateStructuredData(data){
 }
 function render(data){
  DATA={...fallback,...data,visibility:{...fallback.visibility,...(data.visibility||{})}};
+ loadAnalytics(DATA.analyticsMeasurementId||"G-DQBRPFTJ5J");
  document.title=DATA.seoTitle||DATA.businessName||"ARMEK Su Arıtma";
  $("#metaDescription").content=DATA.seoDescription||DATA.heroText||"";
  $("#ogTitle").content=DATA.seoTitle||DATA.businessName||"";
@@ -224,6 +253,7 @@ async function boot(){
  };
  render(merged);
 }
+bindAnalyticsClicks();
 boot();
 $$('[data-product-close]').forEach(el=>el.onclick=closeProduct);
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeProduct()});

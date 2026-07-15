@@ -249,3 +249,4 @@ collections:
           - {label: "Google açıklaması", name: "seoDescription", widget: "text", required: false}
           - {label: "Sosyal paylaşım görseli", name: "seoImage", widget: "image", required: false}
           - {label: "Google Search Console doğrulama kodu", name: "googleSiteVerification", widget: "string", required: false}
+          - {label: "Google Analytics Ölçüm Kimliği", name: "analyticsMeasurementId", widget: "string", required: false, default: "G-DQBRPFTJ5J", hint: "G- ile başlayan kod. Örnek: G-DQBRPFTJ5J"}
