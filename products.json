@@ -1,6 +1,18 @@
 {
   "products": [
     {
+      "featureText": "2 1/2\" Çubuklu Sediment Filtre\n2 1/2\" Çubuklu Gac Karbon Filtre\n2 1/2\" Çubuklu Sediment Filtre\nNoname Membran\nÇubuklu 1840 Post Karbon Filtre\nLüks Musluk\n2,2 Metal TR Tank \nQuick Fittings",
+      "active": true,
+      "stockStatus": "Stokta",
+      "name": "Lite One Pompasız",
+      "featured": false,
+      "order": 100,
+      "images": [],
+      "image": "/uploads/lite-one-pompasız.jpg",
+      "features": [],
+      "category": "Su Arıtma Cihazları"
+    },
+    {
       "featureText": "10\" Spun Filtre\n10\" Gac Karbon Filtre\n10\" Blok Karbon Filtre\nMembran\nÇubuklu 1840 Post Karbon Filtre\nLüks Musluk\n3,2 Metal TR Tank \nQuick Fittings",
       "active": true,
       "stockStatus": "Stokta",
