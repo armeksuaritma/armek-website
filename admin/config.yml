@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: armeksuaritma/armek-website
   branch: main
+  base_url: https://armeksuaritma.com.tr
+  auth_endpoint: api/auth
 
 site_url: https://armeksuaritma.com.tr
 display_url: https://armeksuaritma.com.tr
@@ -12,23 +15,68 @@ publish_mode: simple
 
 collections:
   - name: "site"
-    label: "Site Ayarları"
+    label: "Site Yönetimi"
     files:
       - name: "content"
-        label: "Ana Site İçeriği"
+        label: "Tüm Site İçeriği"
         file: "content.json"
         format: "json"
         fields:
+          - label: "1. Genel Ayarlar"
+            name: "generalHeading"
+            widget: "hidden"
+            default: "general"
           - {label: "İşletme adı", name: "businessName", widget: "string"}
           - {label: "Logo", name: "logoImage", widget: "image"}
-          - {label: "Ana sayfa sağ görseli", name: "heroImage", widget: "image"}
-          - {label: "Kurumsal bölüm görseli", name: "aboutImage", widget: "image"}
+          - {label: "Üst bilgi", name: "topbarText", widget: "string"}
+          - {label: "Telefon görünümü", name: "phoneDisplay", widget: "string"}
+          - {label: "Telefon/WhatsApp (90 ile)", name: "phoneLink", widget: "string"}
+          - {label: "WhatsApp hazır mesajı", name: "whatsappMessage", widget: "text"}
+          - {label: "Facebook", name: "facebook", widget: "string", required: false}
+          - {label: "Instagram", name: "instagram", widget: "string", required: false}
+          - {label: "Adres / hizmet alanı", name: "addressText", widget: "string"}
+          - {label: "Alt bilgi", name: "footerText", widget: "string"}
+
+          - label: "2. Ana Sayfa"
+            name: "homeHeading"
+            widget: "hidden"
+            default: "home"
+          - {label: "Ana sayfa büyük görsel", name: "heroImage", widget: "image"}
           - {label: "Üst küçük başlık", name: "heroEyebrow", widget: "string"}
           - {label: "Ana başlık", name: "heroTitle", widget: "string"}
           - {label: "Ana açıklama", name: "heroText", widget: "text"}
-          - {label: "Telefon görünümü", name: "phoneDisplay", widget: "string"}
-          - {label: "Telefon/WhatsApp numarası (90 ile)", name: "phoneLink", widget: "string"}
-          - {label: "WhatsApp hazır mesajı", name: "whatsappMessage", widget: "text"}
+          - {label: "Deneyim sayacı", name: "statExperience", widget: "string"}
+          - {label: "Servis sayacı", name: "statService", widget: "string"}
+          - {label: "Kurumsal görsel", name: "aboutImage", widget: "image"}
+          - {label: "Kurumsal başlık", name: "aboutTitle", widget: "string"}
+          - {label: "Kurumsal açıklama", name: "aboutText", widget: "text"}
+          - {label: "Avantajlarımız", name: "advantages", widget: "list", field: {label: "Avantaj", name: "item", widget: "string"}}
+
+          - label: "3. Hizmetler"
+            name: "services"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - {label: "Başlık", name: "title", widget: "string"}
+              - {label: "Açıklama", name: "text", widget: "text"}
+
+          - label: "4. Yaptığımız İşler / Galeri"
+            name: "works"
+            widget: "list"
+            summary: "{{fields.title}} — {{fields.location}}"
+            add_to_top: true
+            fields:
+              - {label: "İş fotoğrafı", name: "image", widget: "image"}
+              - {label: "Başlık", name: "title", widget: "string"}
+              - {label: "Kategori", name: "category", widget: "select", options: ["Montaj", "Filtre Değişimi", "Teknik Servis", "Cihaz Satışı", "Diğer"]}
+              - {label: "Konum / ilçe", name: "location", widget: "string", required: false}
+              - {label: "Tarih", name: "date", widget: "datetime", format: "DD.MM.YYYY", date_format: "DD.MM.YYYY", time_format: false, required: false}
+              - {label: "Açıklama", name: "text", widget: "text", required: false}
+
+          - label: "5. Kampanya ve Fiyatlar"
+            name: "campaignHeading"
+            widget: "hidden"
+            default: "campaign"
           - {label: "Kampanya görünsün", name: "campaignVisible", widget: "boolean", default: true}
           - {label: "Kampanya başlığı", name: "campaignTitle", widget: "string"}
           - {label: "Kampanya açıklaması", name: "campaignText", widget: "text"}
@@ -42,22 +90,21 @@ collections:
               - {label: "Ürün/Hizmet", name: "title", widget: "string"}
               - {label: "Fiyat", name: "price", widget: "string"}
               - {label: "Alt not", name: "note", widget: "string", required: false}
-          - label: "Hizmetler"
-            name: "services"
+
+          - label: "6. Müşteri Yorumları"
+            name: "testimonials"
             widget: "list"
-            summary: "{{fields.title}}"
+            summary: "{{fields.name}}"
             fields:
-              - {label: "Başlık", name: "title", widget: "string"}
-              - {label: "Açıklama", name: "text", widget: "text"}
-          - {label: "Hizmet bölgeleri", name: "areas", widget: "list"}
-          - label: "Sık Sorulan Sorular"
+              - {label: "Müşteri adı", name: "name", widget: "string"}
+              - {label: "Konum", name: "location", widget: "string", required: false}
+              - {label: "Yorum", name: "text", widget: "text"}
+
+          - {label: "7. Hizmet bölgeleri", name: "areas", widget: "list", field: {label: "Bölge", name: "item", widget: "string"}}
+          - label: "8. Sık Sorulan Sorular"
             name: "faqs"
             widget: "list"
             summary: "{{fields.q}}"
             fields:
               - {label: "Soru", name: "q", widget: "string"}
               - {label: "Cevap", name: "a", widget: "text"}
-          - {label: "Facebook", name: "facebook", widget: "string"}
-          - {label: "Instagram", name: "instagram", widget: "string"}
-          - {label: "Adres/Hizmet alanı", name: "addressText", widget: "string"}
-          - {label: "Alt bilgi", name: "footerText", widget: "string"}

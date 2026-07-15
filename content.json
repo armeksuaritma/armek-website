@@ -101,5 +101,61 @@
   ],
   "heroTitle": "Su Arıtma Cihazı Satış, Montaj ve Filtre Değişimi",
   "heroImage": "/uploads/gemini_generated_image_xmulihxmulihxmul.png",
-  "aboutImage": "/uploads/ortimax-600x900w.jpg"
+  "aboutImage": "/uploads/ortimax-600x900w.jpg",
+  "topbarText": "Antalya genelinde hızlı servis • Ücretsiz ön bilgi",
+  "statExperience": "7+",
+  "statService": "1000+",
+  "aboutTitle": "Satıştan servise güven veren yaklaşım",
+  "aboutText": "ARMEK Su Arıtma olarak Antalya’da ev ve iş yerlerine uygun çözümler sunuyor; doğru cihaz seçimi, özenli montaj ve zamanında teknik servis anlayışıyla çalışıyoruz.",
+  "advantages": [
+    "İhtiyaca uygun cihaz seçimi",
+    "Temiz ve düzenli montaj",
+    "Kaliteli filtre ve ekipman",
+    "Şeffaf fiyatlandırma",
+    "Her marka cihaza servis",
+    "Servis sonrası destek"
+  ],
+  "works": [
+    {
+      "image": "/uploads/gemini_generated_image_xmulihxmulihxmul.png",
+      "title": "5 Aşamalı Filtre Değişimi",
+      "category": "Filtre Değişimi",
+      "location": "Antalya",
+      "date": "15.07.2026",
+      "text": "Filtre seti yenilendi, bağlantılar kontrol edildi ve cihaz performans testi tamamlandı."
+    },
+    {
+      "image": "/uploads/ortimax-600x900w.jpg",
+      "title": "Ev Tipi Su Arıtma Cihazı Montajı",
+      "category": "Montaj",
+      "location": "Kepez",
+      "date": "14.07.2026",
+      "text": "Mutfak tezgâh altına uygun konumlandırma, temiz su musluğu ve tank kurulumu yapıldı."
+    },
+    {
+      "image": "/armek-kampanya.jpg",
+      "title": "Pompalı Cihaz Teslimatı",
+      "category": "Cihaz Satışı",
+      "location": "Muratpaşa",
+      "date": "12.07.2026",
+      "text": "Düşük şebeke basıncına uygun pompalı cihaz kurulumu ve kullanıcı bilgilendirmesi yapıldı."
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Mehmet K.",
+      "location": "Kepez",
+      "text": "Randevu saatinde geldiler, montaj temiz yapıldı ve cihazla ilgili her şeyi detaylı anlattılar."
+    },
+    {
+      "name": "Ayşe T.",
+      "location": "Muratpaşa",
+      "text": "Filtre değişimi hızlı ve düzenli yapıldı. Fiyat konusunda da önceden net bilgi verdiler."
+    },
+    {
+      "name": "Serkan D.",
+      "location": "Konyaaltı",
+      "text": "Arıza için aynı gün destek aldım. Sorun kısa sürede çözüldü, ilgilerinden memnun kaldım."
+    }
+  ]
 }
