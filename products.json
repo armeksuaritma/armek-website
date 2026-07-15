@@ -1,6 +1,19 @@
 {
   "products": [
     {
+      "featureText": "",
+      "active": true,
+      "stockStatus": "Stokta",
+      "name": "2.2 Galon Basınç Denge Tankı",
+      "featured": false,
+      "order": 100,
+      "images": [],
+      "image": "/uploads/2.2-galon-basınç-denge-tankı.png",
+      "description": "8 litre kapasit su arıtma denge tankları, ters ozmoz (Reverse Osmosis) sistemlerinde arıtılan suyu hijyenik ve basınçlı bir şekilde saklamak için özel olarak tasarlanmıştır.",
+      "features": [],
+      "category": "Tanklar"
+    },
+    {
       "featureText": "2 1/2\" Çubuklu Sediment Filtre\n2 1/2\" Çubuklu Gac Karbon Filtre\n2 1/2\" Çubuklu Sediment Filtre\nMembran\nÇubuklu 1840 Post Karbon Filtre\nLüks Musluk\n2,2 Metal TR Tank \nQuick Fittings",
       "active": true,
       "stockStatus": "Stokta",
