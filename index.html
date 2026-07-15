@@ -1,68 +1,141 @@
 <!doctype html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>ARMEK Su Arıtma | Antalya Satış, Montaj ve Teknik Servis</title>
-  <meta name="description" content="Antalya'da su arıtma cihazı satışı, montajı, filtre değişimi ve teknik servis. ARMEK Su Arıtma ile temiz suya güvenle ulaşın.">
-  <meta name="theme-color" content="#0758b7">
-  <link rel="icon" href="armek-logo.jpg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta id="metaDescription" name="description" content="Antalya su arıtma cihazı satışı, montaj, filtre değişimi ve teknik servis.">
+  <meta property="og:type" content="website">
+  <meta id="ogTitle" property="og:title" content="ARMEK Su Arıtma">
+  <meta id="ogDescription" property="og:description" content="Su arıtma cihazı satış, montaj ve teknik servis.">
+  <meta id="ogImage" property="og:image" content="/armek-logo.jpg">
+  <link id="favicon" rel="icon" href="/armek-logo.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <script defer src="app.js"></script>
+  <link rel="stylesheet" href="/styles.css">
+  <title>ARMEK Su Arıtma</title>
 </head>
 <body>
-  <div class="topbar"><div class="container topbar-inner"><span id="topbarText">Antalya genelinde hızlı servis</span><div><a id="topPhone" href="#">0552 522 35 75</a><span class="divider">•</span><a href="#contact">Ücretsiz ön bilgi</a></div></div></div>
-  <header class="site-header" id="home">
+  <header class="site-header">
+    <div class="topbar"><div class="container"><span id="topbarText"></span><div><a id="facebookTop" target="_blank" rel="noopener">Facebook</a><a id="instagramTop" target="_blank" rel="noopener">Instagram</a></div></div></div>
     <div class="container nav-wrap">
-      <a class="brand" href="#home"><img id="logoImage" src="armek-logo.jpg" alt="ARMEK Su Arıtma"></a>
-      <button class="menu-toggle" aria-label="Menüyü aç" aria-expanded="false"><span></span><span></span><span></span></button>
-      <nav class="main-nav"><a href="#home">Ana Sayfa</a><a href="#services">Hizmetler</a><a href="#works">Yaptığımız İşler</a><a href="#campaign">Kampanyalar</a><a href="#about">Kurumsal</a><a href="#faq">S.S.S.</a><a href="#contact">İletişim</a></nav>
-      <a class="header-cta" id="headerWhatsapp" href="#" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="brand" href="#anasayfa"><img id="headerLogo" src="/armek-logo.jpg" alt="ARMEK logosu"></a>
+      <button class="menu-button" aria-label="Menüyü aç" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav class="main-nav">
+        <a href="#anasayfa">Ana Sayfa</a>
+        <a class="nav-products" href="#urunler">Ürünler</a>
+        <a class="nav-campaign" href="#kampanya">Kampanya</a>
+        <a class="nav-services" href="#hizmetler">Hizmetler</a>
+        <a class="nav-works" href="#yaptigimiz-isler">Yaptığımız İşler</a>
+        <a class="nav-testimonials" href="#yorumlar">Yorumlar</a>
+        <a class="nav-faq" href="#sss">S.S.S.</a>
+        <a href="#iletisim">İletişim</a>
+        <a id="callTop" class="nav-cta">Hemen Ara</a>
+      </nav>
     </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="hero-grid-lines"></div><div class="hero-glow"></div>
+    <section id="anasayfa" class="hero">
+      <div class="hero-orb orb-one"></div><div class="hero-orb orb-two"></div>
       <div class="container hero-grid">
         <div class="hero-copy reveal">
-          <span class="eyebrow" id="heroEyebrow">ARMEK SU ARITMA SERVİSİ</span>
-          <h1 id="heroTitle">Temiz su için profesyonel çözüm, güvenilir servis.</h1>
-          <p id="heroText">Ev ve iş yerleri için satış, montaj, filtre değişimi ve teknik servis.</p>
-          <div class="hero-actions"><a class="btn btn-primary" id="heroWhatsapp" href="#" target="_blank" rel="noopener">WhatsApp'tan Yaz</a><a class="btn btn-outline" id="heroPhone" href="#">Hemen Ara</a></div>
-          <div class="hero-trust"><div><b id="statExperience">7+</b><span>Yıllık deneyim</span></div><div><b id="statService">1000+</b><span>Servis işlemi</span></div><div><b>Antalya</b><span>Yerinde servis</span></div></div>
+          <div class="eyebrow"><span></span><strong id="heroEyebrow"></strong></div>
+          <h1 id="heroTitle"></h1>
+          <p id="heroText"></p>
+          <div class="hero-actions">
+            <a id="whatsappHero" class="button primary">WhatsApp’tan Yaz</a>
+            <a id="callHero" class="button secondary"></a>
+          </div>
+          <div class="trust-row">
+            <div><b id="statExperience">10+</b><span>Yıllık deneyim</span></div>
+            <div><b id="statService">500+</b><span>Servis ve montaj</span></div>
+            <div><b>Antalya</b><span>Geneli hizmet</span></div>
+          </div>
         </div>
-        <div class="hero-visual reveal reveal-delay">
-          <div class="hero-image-shell"><img id="heroImage" src="uploads/gemini_generated_image_xmulihxmulihxmul.png" alt="Su arıtma filtre sistemi"></div>
-          <div class="floating-card card-top"><i>✓</i><div><strong>Profesyonel Montaj</strong><small>Temiz, düzenli ve güvenli kurulum</small></div></div>
-          <div class="floating-card card-bottom"><i>24</i><div><strong>Hızlı İletişim</strong><small>Telefon ve WhatsApp desteği</small></div></div>
+
+        <div class="hero-visual reveal">
+          <div id="heroSlider" class="hero-slider">
+            <div class="hero-slide active"><img id="heroImage" src="/uploads/gemini_generated_image_xmulihxmulihxmul.png" alt="Su arıtma ürünleri"></div>
+          </div>
+          <div id="heroDots" class="slider-dots"></div>
+          <div class="hero-badge badge-top"><span>✓</span><div><b>Profesyonel montaj</b><small>Temiz ve güvenli kurulum</small></div></div>
+          <div class="hero-badge badge-bottom"><span>24</span><div><b>Hızlı servis</b><small>Randevu ve destek</small></div></div>
         </div>
       </div>
-      <div class="hero-partners"><div class="container partner-row"><span>Ücretsiz ön bilgi</span><span>Orijinal yedek parça</span><span>Her marka cihaza servis</span><span>Servis sonrası destek</span></div></div>
     </section>
 
-    <section class="section" id="services"><div class="container"><div class="section-head reveal"><div><span class="section-kicker">HİZMETLERİMİZ</span><h2>Suyunuz için uçtan uca profesyonel hizmet</h2></div><p>İhtiyaç tespitinden montaja ve periyodik bakıma kadar süreci tek noktadan yönetiyoruz.</p></div><div class="service-grid" id="serviceGrid"></div></div></section>
+    <section class="quick-strip section-toggle-services">
+      <div class="container quick-grid">
+        <article><span>01</span><div><b>Doğru cihaz seçimi</b><small>Su basıncı ve ihtiyaca uygun çözüm</small></div></article>
+        <article><span>02</span><div><b>Profesyonel montaj</b><small>Düzenli, temiz ve güvenli kurulum</small></div></article>
+        <article><span>03</span><div><b>Periyodik bakım</b><small>Filtre ve teknik servis desteği</small></div></article>
+      </div>
+    </section>
 
-    <section class="section works-section" id="works"><div class="container"><div class="section-head reveal"><div><span class="section-kicker">SAHADAN GERÇEK UYGULAMALAR</span><h2>Yaptığımız işler</h2></div><p>Montaj, filtre değişimi ve teknik servis çalışmalarımızdan güncel örnekler.</p></div><div class="work-filters" id="workFilters"></div><div class="works-grid" id="worksGrid"></div><div class="center"><a class="btn btn-outline" id="worksWhatsapp" href="#" target="_blank" rel="noopener">Ben de servis almak istiyorum</a></div></div></section>
+    <section id="urunler" class="section products-section section-toggle-products">
+      <div class="container">
+        <div class="section-heading split reveal"><div><span class="section-label">ÜRÜNLERİMİZ</span><h2 id="productsTitle">Cihaz, filtre ve yedek parça seçenekleri</h2></div><p id="productsText">Evinize ve iş yerinize uygun su arıtma ürünlerini inceleyin.</p></div>
+        <div id="productFilters" class="filter-tabs"></div>
+        <div id="products" class="product-grid"></div>
+      </div>
+    </section>
 
-    <section class="section section-blue" id="campaign"><div class="container campaign-grid"><div class="campaign-image reveal"><img id="campaignImage" src="armek-kampanya.jpg" alt="ARMEK kampanya"></div><div class="campaign-copy reveal reveal-delay"><span class="section-kicker light">GÜNCEL KAMPANYALAR</span><h2 id="campaignTitle">Avantajlı fiyatlarla temiz su</h2><p id="campaignText">Nakit ödemeye özel kampanyalı fiyatlar.</p><div class="price-list" id="priceList"></div><a class="btn btn-white" id="campaignWhatsapp" href="#" target="_blank" rel="noopener">Kampanya Bilgisi Al</a></div></div></section>
+    <section id="kampanya" class="section campaign-section section-toggle-campaign">
+      <div class="container">
+        <div class="section-heading split reveal"><div><span class="section-label">GÜNCEL FIRSATLAR</span><h2 id="campaignTitle"></h2></div><p id="campaignText"></p></div>
+        <div class="campaign-layout reveal">
+          <div class="campaign-photo"><img id="campaignImage" src="/armek-kampanya.jpg" alt="ARMEK kampanyası"></div>
+          <div id="prices" class="price-grid"></div>
+        </div>
+      </div>
+    </section>
 
-    <section class="section about" id="about"><div class="container about-grid"><div class="about-media reveal"><img id="aboutImage" src="uploads/ortimax-600x900w.jpg" alt="ARMEK teknik servis"><div class="about-badge"><b>ARMEK</b><span>Antalya Su Arıtma</span></div></div><div class="about-copy reveal reveal-delay"><span class="section-kicker">NEDEN ARMEK?</span><h2 id="aboutTitle">Satıştan servise güven veren yaklaşım</h2><p id="aboutText">Doğru cihaz seçimi, özenli montaj ve zamanında teknik servis anlayışıyla çalışıyoruz.</p><div class="check-grid" id="advantages"></div><a class="text-link" href="#contact">Teklif ve randevu alın →</a></div></div></section>
+    <section id="hizmetler" class="section soft-section section-toggle-services">
+      <div class="container">
+        <div class="section-heading centered reveal"><span class="section-label">HİZMETLERİMİZ</span><h2>Temiz su için ihtiyacınız olan her şey</h2><p>Satıştan montaja, filtre değişiminden teknik servise kadar tek noktadan destek.</p></div>
+        <div id="services" class="service-grid"></div>
+      </div>
+    </section>
 
-    <section class="section testimonials"><div class="container"><div class="section-head reveal"><div><span class="section-kicker">MÜŞTERİ DENEYİMİ</span><h2>Hizmetimiz hakkında ne dediler?</h2></div><p>Gerçek müşteri geri bildirimleri, işimizin en güçlü referansıdır.</p></div><div class="testimonial-grid" id="testimonialGrid"></div></div></section>
+    <section id="yaptigimiz-isler" class="section works-section section-toggle-works">
+      <div class="container">
+        <div class="section-heading split reveal"><div><span class="section-label">SAHADAN GERÇEK ÇALIŞMALAR</span><h2>Yaptığımız İşler</h2></div><p>Montaj, filtre değişimi ve teknik servis çalışmalarımızdan örnekler.</p></div>
+        <div id="workFilters" class="filter-tabs"></div>
+        <div id="works" class="works-grid"></div>
+      </div>
+    </section>
 
-    <section class="section areas-section"><div class="container"><div class="section-head reveal"><div><span class="section-kicker">HİZMET BÖLGELERİ</span><h2>Antalya'nın birçok noktasındayız</h2></div><p>Randevu durumuna göre aynı gün veya en kısa sürede yerinde servis.</p></div><div class="area-list" id="areaList"></div></div></section>
+    <section class="section about-section section-toggle-about">
+      <div class="container about-grid">
+        <div class="about-image reveal"><img id="aboutImage" src="/uploads/ortimax-600x900w.jpg" alt="Su arıtma cihazı"></div>
+        <div class="about-copy reveal"><span class="section-label">NEDEN ARMEK?</span><h2 id="aboutTitle"></h2><p id="aboutText"></p><ul id="advantages"></ul><a id="whatsappAbout" class="text-link">WhatsApp üzerinden bilgi alın →</a></div>
+      </div>
+    </section>
 
-    <section class="section faq-section" id="faq"><div class="container faq-grid"><div class="faq-intro reveal"><span class="section-kicker">SIK SORULAN SORULAR</span><h2>Merak ettikleriniz</h2><p>Filtre değişimi, cihaz seçimi ve bakım süreçleriyle ilgili cevaplar.</p><a class="btn btn-primary" id="faqWhatsapp" href="#" target="_blank" rel="noopener">Başka bir soru sor</a></div><div class="faq-list" id="faqList"></div></div></section>
+    <section id="yorumlar" class="section testimonials-section section-toggle-testimonials">
+      <div class="container">
+        <div class="section-heading centered reveal"><span class="section-label">MÜŞTERİ DENEYİMLERİ</span><h2>Hizmet alan müşterilerimiz ne diyor?</h2></div>
+        <div id="testimonials" class="testimonial-grid"></div>
+      </div>
+    </section>
 
-    <section class="contact-section" id="contact"><div class="container contact-card reveal"><div><span class="section-kicker light">HEMEN İLETİŞİME GEÇİN</span><h2>Temiz su için ilk adımı bugün atın.</h2><p>Fiyat, cihaz seçimi veya servis randevusu için arayın ya da WhatsApp'tan yazın.</p></div><div class="contact-actions"><a class="btn btn-white" id="contactPhone" href="#">Telefonla Ara</a><a class="btn btn-ghost" id="contactWhatsapp" href="#" target="_blank" rel="noopener">WhatsApp</a></div></div></section>
+    <section class="section areas-section section-toggle-areas">
+      <div class="container"><div class="section-heading centered reveal"><span class="section-label">HİZMET BÖLGELERİ</span><h2>Antalya genelinde yanınızdayız</h2></div><div id="areas" class="area-list"></div></div>
+    </section>
+
+    <section id="sss" class="section soft-section section-toggle-faq">
+      <div class="container faq-layout"><div class="faq-intro reveal"><span class="section-label">MERAK EDİLENLER</span><h2>Sık Sorulan Sorular</h2><p>Filtre değişimi, cihaz seçimi ve kullanım hakkında sık sorulan sorular.</p></div><div id="faqs" class="faq-list"></div></div>
+    </section>
+
+    <section id="iletisim" class="section contact-section">
+      <div class="container contact-card reveal"><div><span class="section-label light">İLETİŞİM</span><h2>Temiz su için bugün iletişime geçin</h2><p id="addressText"></p></div><div class="contact-actions"><a id="whatsappContact" class="button white">WhatsApp</a><a id="callContact" class="button outline-white"></a></div></div>
+    </section>
   </main>
 
-  <footer><div class="container footer-grid"><div><img id="footerLogo" src="armek-logo.jpg" alt="ARMEK"><p id="footerText">ARMEK Su Arıtma Cihazları</p></div><div><h4>Hızlı Menü</h4><a href="#services">Hizmetler</a><a href="#works">Yaptığımız İşler</a><a href="#campaign">Kampanyalar</a><a href="#faq">S.S.S.</a></div><div><h4>İletişim</h4><a id="footerPhone" href="#">0552 522 35 75</a><span id="footerAddress">Antalya</span><div class="socials"><a id="instagram" href="#" target="_blank">Instagram</a><a id="facebook" href="#" target="_blank">Facebook</a></div></div></div><div class="container copyright">© <span id="year"></span> ARMEK Su Arıtma. Tüm hakları saklıdır.</div></footer>
-  <a class="floating-wa" id="floatingWhatsapp" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a>
-  <dialog class="work-modal" id="workModal"><button class="modal-close" aria-label="Kapat">×</button><img id="modalImage" alt=""><div class="modal-copy"><span id="modalMeta"></span><h3 id="modalTitle"></h3><p id="modalText"></p></div></dialog>
+  <div id="lightbox" class="lightbox" aria-hidden="true"><button id="lightboxClose" aria-label="Kapat">×</button><button id="lightboxPrev" class="lightbox-nav prev">‹</button><img id="lightboxImage" alt=""><button id="lightboxNext" class="lightbox-nav next">›</button><div id="lightboxCaption"></div></div>
+  <a id="floatingWhatsapp" class="floating-whatsapp" aria-label="WhatsApp’tan yaz">✆</a>
+  <footer><div class="container footer-inner"><div class="footer-brand"><img id="footerLogo" src="/armek-logo.jpg" alt="ARMEK"><span id="footerText"></span></div><div class="social-links"><a id="facebookFooter" target="_blank" rel="noopener">Facebook</a><a id="instagramFooter" target="_blank" rel="noopener">Instagram</a></div><small>© <span id="year"></span> Tüm hakları saklıdır.</small></div></footer>
+  <script src="/app.js"></script>
 </body>
 </html>
