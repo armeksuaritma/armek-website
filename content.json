@@ -31,6 +31,12 @@
   ],
   "products": [
     {
+      "image": "/uploads/lite-one-pompasız.jpg",
+      "category": "Su Arıtma Cihazları",
+      "description": "Ürün Özellikleri:\n\n2 1/2\" Çubuklu Sediment Filtre\n2 1/2\" Çubuklu Gac Karbon Filtre\n2 1/2\" Çubuklu Sediment Filtre\nNoname Membran\nÇubuklu 1840 Post Karbon Filtre\nLüks Musluk\n2,2 Metal TR Tank \nQuick Fittings",
+      "name": "Lite One Pompasız"
+    },
+    {
       "image": "/uploads/krs-34.png",
       "name": "KRS-34 Pompasız",
       "category": "Su Arıtma Cihazları",
