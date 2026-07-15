@@ -1,34 +1,26 @@
-ARMEK V7 — TAM KURULUM PAKETİ
+ARMEK V8 GÜVENLİ GÜNCELLEME PAKETİ
 
-Bu paket GitHub deposu boşken kullanılmak üzere hazırlanmıştır.
+Bu paketin içindeki dosyaları GitHub depo ana dizinine yükleyin ve aynı adlı dosyaların üzerine yazın:
+- index.html
+- styles.css
+- app.js
+- admin/config.yml
+- admin/index.html
+- admin/dashboard.html
 
-1. ZIP dosyasını bilgisayarınızda açın.
-2. ZIP içindeki dosya ve klasörlerin TAMAMINI GitHub deposunun ana dizinine sürükleyin.
-3. GitHub'da Commit changes butonuna basın.
-4. Actions/Deployments işleminin yeşil olmasını bekleyin.
-5. Site: https://armeksuaritma.com.tr/?v=7
-6. Yönetici paneli: https://armeksuaritma.com.tr/admin/
+ÖNEMLİ: GitHub'daki aşağıdaki içerik dosyalarını SİLMEYİN veya değiştirmeyin:
+- content.json
+- products.json
+- works.json
+- campaigns.json
+- testimonials.json
+- services.json
+- faqs.json
+- uploads klasörü
 
-ÖNEMLİ:
-- ZIP'in kendisini GitHub'a yüklemeyin; içindekileri yükleyin.
-- armek-v7 adlı ek bir klasör oluşturmayın; index.html ana dizinde görünmelidir.
-- CNAME ve .nojekyll dosyalarını silmeyin.
-- Yönetici girişi mevcut Cloudflare OAuth Worker üzerinden çalışır.
+Böylece eklediğiniz ürünler ve diğer içerikler korunur.
 
-Panel sekmeleri:
-- Ürünler
-- Yaptığımız İşler
-- Kampanyalar
-- Müşteri Yorumları
-- Hizmetler
-- S.S.S.
-- Site Ayarları
-
-Veri dosyaları:
-- content.json: genel site ayarları
-- products.json: ürünler
-- works.json: yapılan işler
-- campaigns.json: kampanyalar
-- testimonials.json: yorumlar
-- services.json: hizmetler
-- faqs.json: sorular
+Yayın sonrası:
+Site: https://armeksuaritma.com.tr/?v=8
+Panel: https://armeksuaritma.com.tr/admin/
+Yönetim özeti: https://armeksuaritma.com.tr/admin/dashboard.html

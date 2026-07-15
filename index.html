@@ -35,6 +35,7 @@
         <a class="nav-campaign" href="#kampanya">Kampanya</a>
         <a class="nav-services" href="#hizmetler">Hizmetler</a>
         <a class="nav-works" href="#yaptigimiz-isler">Yaptığımız İşler</a>
+        <a class="nav-brands" href="#markalar">Markalar</a>
         <a class="nav-testimonials" href="#yorumlar">Yorumlar</a>
         <a class="nav-faq" href="#sss">S.S.S.</a>
         <a href="#iletisim">İletişim</a>
@@ -121,6 +122,21 @@
       </div>
     </section>
 
+
+    <section id="markalar" class="section brands-section section-toggle-brands">
+      <div class="container">
+        <div class="section-heading centered reveal"><span class="section-label">MARKALAR & REFERANSLAR</span><h2>Güvenilir ürün ve çözüm ortakları</h2><p>Satışını ve servisini yaptığımız marka ve ürün grupları.</p></div>
+        <div id="brands" class="brand-grid"></div>
+      </div>
+    </section>
+
+    <section id="oncesi-sonrasi" class="section compare-section section-toggle-beforeAfter">
+      <div class="container">
+        <div class="section-heading split reveal"><div><span class="section-label">ÖNCESİ / SONRASI</span><h2>Uygulama sonuçlarını karşılaştırın</h2></div><p>Bakım, montaj ve yenileme çalışmalarımızdan seçili örnekler.</p></div>
+        <div id="beforeAfter" class="compare-grid"></div>
+      </div>
+    </section>
+
     <section id="yorumlar" class="section testimonials-section section-toggle-testimonials">
       <div class="container">
         <div class="section-heading centered reveal"><span class="section-label">MÜŞTERİ DENEYİMLERİ</span><h2>Hizmet alan müşterilerimiz ne diyor?</h2></div>
@@ -137,7 +153,11 @@
     </section>
 
     <section id="iletisim" class="section contact-section">
-      <div class="container contact-card reveal"><div><span class="section-label light">İLETİŞİM</span><h2>Temiz su için bugün iletişime geçin</h2><p id="addressText"></p></div><div class="contact-actions"><a id="whatsappContact" class="button white">WhatsApp</a><a id="callContact" class="button outline-white"></a></div></div>
+      <div class="container contact-card reveal">
+        <div class="contact-copy"><span class="section-label light">İLETİŞİM</span><h2>Temiz su için bugün iletişime geçin</h2><p id="addressText"></p><div class="contact-details"><span id="contactEmail"></span><span id="workingHours"></span></div></div>
+        <div class="contact-actions"><a id="whatsappContact" class="button white">WhatsApp</a><a id="callContact" class="button outline-white"></a><a id="googleReview" class="button outline-white" target="_blank" rel="noopener">Google’da Yorum Yap</a></div>
+      </div>
+      <div class="container map-card reveal"><iframe id="mapFrame" title="ARMEK konum haritası" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
     </section>
   </main>
 
@@ -157,9 +177,10 @@
           <p id="productModalDescription" class="product-detail-description"></p>
           <h3>Ürün Özellikleri</h3>
           <ul id="productModalFeatures" class="product-detail-features"></ul>
+          <div id="productModalSpecs" class="product-specs"></div>
           <div class="product-detail-bottom">
             <strong id="productModalPrice"></strong>
-            <a id="productModalWhatsapp" class="button primary" target="_blank" rel="noopener">WhatsApp ile bilgi al</a>
+            <div class="product-action-links"><a id="productModalCatalog" class="button secondary" target="_blank" rel="noopener">PDF Katalog</a><a id="productModalVideo" class="button secondary" target="_blank" rel="noopener">Ürün Videosu</a><a id="productModalWhatsapp" class="button primary" target="_blank" rel="noopener">WhatsApp ile bilgi al</a></div>
           </div>
         </div>
       </div>
@@ -168,6 +189,7 @@
   <div id="lightbox" class="lightbox" aria-hidden="true"><button id="lightboxClose" aria-label="Kapat">×</button><button id="lightboxPrev" class="lightbox-nav prev">‹</button><img id="lightboxImage" alt=""><button id="lightboxNext" class="lightbox-nav next">›</button><div id="lightboxCaption"></div></div>
   <a id="floatingWhatsapp" class="floating-whatsapp" aria-label="WhatsApp’tan yaz">✆</a>
   <footer><div class="container footer-inner"><div class="footer-brand"><img id="footerLogo" src="/armek-logo.jpg" alt="ARMEK"><span id="footerText"></span></div><div class="social-links"><a id="facebookFooter" target="_blank" rel="noopener">Facebook</a><a id="instagramFooter" target="_blank" rel="noopener">Instagram</a></div><small>© <span id="year"></span> Tüm hakları saklıdır.</small></div></footer>
+  <script id="structuredData" type="application/ld+json">{}</script>
   <script src="/app.js"></script>
 </body>
 </html>

@@ -14,7 +14,7 @@ function setLink(id,href,text){const el=document.getElementById(id);if(!el)retur
 function setImg(id,src){const el=document.getElementById(id);if(el&&src)el.src=src}
 function stars(n){const v=Math.max(1,Math.min(5,Number(n)||5));return "★".repeat(v)+"☆".repeat(5-v)}
 function applyVisibility(v={}){
- const map={products:"products",campaign:"campaign",services:"services",works:"works",about:"about",testimonials:"testimonials",areas:"areas",faq:"faq"};
+ const map={products:"products",campaign:"campaign",services:"services",works:"works",about:"about",testimonials:"testimonials",areas:"areas",faq:"faq",brands:"brands",beforeAfter:"beforeAfter"};
  Object.entries(map).forEach(([key,cls])=>$$(`.section-toggle-${cls}`).forEach(el=>el.classList.toggle("section-hidden",v[key]===false)));
  $$(".nav-products").forEach(el=>el.classList.toggle("section-hidden",v.products===false));
  $$(".nav-campaign").forEach(el=>el.classList.toggle("section-hidden",v.campaign===false));
@@ -49,6 +49,11 @@ function openProduct(product){
  setText("productModalDescription",product.description||"");
  setText("productModalPrice",product.price||"Fiyat için arayın");
  $("#productModalFeatures").innerHTML=(product.features||[]).map(f=>`<li>${typeof f==="string"?f:f.item||""}</li>`).join("");
+ const specPairs=[["Marka",product.brand],["Model",product.model],["Aşama",product.stages],["Kapasite",product.capacity],["Garanti",product.warranty],["Stok",product.stockStatus]];
+ $("#productModalSpecs").innerHTML=specPairs.filter(x=>x[1]).map(x=>`<div class="product-spec"><b>${x[0]}</b><span>${x[1]}</span></div>`).join("");
+ const catalog=$("#productModalCatalog"),video=$("#productModalVideo");
+ catalog.href=product.catalog||"#";catalog.classList.toggle("is-hidden",!product.catalog);
+ video.href=product.video||"#";video.classList.toggle("is-hidden",!product.video);
  $("#productThumbs").innerHTML=photos.map((src,i)=>`<button class="product-thumb ${i===0?"active":""}" data-product-photo="${src}"><img src="${src}" alt="${product.name||"Ürün"} ${i+1}"></button>`).join("");
  $$("[data-product-photo]").forEach(btn=>btn.onclick=()=>{$("#productModalImage").src=btn.dataset.productPhoto;$$('.product-thumb').forEach(x=>x.classList.remove('active'));btn.classList.add('active')});
  $("#productModalWhatsapp").href=whatsapp(DATA.phoneLink,`${product.name||"Ürün"} hakkında bilgi almak istiyorum.`);
@@ -56,7 +61,7 @@ function openProduct(product){
 }
 function closeProduct(){const modal=$("#productModal");modal.classList.remove("open");modal.setAttribute("aria-hidden","true");document.body.style.overflow=""}
 function renderProducts(items=[]){
- items=(items||[]).filter(x=>x&&x.active!==false);
+ items=(items||[]).filter(x=>x&&x.active!==false).sort((x,y)=>(Number(x.order)||999)-(Number(y.order)||999));
  const root=$("#products"),filters=$("#productFilters"); if(!root)return;
  if(!items.length){root.innerHTML="";filters.innerHTML="";return}
  const cats=["Tümü",...new Set(items.map(x=>x.category||"Diğer"))];
@@ -83,6 +88,21 @@ function renderWorks(items=[]){
  const draw=cat=>{const list=cat==="Tümü"?items:items.filter(x=>(x.category||"Diğer")===cat);root.innerHTML=list.map((w,i)=>{const photos=normalizePhotos(w);return `<article class="work-card reveal"><div class="work-cover" data-work-index="${items.indexOf(w)}"><img src="${photos[0]||"/armek-logo.jpg"}" alt="${w.title||"Yaptığımız iş"}">${photos.length>1?`<span class="photo-count">▣ ${photos.length} fotoğraf</span>`:""}</div><div class="work-body"><h3>${w.title||""}</h3><div class="work-meta"><span>${w.category||""}</span>${w.location?`<span>📍 ${w.location}</span>`:""}${w.date?`<span>🗓 ${w.date}</span>`:""}</div>${w.text?`<p>${w.text}</p>`:""}</div></article>`}).join("");$$("[data-work-index]").forEach(el=>el.onclick=()=>openLightbox(items[Number(el.dataset.workIndex)]));observeReveals()};
  draw("Tümü");$$("[data-work-category]").forEach(btn=>btn.onclick=()=>{$$("[data-work-category]").forEach(x=>x.classList.remove("active"));btn.classList.add("active");draw(btn.dataset.workCategory)});
 }
+
+function renderBrands(items=[]){
+ const root=$("#brands");if(!root)return;const list=(items||[]).filter(x=>x&&x.active!==false);
+ root.innerHTML=list.map(b=>`<a class="brand-card reveal" ${b.url?`href="${b.url}" target="_blank" rel="noopener"`:""}>${b.logo?`<img src="${b.logo}" alt="${b.name||"Marka"}">`:`<span>${b.name||"Marka"}</span>`}</a>`).join("");
+ if(!list.length)root.closest("section")?.classList.add("section-hidden");
+}
+function renderBeforeAfter(works=[]){
+ const root=$("#beforeAfter");if(!root)return;const list=(works||[]).filter(w=>w&&w.active!==false&&w.beforeImage&&w.afterImage);
+ root.innerHTML=list.map(w=>`<article class="compare-card reveal"><div class="compare-images"><div class="compare-pane"><img src="${w.beforeImage}" alt="${w.title||"Çalışma"} öncesi"><span class="compare-label">ÖNCESİ</span></div><div class="compare-pane"><img src="${w.afterImage}" alt="${w.title||"Çalışma"} sonrası"><span class="compare-label">SONRASI</span></div></div><div class="compare-body"><h3>${w.title||"Uygulama"}</h3><p>${w.text||""}</p></div></article>`).join("");
+ if(!list.length)root.closest("section")?.classList.add("section-hidden");
+}
+function updateStructuredData(data){
+ const schema={"@context":"https://schema.org","@type":"LocalBusiness","name":data.businessName||"ARMEK Su Arıtma","url":"https://armeksuaritma.com.tr","image":data.seoImage||data.logoImage||"/armek-logo.jpg","telephone":data.phoneDisplay||"","address":{"@type":"PostalAddress","addressLocality":data.addressText||"Antalya","addressCountry":"TR"},"openingHours":data.workingHours||"","sameAs":[data.facebook,data.instagram,data.youtube,data.tiktok].filter(Boolean)};
+ const node=$("#structuredData");if(node)node.textContent=JSON.stringify(schema);
+}
 function render(data){
  DATA={...fallback,...data,visibility:{...fallback.visibility,...(data.visibility||{})}};
  document.title=DATA.seoTitle||DATA.businessName||"ARMEK Su Arıtma";
@@ -98,7 +118,8 @@ function render(data){
  ["whatsappHero","whatsappAbout","whatsappContact","floatingWhatsapp"].forEach(id=>setLink(id,wa));
  ["facebookTop","facebookFooter"].forEach(id=>setLink(id,DATA.facebook||"#"));
  ["instagramTop","instagramFooter"].forEach(id=>setLink(id,DATA.instagram||"#"));
- renderHeroSlides(DATA);renderProducts(DATA.products||[]);renderWorks(DATA.works||[]);
+ setText("contactEmail",DATA.email||"");setText("workingHours",DATA.workingHours||"");setLink("googleReview",DATA.googleReviewUrl||"#");const mf=$("#mapFrame");if(mf){if(DATA.mapEmbed){mf.src=DATA.mapEmbed}else{mf.closest(".map-card")?.classList.add("section-hidden")}};updateStructuredData(DATA);
+ renderHeroSlides(DATA);renderProducts(DATA.products||[]);renderWorks(DATA.works||[]);renderBrands(DATA.brands||[]);renderBeforeAfter(DATA.works||[]);
  $("#services").innerHTML=(DATA.services||[]).map((s,i)=>`<article class="service-card reveal"><div class="service-icon">${String(i+1).padStart(2,"0")}</div><h3>${s.title||""}</h3><p>${s.text||""}</p></article>`).join("");
  $("#prices").innerHTML=(DATA.prices||[]).map(p=>`<article class="price-card"><div><h3>${p.title||""}</h3><small>${p.note||""}</small></div><strong>${p.price||""}</strong></article>`).join("");
  $("#advantages").innerHTML=(DATA.advantages||[]).map(x=>`<li>${typeof x==="string"?x:x.item||""}</li>`).join("");
