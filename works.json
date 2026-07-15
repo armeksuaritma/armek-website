@@ -1,3 +1,15 @@
 {
-  "works": []
+  "works": [
+    {
+      "active": true,
+      "text": "Pompasız Su Arıtma Cihazı ve Arıtma Musluğu Montajı yapıldı. Sağlıklı Günlerde Kullanın",
+      "date": "13.07.2026",
+      "usedProduct": "Kampanyalı Pompasız Su Arıtma Cihazı",
+      "location": "Kepez / Yükseliş Mahallesi",
+      "title": "Ev Tipi Su Arıtma Cihazı Montajı",
+      "images": [],
+      "image": "/uploads/chatgpt-image-16-tem-2026-00_43_11.png",
+      "category": "Montaj"
+    }
+  ]
 }
