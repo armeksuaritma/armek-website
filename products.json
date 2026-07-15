@@ -1,6 +1,54 @@
 {
   "products": [
     {
+      "featureText": "2 1/2\" Çubuklu Sediment Filtre\n2 1/2\" Çubuklu Gac Karbon Filtre\n2 1/2\" Çubuklu Sediment Filtre\nMembran\nÇubuklu 1840 Post Karbon Filtre\nLüks Musluk\n2,2 Metal TR Tank \nQuick Fittings",
+      "active": true,
+      "stockStatus": "Stokta",
+      "name": "Lite One Pompasız",
+      "featured": false,
+      "order": 100,
+      "images": [],
+      "image": "/uploads/lite-one-pompasız.jpg",
+      "features": [],
+      "category": "Su Arıtma Cihazları"
+    },
+    {
+      "featureText": "2 1/2\" Çubuklu Sediment Filtre\n 2 1/2\" Çubuklu Gac Karbon Filtre\n 2 1/2\" Çubuklu Sediment Filtre\n Membran\n Çubuklu 1840 Post Karbon Filtre\n Lüks Musluk\n 2,2 Metal TR Tank \n Quick Fittings\n 75 Gpd Pompa\n Elektronik Adaptör\n Alçak Basınç Swich\n Yüksek Basınç Swich",
+      "active": true,
+      "stockStatus": "Stokta",
+      "name": "Lite One Pompalı",
+      "featured": false,
+      "order": 100,
+      "images": [],
+      "image": "/uploads/lite-one-pompalı.png",
+      "features": [],
+      "category": "Su Arıtma Cihazları"
+    },
+    {
+      "featureText": "Tak Çevir Sediment Filtre\n Tak Çevir Gac Karbon Filtre\n Tak Çevir Gac Karbon Filtre\n Membran\n Tak Çevir Post  Karbon Filtre\n Lüks Musluk\n 2,2 Metal TR Tank  \n Quick Fittings",
+      "active": true,
+      "stockStatus": "Stokta",
+      "name": "N-RO Pompasız",
+      "featured": false,
+      "order": 100,
+      "images": [],
+      "image": "/uploads/ro-pompasız.png",
+      "features": [],
+      "category": "Su Arıtma Cihazları"
+    },
+    {
+      "featureText": "10\" Spun Filtre\n10\" Gac Karbon Filtre\n10\" Blok Karbon Filtre\nMembran\nÇubuklu 1840 Post Karbon Filtre\nLüks Musluk\n3,2 Metal TR Tank \nQuick Fittings",
+      "active": true,
+      "stockStatus": "Stokta",
+      "name": "KRS-34 Pompasız",
+      "featured": false,
+      "order": 100,
+      "images": [],
+      "image": "/uploads/krs-34.png",
+      "features": [],
+      "category": "Su Arıtma Cihazları"
+    },
+    {
       "featureText": "Bu modelde ek bir dış hazne bulunmaz; arıtılan su doğrudan sebilin kendi iç tankına aktarılır. Daha minimalist bir çözüm arayanlar için uygundur.\nYapı: Sadece sebilin üstünü kapatan özel bir kapak ve şamandıra düzeneğinden oluşur.\nBağlantı: Set içeriğinde genellikle 5 metrelik hortum, bağlantı dirseği ve şamandıra bulunur.\nUyum: Piyasada satılan standart üstten damacanalı tüm sebiller ile uyumludur.",
       "active": true,
       "name": "Tanksız Su Sebil Aparatı",
@@ -78,54 +126,6 @@
       "description": "",
       "features": [],
       "category": "Tanklar"
-    },
-    {
-      "featureText": "2 1/2\" Çubuklu Sediment Filtre\n2 1/2\" Çubuklu Gac Karbon Filtre\n2 1/2\" Çubuklu Sediment Filtre\nMembran\nÇubuklu 1840 Post Karbon Filtre\nLüks Musluk\n2,2 Metal TR Tank \nQuick Fittings",
-      "active": true,
-      "stockStatus": "Stokta",
-      "name": "Lite One Pompasız",
-      "featured": false,
-      "order": 100,
-      "images": [],
-      "image": "/uploads/lite-one-pompasız.jpg",
-      "features": [],
-      "category": "Su Arıtma Cihazları"
-    },
-    {
-      "featureText": "2 1/2\" Çubuklu Sediment Filtre\n 2 1/2\" Çubuklu Gac Karbon Filtre\n 2 1/2\" Çubuklu Sediment Filtre\n Membran\n Çubuklu 1840 Post Karbon Filtre\n Lüks Musluk\n 2,2 Metal TR Tank \n Quick Fittings\n 75 Gpd Pompa\n Elektronik Adaptör\n Alçak Basınç Swich\n Yüksek Basınç Swich",
-      "active": true,
-      "stockStatus": "Stokta",
-      "name": "Lite One Pompalı",
-      "featured": false,
-      "order": 100,
-      "images": [],
-      "image": "/uploads/lite-one-pompalı.png",
-      "features": [],
-      "category": "Su Arıtma Cihazları"
-    },
-    {
-      "featureText": "10\" Spun Filtre\n10\" Gac Karbon Filtre\n10\" Blok Karbon Filtre\nMembran\nÇubuklu 1840 Post Karbon Filtre\nLüks Musluk\n3,2 Metal TR Tank \nQuick Fittings",
-      "active": true,
-      "stockStatus": "Stokta",
-      "name": "KRS-34 Pompasız",
-      "featured": false,
-      "order": 100,
-      "images": [],
-      "image": "/uploads/krs-34.png",
-      "features": [],
-      "category": "Su Arıtma Cihazları"
-    },
-    {
-      "featureText": "Tak Çevir Sediment Filtre\n Tak Çevir Gac Karbon Filtre\n Tak Çevir Gac Karbon Filtre\n Membran\n Tak Çevir Post  Karbon Filtre\n Lüks Musluk\n 2,2 Metal TR Tank  \n Quick Fittings",
-      "active": true,
-      "stockStatus": "Stokta",
-      "name": "N-RO Pompasız",
-      "featured": false,
-      "order": 100,
-      "images": [],
-      "image": "/uploads/ro-pompasız.png",
-      "features": [],
-      "category": "Su Arıtma Cihazları"
     }
   ]
 }
