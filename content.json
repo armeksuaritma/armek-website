@@ -31,16 +31,16 @@
   ],
   "products": [
     {
-      "description": "Ürün Özellikleri:\n 2 1/2\" Çubuklu Sediment Filtre\n 2 1/2\" Çubuklu Gac Karbon Filtre\n 2 1/2\" Çubuklu Sediment Filtre\n Noname Membran\n Çubuklu 1840 Post Karbon Filtre\n Lüks Musluk\n 2,2 Metal TR Tank \n Quick Fittings\n 75 Gpd Pompa\n Elektronik Adaptör\n Alçak Basınç Swich\n Yüksek Basınç Swich",
-      "name": "Lite One Pompalı",
-      "image": "/uploads/lite-one-pompalı.png",
-      "category": "Su Arıtma Cihazları"
-    },
-    {
       "image": "/uploads/lite-one-pompasız.jpg",
       "category": "Su Arıtma Cihazları",
       "description": "Ürün Özellikleri:\n\n2 1/2\" Çubuklu Sediment Filtre\n2 1/2\" Çubuklu Gac Karbon Filtre\n2 1/2\" Çubuklu Sediment Filtre\nNoname Membran\nÇubuklu 1840 Post Karbon Filtre\nLüks Musluk\n2,2 Metal TR Tank \nQuick Fittings",
       "name": "Lite One Pompasız"
+    },
+    {
+      "description": "Ürün Özellikleri:\n 2 1/2\" Çubuklu Sediment Filtre\n 2 1/2\" Çubuklu Gac Karbon Filtre\n 2 1/2\" Çubuklu Sediment Filtre\n Noname Membran\n Çubuklu 1840 Post Karbon Filtre\n Lüks Musluk\n 2,2 Metal TR Tank \n Quick Fittings\n 75 Gpd Pompa\n Elektronik Adaptör\n Alçak Basınç Swich\n Yüksek Basınç Swich",
+      "name": "Lite One Pompalı",
+      "image": "/uploads/lite-one-pompalı.png",
+      "category": "Su Arıtma Cihazları"
     },
     {
       "image": "/uploads/krs-34.png",
