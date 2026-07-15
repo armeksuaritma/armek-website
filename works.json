@@ -1,6 +1,13 @@
 {
   "works": [
     {
+      "images": [],
+      "active": true,
+      "image": "/uploads/use-ai-image-jul-16-2026-01_31_41.png",
+      "title": "3 Yollu Arıtma Musluğu Montajı",
+      "category": "Teknik Servis"
+    },
+    {
       "active": true,
       "text": "Filtre seti yenilendi, bağlantılar kontrol edildi ve cihaz performans testi tamamlandı.",
       "date": "15.07.2026",
