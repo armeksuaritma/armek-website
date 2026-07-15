@@ -29,16 +29,40 @@ function applyVisibility(v={}){
  $$(".nav-testimonials").forEach(el=>el.classList.toggle("section-hidden",v.testimonials===false));
  $$(".nav-faq").forEach(el=>el.classList.toggle("section-hidden",v.faq===false));
 }
-function renderHeroSlides(data){
- const slides=(data.heroSlides||[]).filter(x=>x&&x.image);
- if(!slides.length)slides.push({image:data.heroImage||fallback.heroImage,alt:data.heroTitle});
+function renderHeroMedia(data){
  const slider=$("#heroSlider"),dots=$("#heroDots");
- slider.innerHTML=slides.map((s,i)=>`<div class="hero-slide ${i===0?"active":""}"><img src="${s.image}" alt="${s.alt||data.heroTitle||"ARMEK"}"></div>`).join("");
- dots.innerHTML=slides.length>1?slides.map((_,i)=>`<button class="slider-dot ${i===0?"active":""}" data-slide="${i}" aria-label="${i+1}. görsel"></button>`).join(""):"";
- let idx=0,timer;
- const show=i=>{const all=$$(".hero-slide"),ds=$$(".slider-dot");idx=(i+all.length)%all.length;all.forEach((x,j)=>x.classList.toggle("active",j===idx));ds.forEach((x,j)=>x.classList.toggle("active",j===idx))};
- $$(".slider-dot").forEach(d=>d.onclick=()=>show(Number(d.dataset.slide)));
- if(slides.length>1)timer=setInterval(()=>show(idx+1),5000);
+ if(!slider||!dots)return;
+ const type=data.heroMediaType||((data.heroVideo)?"video":((data.heroSlides||[]).length?"slider":"image"));
+ const fallbackImage=data.heroVideoPoster||data.heroImage||fallback.heroImage;
+ dots.innerHTML="";
+
+ if(type==="video"&&data.heroVideo){
+  slider.innerHTML=`<div class="hero-video-wrap"><video id="heroVideo" class="hero-video" autoplay muted loop playsinline preload="metadata" poster="${fallbackImage}" disablepictureinpicture controlslist="nodownload noplaybackrate nofullscreen"><source src="${data.heroVideo}" type="video/mp4"></video><img class="hero-video-fallback" src="${fallbackImage}" alt="${data.heroTitle||"ARMEK Su Arıtma"}"></div>`;
+  const video=$("#heroVideo"),fallbackNode=$(".hero-video-fallback");
+  if(video){
+   video.muted=true;
+   video.controls=false;
+   video.addEventListener("canplay",()=>fallbackNode?.classList.add("hidden"),{once:true});
+   video.addEventListener("error",()=>{video.style.display="none";fallbackNode?.classList.remove("hidden")});
+   const attempt=video.play();if(attempt&&typeof attempt.catch==="function")attempt.catch(()=>{});
+  }
+  return;
+ }
+
+ if(type==="slider"){
+  const slides=(data.heroSlides||[]).filter(x=>x&&x.image);
+  if(slides.length){
+   slider.innerHTML=slides.map((s,i)=>`<div class="hero-slide ${i===0?"active":""}"><img src="${s.image}" alt="${s.alt||data.heroTitle||"ARMEK"}"></div>`).join("");
+   dots.innerHTML=slides.length>1?slides.map((_,i)=>`<button class="slider-dot ${i===0?"active":""}" data-slide="${i}" aria-label="${i+1}. görsel"></button>`).join(""):"";
+   let idx=0;
+   const show=i=>{const all=$$(".hero-slide"),ds=$$(".slider-dot");idx=(i+all.length)%all.length;all.forEach((x,j)=>x.classList.toggle("active",j===idx));ds.forEach((x,j)=>x.classList.toggle("active",j===idx))};
+   $$(".slider-dot").forEach(d=>d.onclick=()=>show(Number(d.dataset.slide)));
+   if(slides.length>1)setInterval(()=>show(idx+1),5000);
+   return;
+  }
+ }
+
+ slider.innerHTML=`<div class="hero-slide active"><img src="${data.heroImage||fallback.heroImage}" alt="${data.heroTitle||"ARMEK Su Arıtma"}"></div>`;
 }
 function productPhotos(product){
  const photos=[];
@@ -137,7 +161,7 @@ function render(data){
  ["facebookTop","facebookFooter"].forEach(id=>setLink(id,DATA.facebook||"#"));
  ["instagramTop","instagramFooter"].forEach(id=>setLink(id,DATA.instagram||"#"));
  const gv=$("#googleSiteVerification");if(gv)gv.content=DATA.googleSiteVerification||"";const cl=$("#canonicalLink");if(cl)cl.href="https://armeksuaritma.com.tr/";updateStructuredData(DATA);
- renderHeroSlides(DATA);renderProducts(DATA.products||[]);renderWorks(DATA.works||[]);renderBrands(DATA.brands||[]);renderBeforeAfter(DATA.works||[]);
+ renderHeroMedia(DATA);renderProducts(DATA.products||[]);renderWorks(DATA.works||[]);renderBrands(DATA.brands||[]);renderBeforeAfter(DATA.works||[]);
  $("#services").innerHTML=(DATA.services||[]).map((s,i)=>`<article class="service-card reveal"><div class="service-icon">${String(i+1).padStart(2,"0")}</div><h3>${s.title||""}</h3><p>${s.text||""}</p></article>`).join("");
  $("#prices").innerHTML=(DATA.prices||[]).map(p=>`<article class="price-card"><div><h3>${p.title||""}</h3><small>${p.note||""}</small></div><strong>${p.price||""}</strong></article>`).join("");
  $("#advantages").innerHTML=(DATA.advantages||[]).map(x=>`<li>${typeof x==="string"?x:x.item||""}</li>`).join("");

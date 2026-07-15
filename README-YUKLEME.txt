@@ -1,12 +1,19 @@
-ARMEK V9 SADE + SEO GÜNCELLEMESİ
+ARMEK ANA SAYFA VIDEO GUNCELLEMESI
 
-ZIP içindeki dosyaları GitHub ana dizinine yükleyip aynı isimli dosyaların üzerine yazın.
-Mevcut JSON veri dosyalarınızı silmeyin. Bu paketteki JSON dosyaları örnek/uyumluluk içindir; mevcut kayıtlarınızı korumak için GitHub yüklemesinde content.json, products.json, works.json, campaigns.json, testimonials.json, services.json ve faqs.json dosyalarını seçmeyebilirsiniz.
+GitHub ana dizinine su dosyalari yukleyin ve ayni isimli dosyalarin uzerine yazin:
+- app.js
+- styles.css
+- admin/config.yml
 
-Düzeltmeler:
-- İletişim alanında yalnız WhatsApp ve telefon bulunur.
-- Telefon numarası yarım kalmaz.
-- Ürün kartında açıklama yerine ürün özellikleri görünür.
-- Panelde özellikleri her satıra bir tane yazabilirsiniz.
-- YouTube, TikTok, harita, önce/sonra ve referans alanları kaldırıldı.
-- Google Search Console doğrulama alanı, canonical, sitemap, robots.txt ve LocalBusiness/Product yapılandırılmış verileri eklendi.
+Mevcut JSON dosyalarini ve uploads klasorunu silmeyin.
+
+Panel kullanimi:
+1. /admin/ adresine girin.
+2. Site Ayarlari > Genel Site Icerigi acin.
+3. Ana gorsel turu: Otomatik MP4 video secin.
+4. Ana sayfa MP4 videosu alanina videoyu yukleyin.
+5. Video kapak gorseli ekleyin.
+6. Yayinla butonuna basin.
+
+Video sessiz, otomatik, kontrol dugmesiz ve surekli dongude oynar.
+En iyi performans: 6-12 saniye, 1920x1080 veya 1280x720, H.264 MP4, tercihen 8 MB alti.

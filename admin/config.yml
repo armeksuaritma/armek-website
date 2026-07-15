@@ -201,19 +201,28 @@ collections:
           - {label: "Ana sayfa küçük başlık", name: "heroEyebrow", widget: "string"}
           - {label: "Ana sayfa başlık", name: "heroTitle", widget: "string"}
           - {label: "Ana sayfa açıklama", name: "heroText", widget: "text"}
-          - {label: "Ana sayfa görseli", name: "heroImage", widget: "image", required: false}
-          - label: "Hareketli ana görseller"
+          - label: "Ana görsel türü"
+            name: "heroMediaType"
+            widget: "select"
+            default: "image"
+            options:
+              - {label: "Sabit görsel", value: "image"}
+              - {label: "Otomatik MP4 video", value: "video"}
+              - {label: "Görsel slider", value: "slider"}
+            hint: "Video seçildiğinde oynatma düğmesi olmadan sessiz ve sürekli döner."
+          - {label: "Ana sayfa sabit görseli", name: "heroImage", widget: "image", required: false, hint: "Sabit görsel seçeneğinde ve video yüklenemezse gösterilir."}
+          - {label: "Ana sayfa MP4 videosu", name: "heroVideo", widget: "file", required: false, media_library: {config: {multiple: false}}, hint: "MP4 önerilir. 6–12 saniye, sessiz ve mümkünse 8 MB altında tutun."}
+          - {label: "Video kapak görseli", name: "heroVideoPoster", widget: "image", required: false, hint: "Video yüklenene kadar ve video açılamazsa gösterilir."}
+          - label: "Görsel slider"
             name: "heroSlides"
             widget: "list"
             required: false
             default: []
+            collapsed: true
+            hint: "Ana görsel türünü Görsel slider seçtiğinizde kullanılır."
             fields:
               - {label: "Görsel", name: "image", widget: "image"}
-              - {label: "Açıklama", name: "alt", widget: "string", required: false}
-              - {label: "Slayt başlığı", name: "title", widget: "string", required: false}
-              - {label: "Slayt metni", name: "text", widget: "text", required: false}
-              - {label: "Buton yazısı", name: "buttonLabel", widget: "string", required: false}
-              - {label: "Buton bağlantısı", name: "buttonUrl", widget: "string", required: false}
+              - {label: "Görsel açıklaması", name: "alt", widget: "string", required: false}
           - {label: "Deneyim sayacı", name: "statExperience", widget: "string", required: false}
           - {label: "Servis sayacı", name: "statService", widget: "string", required: false}
           - {label: "Kurumsal görsel", name: "aboutImage", widget: "image"}
