@@ -1,6 +1,17 @@
 {
   "products": [
     {
+      "featureText": "Toplam Kapasite 12 Litre\nFaydalı Su Hacmi Yaklaşık 8 - 9.5 Litre (Şebeke basıncına göre değişir)\nGövde Malzemesi Epoksi kaplamalı, fırınlanmış yüksek dayanımlı çelik metal\nBağlantı Ölçüsü1/4\" NPT Standart Paslanmaz Çelik Dişli\nÖn Hava Basıncı 5 - 7 PSI (Fabrika çıkışlı basınçlı)\nMaks. Çalışma Basıncı 100 PSI (Yaklaşık 7 Bar)\nÜrün Ölçüleri Yükseklik: 35-37 cm / Genişlik (Çap): 28 cm\nAğırlık Yaklaşık 3.65 kg",
+      "active": true,
+      "name": "3.2 Galon Basınç Denge Tankı",
+      "featured": false,
+      "order": 100,
+      "images": [],
+      "image": "/uploads/3.2-galon-basınç-denge-tankı.png",
+      "features": [],
+      "category": "Tanklar"
+    },
+    {
       "featureText": "",
       "active": true,
       "stockStatus": "Stokta",
