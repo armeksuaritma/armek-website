@@ -14,6 +14,51 @@ public_folder: "/uploads"
 publish_mode: simple
 
 collections:
+  - name: "home_management"
+    label: "Ana Sayfa"
+    files:
+      - name: "home"
+        label: "Ana Sayfa Ayarları"
+        file: "home.json"
+        format: "json"
+        fields:
+          - label: "Ana görsel türü"
+            name: "heroMediaType"
+            widget: "select"
+            default: "image"
+            options:
+              - {label: "Sabit görsel", value: "image"}
+              - {label: "Otomatik MP4 video", value: "video"}
+              - {label: "Görsel slider", value: "slider"}
+          - {label: "Küçük başlık", name: "heroEyebrow", widget: "string", required: false}
+          - {label: "Ana başlık", name: "heroTitle", widget: "string", required: false}
+          - {label: "Ana açıklama", name: "heroText", widget: "text", required: false}
+          - {label: "Sabit ana görsel", name: "heroImage", widget: "image", required: false}
+          - label: "MP4 video"
+            name: "heroVideo"
+            widget: "file"
+            required: false
+            hint: "MP4/H.264 önerilir. Video sessiz, kontrolsüz, otomatik ve sürekli oynar."
+          - {label: "Video kapak görseli", name: "heroVideoPoster", widget: "image", required: false}
+          - label: "Slider görselleri"
+            name: "heroSlides"
+            widget: "list"
+            required: false
+            default: []
+            fields:
+              - {label: "Görsel", name: "image", widget: "image"}
+              - {label: "Görsel açıklaması", name: "alt", widget: "string", required: false}
+          - {label: "Deneyim sayacı", name: "statExperience", widget: "string", required: false}
+          - {label: "Servis sayacı", name: "statService", widget: "string", required: false}
+          - {label: "Kurumsal görsel", name: "aboutImage", widget: "image", required: false}
+          - {label: "Kurumsal başlık", name: "aboutTitle", widget: "string", required: false}
+          - {label: "Kurumsal açıklama", name: "aboutText", widget: "text", required: false}
+          - label: "Avantajlar"
+            name: "advantages"
+            widget: "list"
+            required: false
+            field: {label: "Avantaj", name: "item", widget: "string"}
+
   - name: "products_management"
     label: "Ürünler"
     files:
@@ -29,37 +74,23 @@ collections:
             summary: "{{fields.name}} — {{fields.category}}"
             fields:
               - {label: "Kapak fotoğrafı", name: "image", widget: "image"}
-              - label: "Ürün fotoğraf galerisi"
+              - label: "Ek fotoğraflar"
                 name: "images"
                 widget: "list"
                 required: false
                 default: []
-                field: {label: "Ek fotoğraf", name: "image", widget: "image", required: false}
+                field: {label: "Fotoğraf", name: "image", widget: "image", required: false}
               - {label: "Ürün adı", name: "name", widget: "string"}
-              - {label: "Marka", name: "brand", widget: "string", required: false}
-              - {label: "Model", name: "model", widget: "string", required: false}
               - {label: "Kategori", name: "category", widget: "select", options: ["Su Arıtma Cihazları", "Filtreler", "Tanklar", "Yedek Parçalar", "Diğer"]}
-              - {label: "Kısa açıklama (isteğe bağlı)", name: "description", widget: "text", required: false}
-              - {label: "Fiyat", name: "price", widget: "string", required: false}
-              - {label: "Etiket", name: "badge", widget: "select", required: false, options: ["Yeni", "Kampanya", "Çok Satan", "Tavsiye Edilen"]}
+              - {label: "Kısa açıklama", name: "description", widget: "text", required: false}
               - label: "Ürün özellikleri"
                 name: "featureText"
                 widget: "text"
                 required: false
-                hint: "Her özelliği ayrı satıra yazın. Sitede alt alta gösterilir."
-              - label: "Eski özellik listesi (uyumluluk)"
-                name: "features"
-                widget: "list"
-                required: false
-                default: []
-                collapsed: true
-                field: {label: "Özellik", name: "item", widget: "string"}
-              - {label: "Aşama sayısı", name: "stages", widget: "string", required: false}
-              - {label: "Kapasite", name: "capacity", widget: "string", required: false}
-              - {label: "Garanti", name: "warranty", widget: "string", required: false}
-              - {label: "Stok durumu", name: "stockStatus", widget: "select", required: false, options: ["Stokta", "Sipariş Üzerine", "Tükendi"]}
+                hint: "Her özelliği ayrı satıra yazın. Sitede alt alta görünür."
+              - {label: "Fiyat", name: "price", widget: "string", required: false}
+              - {label: "Etiket", name: "badge", widget: "select", required: false, options: ["Yeni", "Kampanya", "Çok Satan", "Tavsiye Edilen"]}
               - {label: "Sıralama", name: "order", widget: "number", required: false, value_type: "int", default: 100}
-              - {label: "Öne çıkan ürün", name: "featured", widget: "boolean", default: false}
               - {label: "Yayında", name: "active", widget: "boolean", default: true}
 
   - name: "works_management"
@@ -88,8 +119,6 @@ collections:
               - {label: "İlçe / konum", name: "location", widget: "string", required: false}
               - {label: "Tarih", name: "date", widget: "datetime", format: "DD.MM.YYYY", date_format: "DD.MM.YYYY", time_format: false, required: false}
               - {label: "Açıklama", name: "text", widget: "text", required: false}
-              - {label: "Kullanılan ürün / cihaz", name: "usedProduct", widget: "string", required: false}
-              - {label: "İşlem süresi", name: "duration", widget: "string", required: false}
               - {label: "Yayında", name: "active", widget: "boolean", default: true}
 
   - name: "campaigns_management"
@@ -109,9 +138,6 @@ collections:
               - {label: "Başlık", name: "title", widget: "string"}
               - {label: "Açıklama", name: "text", widget: "text"}
               - {label: "Görsel", name: "image", widget: "image"}
-              - {label: "Başlangıç tarihi", name: "startDate", widget: "datetime", required: false, date_format: "DD.MM.YYYY", time_format: false}
-              - {label: "Bitiş tarihi", name: "endDate", widget: "datetime", required: false, date_format: "DD.MM.YYYY", time_format: false}
-              - {label: "Öne çıkar", name: "featured", widget: "boolean", default: false}
               - label: "Fiyat kartları"
                 name: "prices"
                 widget: "list"
@@ -139,8 +165,6 @@ collections:
               - {label: "Müşteri adı", name: "name", widget: "string"}
               - {label: "İlçe / konum", name: "location", widget: "string", required: false}
               - {label: "Yıldız", name: "rating", widget: "number", min: 1, max: 5, value_type: "int", default: 5}
-              - {label: "Profil fotoğrafı", name: "image", widget: "image", required: false}
-              - {label: "Yorum tarihi", name: "date", widget: "datetime", required: false, date_format: "DD.MM.YYYY", time_format: false}
               - {label: "Yorum", name: "text", widget: "text"}
               - {label: "Yayında", name: "active", widget: "boolean", default: true}
 
@@ -180,55 +204,24 @@ collections:
               - {label: "Cevap", name: "a", widget: "text"}
               - {label: "Yayında", name: "active", widget: "boolean", default: true}
 
-  - name: "site_management"
+  - name: "settings_management"
     label: "Site Ayarları"
     files:
-      - name: "content"
-        label: "Genel Site İçeriği"
-        file: "content.json"
+      - name: "settings"
+        label: "İletişim ve Görünürlük"
+        file: "settings.json"
         format: "json"
         fields:
-          - {label: "İşletme adı", name: "businessName", widget: "string"}
-          - {label: "Logo", name: "logoImage", widget: "image"}
+          - {label: "İşletme adı", name: "businessName", widget: "string", required: false}
+          - {label: "Logo", name: "logoImage", widget: "image", required: false}
           - {label: "Üst bilgi", name: "topbarText", widget: "string", required: false}
-          - {label: "Telefon görünümü", name: "phoneDisplay", widget: "string"}
-          - {label: "Telefon / WhatsApp", name: "phoneLink", widget: "string"}
-          - {label: "WhatsApp mesajı", name: "whatsappMessage", widget: "text"}
+          - {label: "Telefon görünümü", name: "phoneDisplay", widget: "string", required: false}
+          - {label: "Telefon / WhatsApp (90 ile)", name: "phoneLink", widget: "string", required: false}
+          - {label: "WhatsApp mesajı", name: "whatsappMessage", widget: "text", required: false}
           - {label: "Facebook", name: "facebook", widget: "string", required: false}
           - {label: "Instagram", name: "instagram", widget: "string", required: false}
-          - {label: "Adres", name: "addressText", widget: "string"}
-          - {label: "Alt bilgi", name: "footerText", widget: "string"}
-          - {label: "Ana sayfa küçük başlık", name: "heroEyebrow", widget: "string"}
-          - {label: "Ana sayfa başlık", name: "heroTitle", widget: "string"}
-          - {label: "Ana sayfa açıklama", name: "heroText", widget: "text"}
-          - label: "Ana görsel türü"
-            name: "heroMediaType"
-            widget: "select"
-            default: "image"
-            options:
-              - {label: "Sabit görsel", value: "image"}
-              - {label: "Otomatik MP4 video", value: "video"}
-              - {label: "Görsel slider", value: "slider"}
-            hint: "Video seçildiğinde oynatma düğmesi olmadan sessiz ve sürekli döner."
-          - {label: "Ana sayfa sabit görseli", name: "heroImage", widget: "image", required: false, hint: "Sabit görsel seçeneğinde ve video yüklenemezse gösterilir."}
-          - {label: "Ana sayfa MP4 videosu", name: "heroVideo", widget: "file", required: false, media_library: {config: {multiple: false}}, hint: "MP4 önerilir. 6–12 saniye, sessiz ve mümkünse 8 MB altında tutun."}
-          - {label: "Video kapak görseli", name: "heroVideoPoster", widget: "image", required: false, hint: "Video yüklenene kadar ve video açılamazsa gösterilir."}
-          - label: "Görsel slider"
-            name: "heroSlides"
-            widget: "list"
-            required: false
-            default: []
-            collapsed: true
-            hint: "Ana görsel türünü Görsel slider seçtiğinizde kullanılır."
-            fields:
-              - {label: "Görsel", name: "image", widget: "image"}
-              - {label: "Görsel açıklaması", name: "alt", widget: "string", required: false}
-          - {label: "Deneyim sayacı", name: "statExperience", widget: "string", required: false}
-          - {label: "Servis sayacı", name: "statService", widget: "string", required: false}
-          - {label: "Kurumsal görsel", name: "aboutImage", widget: "image"}
-          - {label: "Kurumsal başlık", name: "aboutTitle", widget: "string", required: false}
-          - {label: "Kurumsal açıklama", name: "aboutText", widget: "text", required: false}
-          - {label: "Avantajlar", name: "advantages", widget: "list", required: false, field: {label: "Avantaj", name: "item", widget: "string"}}
+          - {label: "Adres / hizmet alanı", name: "addressText", widget: "string", required: false}
+          - {label: "Alt bilgi", name: "footerText", widget: "string", required: false}
           - {label: "Hizmet bölgeleri", name: "areas", widget: "list", required: false, field: {label: "Bölge", name: "item", widget: "string"}}
           - label: "Bölüm görünürlükleri"
             name: "visibility"
@@ -243,29 +236,16 @@ collections:
               - {label: "Yorumlar", name: "testimonials", widget: "boolean", default: true}
               - {label: "Hizmet bölgeleri", name: "areas", widget: "boolean", default: true}
               - {label: "S.S.S.", name: "faq", widget: "boolean", default: true}
-              - {label: "Markalar", name: "brands", widget: "boolean", default: true}
-          - label: "Markalar ve referanslar"
-            name: "brands"
-            widget: "list"
-            required: false
-            default: []
-            summary: "{{fields.name}}"
-            fields:
-              - {label: "Marka / referans adı", name: "name", widget: "string"}
-              - {label: "Logo", name: "logo", widget: "image", required: false}
-              - {label: "Web bağlantısı", name: "url", widget: "string", required: false}
-              - {label: "Yayında", name: "active", widget: "boolean", default: true}
-          - {label: "SEO başlığı", name: "seoTitle", widget: "string", required: false}
-          - {label: "SEO açıklaması", name: "seoDescription", widget: "text", required: false}
-          - {label: "Paylaşım görseli", name: "seoImage", widget: "image", required: false}
-          # Eski content.json kayıtlarının kaybolmaması için aşağıdaki alanlar korunur.
-          - {label: "Eski ürün kayıtları", name: "products", widget: "hidden", required: false, default: []}
-          - {label: "Eski iş kayıtları", name: "works", widget: "hidden", required: false, default: []}
-          - {label: "Eski yorum kayıtları", name: "testimonials", widget: "hidden", required: false, default: []}
-          - {label: "Eski hizmet kayıtları", name: "services", widget: "hidden", required: false, default: []}
-          - {label: "Eski S.S.S. kayıtları", name: "faqs", widget: "hidden", required: false, default: []}
-          - {label: "Eski fiyat kayıtları", name: "prices", widget: "hidden", required: false, default: []}
-          - {label: "Eski kampanya başlığı", name: "campaignTitle", widget: "hidden", required: false}
-          - {label: "Eski kampanya açıklaması", name: "campaignText", widget: "hidden", required: false}
-          - {label: "Eski kampanya görseli", name: "campaignImage", widget: "hidden", required: false}
-          - {label: "Eski kampanya görünürlüğü", name: "campaignVisible", widget: "hidden", required: false, default: true}
+
+  - name: "seo_management"
+    label: "SEO"
+    files:
+      - name: "seo"
+        label: "Google Ayarları"
+        file: "seo.json"
+        format: "json"
+        fields:
+          - {label: "Google sayfa başlığı", name: "seoTitle", widget: "string", required: false}
+          - {label: "Google açıklaması", name: "seoDescription", widget: "text", required: false}
+          - {label: "Sosyal paylaşım görseli", name: "seoImage", widget: "image", required: false}
+          - {label: "Google Search Console doğrulama kodu", name: "googleSiteVerification", widget: "string", required: false}

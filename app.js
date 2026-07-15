@@ -2,7 +2,7 @@ const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const fallback={
  businessName:"ARMEK Su Arıtma",phoneDisplay:"0552 522 35 75",phoneLink:"905525223575",whatsappMessage:"Merhaba, su arıtma ürünleri ve hizmetleri hakkında bilgi almak istiyorum.",
  heroEyebrow:"ARMEK SU ARITMA SERVİSİ",heroTitle:"Eviniz için güvenilir ve profesyonel su arıtma çözümleri",heroText:"Cihaz satışı, montaj, filtre değişimi ve teknik servis hizmetleri.",heroImage:"/uploads/gemini_generated_image_xmulihxmulihxmul.png",
- heroSlides:[],products:[],works:[],testimonials:[],services:[],areas:[],faqs:[],advantages:[],
+ heroMediaType:"image",heroVideo:"",heroVideoPoster:"",heroSlides:[],products:[],works:[],testimonials:[],services:[],areas:[],faqs:[],advantages:[],
  visibility:{products:true,campaign:true,services:true,works:true,about:true,testimonials:true,areas:true,faq:true}
 };
 let DATA=fallback, currentGallery=[], galleryIndex=0;
@@ -190,8 +190,11 @@ function mergeUnique(oldItems=[],newItems=[],key="name"){
  return [...map.values()];
 }
 async function boot(){
- const [base,productData,workData,testimonialData,serviceData,campaignData,faqData]=await Promise.all([
+ const [base,homeData,settingsData,seoData,productData,workData,testimonialData,serviceData,campaignData,faqData]=await Promise.all([
   loadJson('/content.json',{}),
+  loadJson('/home.json',{}),
+  loadJson('/settings.json',{}),
+  loadJson('/seo.json',{}),
   loadJson('/products.json',{products:[]}),
   loadJson('/works.json',{works:[]}),
   loadJson('/testimonials.json',{testimonials:[]}),
@@ -203,6 +206,9 @@ async function boot(){
  const currentCampaign=campaigns[0]||{};
  const merged={
   ...base,
+  ...settingsData,
+  ...homeData,
+  ...seoData,
   products:mergeUnique(base.products||[],productData.products||[],'name'),
   works:mergeUnique(base.works||[],workData.works||[],'title'),
   testimonials:mergeUnique(base.testimonials||[],testimonialData.testimonials||[],'name').filter(x=>x&&x.active!==false),
