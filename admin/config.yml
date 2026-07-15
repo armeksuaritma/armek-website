@@ -86,7 +86,14 @@ collections:
             add_to_top: true
             summary: "{{fields.name}} — {{fields.category}}"
             fields:
-              - {label: "Ürün fotoğrafı", name: "image", widget: "image"}
+              - {label: "Kapak ürün fotoğrafı", name: "image", widget: "image", hint: "Ürün kartında ve detay ekranında ilk görünen fotoğraf"}
+              - label: "Ürün fotoğraf galerisi"
+                name: "images"
+                widget: "list"
+                required: false
+                summary: "{{fields.image}}"
+                fields:
+                  - {label: "Ek fotoğraf", name: "image", widget: "image"}
               - {label: "Ürün adı", name: "name", widget: "string"}
               - {label: "Kategori", name: "category", widget: "select", options: ["Su Arıtma Cihazları", "Filtreler", "Tanklar", "Yedek Parçalar", "Diğer"]}
               - {label: "Kısa açıklama", name: "description", widget: "text"}
