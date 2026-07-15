@@ -29,6 +29,14 @@
       "text": "Düşük şebeke basıncına uygun pompalı cihaz kurulumu ve kullanıcı bilgilendirmesi yapıldı."
     }
   ],
+  "products": [
+    {
+      "image": "/uploads/ro-pompasız.png",
+      "name": "N-RO Pompasız",
+      "category": "Su Arıtma Cihazları",
+      "description": "N-RO Pompasız Ürün Özellikleri: Tak Çevir Sediment Filtre Tak Çevir Gac Karbon Filtre Tak Çevir Gac Karbon Filtre Noname Membran Tak Çevir Post Karbon Filtre Lüks Musluk 2,2 Metal TR Tank Quick Fittings"
+    }
+  ],
   "areas": [
     "Kepez",
     "Muratpaşa",
@@ -74,9 +82,9 @@
   "aboutImage": "/uploads/ortimax-600x900w.jpg",
   "heroEyebrow": "ARMEK SU ARITMA SERVİSİ",
   "logoImage": "/armek-logo.jpg",
-  "productsText": "N-RO Pompasız\n\nÜrün Özellikleri:\nTak Çevir Sediment Filtre\n Tak Çevir Gac Karbon Filtre\n Tak Çevir Gac Karbon Filtre\n Noname Membran\n Tak Çevir Post  Karbon Filtre\n Lüks Musluk\n 2,2 Metal TR Tank  \n Quick Fittings",
+  "productsText": "",
   "visibility": {
-    "products": true,
+    "products": false,
     "campaign": true,
     "services": true,
     "works": true,
