@@ -7,7 +7,24 @@
       "image": "/uploads/chatgpt-image-15-tem-2026-23_58_22.png",
       "startDate": "15.07.2026",
       "endDate": "31.12.2026",
-      "text": "Temiz suya avantajlı fiyatlarla ulaşmanın tam zamanı! Pompalı ve pompasız su arıtma cihazları ile 5 aşamalı filtre setlerinde yılın en avantajlı nakit kampanyasını kaçırmayın."
+      "text": "Temiz suya avantajlı fiyatlarla ulaşmanın tam zamanı! Pompalı ve pompasız su arıtma cihazları ile 5 aşamalı filtre setlerinde yılın en avantajlı nakit kampanyasını kaçırmayın.",
+      "prices": [
+        {
+          "title": "5 Aşamalı Filtre Değişimi",
+          "price": "1.500 TL",
+          "note": "Montaj Dahil"
+        },
+        {
+          "title": "Pompasız Su Arıtma Cihazı",
+          "price": "3.999 TL",
+          "note": "Montaj Dahil"
+        },
+        {
+          "title": "Pompalı Su Arıtma Cihazı",
+          "price": "5.499 TL",
+          "note": "Montaj Dahil"
+        }
+      ]
     }
   ]
 }
