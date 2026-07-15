@@ -1,6 +1,17 @@
 {
   "products": [
     {
+      "featureText": "Kapasite: 75-100 GPD membranlar ile tam uyumludur.\nÇalışma Voltajı: 24V DC.\nÇalışma Akımı: < 1.2 Amper.\nÇalışma Akışı: Dakikada yaklaşık 1 Litre (≧750ml/dk).Çıkış Basıncı: 80 - 120 PSI arası.\nBağlantı: Standart 1/4\" hortum giriş-çıkışları.",
+      "active": true,
+      "name": "75 GPD Ro Pompa",
+      "featured": false,
+      "order": 100,
+      "images": [],
+      "image": "/uploads/75-gpd-ro-pompa.png",
+      "features": [],
+      "category": "Yedek Parçalar"
+    },
+    {
       "featureText": "Toplam Kapasite Yaklaşık 40 - 42 Litre\nFaydalı Su Hacmi Yaklaşık 25 - 30 Litre\nGövde Malzemesi Toz boya kaplı yumuşak çelik veya paslanmaz çelik seçenekleri \nBağlantı Ölçüsü 3/4\" NPT (Standart 1/4\" adaptörler ile uyumludur)\nÖlçüler Yükseklik: 58 - 62 cm / Çap: 38 - 40.6 cm\nAğırlık Yaklaşık 10 - 14 kg (Boş ağırlık)",
       "active": true,
       "name": "11 Galon Basınç Denge Tankı",
