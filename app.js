@@ -52,14 +52,12 @@ function openProduct(product){
  $("#productModalImage").alt=product.name||"Ürün";
  setText("productModalCategory",product.category||"Ürün");
  setText("productModalName",product.name||"");
- setText("productModalDescription",product.description||"");
+ const description=$("#productModalDescription");
+ description.textContent=product.description||"";
+ description.style.display=product.description?"":"none";
  setText("productModalPrice",product.price||"Fiyat için arayın");
- $("#productModalFeatures").innerHTML=productFeatures(product).map(f=>`<li>${f}</li>`).join("");
- const specPairs=[["Marka",product.brand],["Model",product.model],["Aşama",product.stages],["Kapasite",product.capacity],["Garanti",product.warranty],["Stok",product.stockStatus]];
- $("#productModalSpecs").innerHTML=specPairs.filter(x=>x[1]).map(x=>`<div class="product-spec"><b>${x[0]}</b><span>${x[1]}</span></div>`).join("");
- const catalog=$("#productModalCatalog"),video=$("#productModalVideo");
- catalog.href=product.catalog||"#";catalog.classList.toggle("is-hidden",!product.catalog);
- video.href=product.video||"#";video.classList.toggle("is-hidden",!product.video);
+ const features=productFeatures(product);
+ $("#productModalFeatures").innerHTML=features.map(f=>`<li>${f}</li>`).join("");
  $("#productThumbs").innerHTML=photos.map((src,i)=>`<button class="product-thumb ${i===0?"active":""}" data-product-photo="${src}"><img src="${src}" alt="${product.name||"Ürün"} ${i+1}"></button>`).join("");
  $$("[data-product-photo]").forEach(btn=>btn.onclick=()=>{$("#productModalImage").src=btn.dataset.productPhoto;$$('.product-thumb').forEach(x=>x.classList.remove('active'));btn.classList.add('active')});
  $("#productModalWhatsapp").href=whatsapp(DATA.phoneLink,`${product.name||"Ürün"} hakkında bilgi almak istiyorum.`);
@@ -75,7 +73,7 @@ function renderProducts(items=[]){
  const draw=cat=>{
   const list=cat==="Tümü"?items:items.filter(x=>(x.category||"Diğer")===cat);
   root.innerHTML=list.map((p,i)=>`<article class="product-card reveal" data-product-index="${items.indexOf(p)}">${p.badge?`<span class="product-badge">${p.badge}</span>`:""}<div class="product-image"><img src="${p.image||productPhotos(p)[0]||"/armek-logo.jpg"}" alt="${p.name||"Ürün"}"></div><div class="product-body"><span class="product-category">${p.category||"Ürün"}</span><h3>${p.name||""}</h3><ul class="product-features">${productFeatures(p).slice(0,5).map(f=>`<li>${f}</li>`).join("")}</ul><div class="product-footer"><span class="product-price">${p.price||"Fiyat için arayın"}</span><button class="mini-button" type="button">Ürünü İncele</button></div></div></article>`).join("");
-  $$('[data-product-index]').forEach(card=>card.onclick=e=>{e.preventDefault();openProduct(items[Number(card.dataset.productIndex)])});
+  $$('[data-product-index]').forEach(card=>card.onclick=e=>{e.preventDefault();e.stopPropagation();openProduct(items[Number(card.dataset.productIndex)])});
   observeReveals();
  };
  draw("Tümü");
