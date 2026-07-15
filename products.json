@@ -1,6 +1,17 @@
 {
   "products": [
     {
+      "featureText": "Toplam Kapasite Yaklaşık 40 - 42 Litre\nFaydalı Su Hacmi Yaklaşık 25 - 30 Litre\nGövde Malzemesi Toz boya kaplı yumuşak çelik veya paslanmaz çelik seçenekleri \nBağlantı Ölçüsü 3/4\" NPT (Standart 1/4\" adaptörler ile uyumludur)\nÖlçüler Yükseklik: 58 - 62 cm / Çap: 38 - 40.6 cm\nAğırlık Yaklaşık 10 - 14 kg (Boş ağırlık)",
+      "active": true,
+      "name": "11 Galon Basınç Denge Tankı",
+      "featured": false,
+      "order": 100,
+      "images": [],
+      "image": "/uploads/11-galon-basınç-denge-tankı.png",
+      "features": [],
+      "category": "Tanklar"
+    },
+    {
       "featureText": "Toplam Kapasite 12 Litre\nFaydalı Su Hacmi Yaklaşık 8 - 9.5 Litre (Şebeke basıncına göre değişir)\nGövde Malzemesi Epoksi kaplamalı, fırınlanmış yüksek dayanımlı çelik metal\nBağlantı Ölçüsü1/4\" NPT Standart Paslanmaz Çelik Dişli\nÖn Hava Basıncı 5 - 7 PSI (Fabrika çıkışlı basınçlı)\nMaks. Çalışma Basıncı 100 PSI (Yaklaşık 7 Bar)\nÜrün Ölçüleri Yükseklik: 35-37 cm / Genişlik (Çap): 28 cm\nAğırlık Yaklaşık 3.65 kg",
       "active": true,
       "name": "3.2 Galon Basınç Denge Tankı",
