@@ -84,7 +84,7 @@
   "logoImage": "/armek-logo.jpg",
   "productsText": "",
   "visibility": {
-    "products": false,
+    "products": true,
     "campaign": true,
     "services": true,
     "works": true,
