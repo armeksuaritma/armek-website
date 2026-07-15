@@ -31,6 +31,12 @@
   ],
   "products": [
     {
+      "image": "/uploads/krs-34.png",
+      "name": "KRS-34 Pompasız",
+      "category": "Su Arıtma Cihazları",
+      "description": "Ürün özellikleri:\n\n10\" Spun Filtre\n10\" Gac Karbon Filtre\n10\" Blok Karbon Filtre\nNoname Membran\nÇubuklu 1840 Post Karbon Filtre\nLüks Musluk\n3,2 Metal TR Tank \nQuick Fittings"
+    },
+    {
       "image": "/uploads/ro-pompasız.png",
       "name": "N-RO Pompasız",
       "category": "Su Arıtma Cihazları",
