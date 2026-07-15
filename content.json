@@ -1,5 +1,5 @@
 {
-  "heroImage": "/uploads/chatgpt-image-16-tem-2026-00_14_52.png",
+  "heroImage": "",
   "statService": "1000+",
   "addressText": "Antalya",
   "campaignVisible": true,
@@ -29,6 +29,7 @@
       "text": "Düşük şebeke basıncına uygun pompalı cihaz kurulumu ve kullanıcı bilgilendirmesi yapıldı."
     }
   ],
+  "heroMediaType": "video",
   "areas": [
     "Kepez",
     "Muratpaşa",
