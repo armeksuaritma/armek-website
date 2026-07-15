@@ -1,26 +1,12 @@
-ARMEK V8 GÜVENLİ GÜNCELLEME PAKETİ
+ARMEK V9 SADE + SEO GÜNCELLEMESİ
 
-Bu paketin içindeki dosyaları GitHub depo ana dizinine yükleyin ve aynı adlı dosyaların üzerine yazın:
-- index.html
-- styles.css
-- app.js
-- admin/config.yml
-- admin/index.html
-- admin/dashboard.html
+ZIP içindeki dosyaları GitHub ana dizinine yükleyip aynı isimli dosyaların üzerine yazın.
+Mevcut JSON veri dosyalarınızı silmeyin. Bu paketteki JSON dosyaları örnek/uyumluluk içindir; mevcut kayıtlarınızı korumak için GitHub yüklemesinde content.json, products.json, works.json, campaigns.json, testimonials.json, services.json ve faqs.json dosyalarını seçmeyebilirsiniz.
 
-ÖNEMLİ: GitHub'daki aşağıdaki içerik dosyalarını SİLMEYİN veya değiştirmeyin:
-- content.json
-- products.json
-- works.json
-- campaigns.json
-- testimonials.json
-- services.json
-- faqs.json
-- uploads klasörü
-
-Böylece eklediğiniz ürünler ve diğer içerikler korunur.
-
-Yayın sonrası:
-Site: https://armeksuaritma.com.tr/?v=8
-Panel: https://armeksuaritma.com.tr/admin/
-Yönetim özeti: https://armeksuaritma.com.tr/admin/dashboard.html
+Düzeltmeler:
+- İletişim alanında yalnız WhatsApp ve telefon bulunur.
+- Telefon numarası yarım kalmaz.
+- Ürün kartında açıklama yerine ürün özellikleri görünür.
+- Panelde özellikleri her satıra bir tane yazabilirsiniz.
+- YouTube, TikTok, harita, önce/sonra ve referans alanları kaldırıldı.
+- Google Search Console doğrulama alanı, canonical, sitemap, robots.txt ve LocalBusiness/Product yapılandırılmış verileri eklendi.

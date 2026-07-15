@@ -13,6 +13,12 @@ function setText(id,val){const el=document.getElementById(id);if(el)el.textConte
 function setLink(id,href,text){const el=document.getElementById(id);if(!el)return;el.href=href;if(text)el.textContent=text}
 function setImg(id,src){const el=document.getElementById(id);if(el&&src)el.src=src}
 function stars(n){const v=Math.max(1,Math.min(5,Number(n)||5));return "★".repeat(v)+"☆".repeat(5-v)}
+function productFeatures(product){
+ const out=[];
+ (product.features||[]).forEach(f=>{const v=typeof f==="string"?f:(f&&f.item)||"";if(v)out.push(v)});
+ String(product.featureText||"").split(/\r?\n/).map(x=>x.trim()).filter(Boolean).forEach(v=>{if(!out.includes(v))out.push(v)});
+ return out;
+}
 function applyVisibility(v={}){
  const map={products:"products",campaign:"campaign",services:"services",works:"works",about:"about",testimonials:"testimonials",areas:"areas",faq:"faq",brands:"brands",beforeAfter:"beforeAfter"};
  Object.entries(map).forEach(([key,cls])=>$$(`.section-toggle-${cls}`).forEach(el=>el.classList.toggle("section-hidden",v[key]===false)));
@@ -48,7 +54,7 @@ function openProduct(product){
  setText("productModalName",product.name||"");
  setText("productModalDescription",product.description||"");
  setText("productModalPrice",product.price||"Fiyat için arayın");
- $("#productModalFeatures").innerHTML=(product.features||[]).map(f=>`<li>${typeof f==="string"?f:f.item||""}</li>`).join("");
+ $("#productModalFeatures").innerHTML=productFeatures(product).map(f=>`<li>${f}</li>`).join("");
  const specPairs=[["Marka",product.brand],["Model",product.model],["Aşama",product.stages],["Kapasite",product.capacity],["Garanti",product.warranty],["Stok",product.stockStatus]];
  $("#productModalSpecs").innerHTML=specPairs.filter(x=>x[1]).map(x=>`<div class="product-spec"><b>${x[0]}</b><span>${x[1]}</span></div>`).join("");
  const catalog=$("#productModalCatalog"),video=$("#productModalVideo");
@@ -68,7 +74,7 @@ function renderProducts(items=[]){
  filters.innerHTML=cats.map((c,i)=>`<button class="filter-tab ${i===0?"active":""}" data-category="${c}">${c}</button>`).join("");
  const draw=cat=>{
   const list=cat==="Tümü"?items:items.filter(x=>(x.category||"Diğer")===cat);
-  root.innerHTML=list.map((p,i)=>`<article class="product-card reveal" data-product-index="${items.indexOf(p)}">${p.badge?`<span class="product-badge">${p.badge}</span>`:""}<div class="product-image"><img src="${p.image||productPhotos(p)[0]||"/armek-logo.jpg"}" alt="${p.name||"Ürün"}"></div><div class="product-body"><span class="product-category">${p.category||"Ürün"}</span><h3>${p.name||""}</h3><p>${p.description||""}</p><ul class="product-features">${(p.features||[]).slice(0,4).map(f=>`<li>${typeof f==="string"?f:f.item||""}</li>`).join("")}</ul><div class="product-footer"><span class="product-price">${p.price||"Fiyat için arayın"}</span><button class="mini-button" type="button">Ürünü İncele</button></div></div></article>`).join("");
+  root.innerHTML=list.map((p,i)=>`<article class="product-card reveal" data-product-index="${items.indexOf(p)}">${p.badge?`<span class="product-badge">${p.badge}</span>`:""}<div class="product-image"><img src="${p.image||productPhotos(p)[0]||"/armek-logo.jpg"}" alt="${p.name||"Ürün"}"></div><div class="product-body"><span class="product-category">${p.category||"Ürün"}</span><h3>${p.name||""}</h3><ul class="product-features">${productFeatures(p).slice(0,5).map(f=>`<li>${f}</li>`).join("")}</ul><div class="product-footer"><span class="product-price">${p.price||"Fiyat için arayın"}</span><button class="mini-button" type="button">Ürünü İncele</button></div></div></article>`).join("");
   $$('[data-product-index]').forEach(card=>card.onclick=e=>{e.preventDefault();openProduct(items[Number(card.dataset.productIndex)])});
   observeReveals();
  };
@@ -100,8 +106,22 @@ function renderBeforeAfter(works=[]){
  if(!list.length)root.closest("section")?.classList.add("section-hidden");
 }
 function updateStructuredData(data){
- const schema={"@context":"https://schema.org","@type":"LocalBusiness","name":data.businessName||"ARMEK Su Arıtma","url":"https://armeksuaritma.com.tr","image":data.seoImage||data.logoImage||"/armek-logo.jpg","telephone":data.phoneDisplay||"","address":{"@type":"PostalAddress","addressLocality":data.addressText||"Antalya","addressCountry":"TR"},"openingHours":data.workingHours||"","sameAs":[data.facebook,data.instagram,data.youtube,data.tiktok].filter(Boolean)};
- const node=$("#structuredData");if(node)node.textContent=JSON.stringify(schema);
+ const products=(data.products||[]).filter(x=>x&&x.active!==false).slice(0,20);
+ const graph=[{
+  "@type":"LocalBusiness",
+  "@id":"https://armeksuaritma.com.tr/#business",
+  "name":data.businessName||"ARMEK Su Arıtma",
+  "url":"https://armeksuaritma.com.tr/",
+  "logo":new URL(data.logoImage||"/armek-logo.jpg",location.origin).href,
+  "image":new URL(data.seoImage||data.logoImage||"/armek-logo.jpg",location.origin).href,
+  "telephone":data.phoneDisplay||"",
+  "description":data.seoDescription||data.heroText||"",
+  "areaServed":"Antalya",
+  "address":{"@type":"PostalAddress","addressLocality":data.addressText||"Antalya","addressCountry":"TR"},
+  "sameAs":[data.facebook,data.instagram].filter(Boolean)
+ }];
+ if(products.length){graph.push({"@type":"ItemList","name":"ARMEK Su Arıtma Ürünleri","itemListElement":products.map((p,i)=>({"@type":"ListItem","position":i+1,"item":{"@type":"Product","name":p.name||"Ürün","image":p.image?new URL(p.image,location.origin).href:undefined,"description":productFeatures(p).join(", "),"brand":p.brand?{"@type":"Brand","name":p.brand}:undefined}}))})}
+ const node=$("#structuredData");if(node)node.textContent=JSON.stringify({"@context":"https://schema.org","@graph":graph});
 }
 function render(data){
  DATA={...fallback,...data,visibility:{...fallback.visibility,...(data.visibility||{})}};
@@ -118,7 +138,7 @@ function render(data){
  ["whatsappHero","whatsappAbout","whatsappContact","floatingWhatsapp"].forEach(id=>setLink(id,wa));
  ["facebookTop","facebookFooter"].forEach(id=>setLink(id,DATA.facebook||"#"));
  ["instagramTop","instagramFooter"].forEach(id=>setLink(id,DATA.instagram||"#"));
- setText("contactEmail",DATA.email||"");setText("workingHours",DATA.workingHours||"");setLink("googleReview",DATA.googleReviewUrl||"#");const mf=$("#mapFrame");if(mf){if(DATA.mapEmbed){mf.src=DATA.mapEmbed}else{mf.closest(".map-card")?.classList.add("section-hidden")}};updateStructuredData(DATA);
+ const gv=$("#googleSiteVerification");if(gv)gv.content=DATA.googleSiteVerification||"";const cl=$("#canonicalLink");if(cl)cl.href="https://armeksuaritma.com.tr/";updateStructuredData(DATA);
  renderHeroSlides(DATA);renderProducts(DATA.products||[]);renderWorks(DATA.works||[]);renderBrands(DATA.brands||[]);renderBeforeAfter(DATA.works||[]);
  $("#services").innerHTML=(DATA.services||[]).map((s,i)=>`<article class="service-card reveal"><div class="service-icon">${String(i+1).padStart(2,"0")}</div><h3>${s.title||""}</h3><p>${s.text||""}</p></article>`).join("");
  $("#prices").innerHTML=(DATA.prices||[]).map(p=>`<article class="price-card"><div><h3>${p.title||""}</h3><small>${p.note||""}</small></div><strong>${p.price||""}</strong></article>`).join("");

@@ -39,14 +39,20 @@ collections:
               - {label: "Marka", name: "brand", widget: "string", required: false}
               - {label: "Model", name: "model", widget: "string", required: false}
               - {label: "Kategori", name: "category", widget: "select", options: ["Su Arıtma Cihazları", "Filtreler", "Tanklar", "Yedek Parçalar", "Diğer"]}
-              - {label: "Kısa açıklama", name: "description", widget: "text"}
+              - {label: "Kısa açıklama (isteğe bağlı)", name: "description", widget: "text", required: false}
               - {label: "Fiyat", name: "price", widget: "string", required: false}
               - {label: "Etiket", name: "badge", widget: "select", required: false, options: ["Yeni", "Kampanya", "Çok Satan", "Tavsiye Edilen"]}
-              - label: "Özellikler"
+              - label: "Ürün özellikleri"
+                name: "featureText"
+                widget: "text"
+                required: false
+                hint: "Her özelliği ayrı satıra yazın. Sitede alt alta gösterilir."
+              - label: "Eski özellik listesi (uyumluluk)"
                 name: "features"
                 widget: "list"
                 required: false
                 default: []
+                collapsed: true
                 field: {label: "Özellik", name: "item", widget: "string"}
               - {label: "Aşama sayısı", name: "stages", widget: "string", required: false}
               - {label: "Kapasite", name: "capacity", widget: "string", required: false}
@@ -54,8 +60,6 @@ collections:
               - {label: "Stok durumu", name: "stockStatus", widget: "select", required: false, options: ["Stokta", "Sipariş Üzerine", "Tükendi"]}
               - {label: "Sıralama", name: "order", widget: "number", required: false, value_type: "int", default: 100}
               - {label: "Öne çıkan ürün", name: "featured", widget: "boolean", default: false}
-              - {label: "YouTube video bağlantısı", name: "video", widget: "string", required: false}
-              - {label: "PDF katalog bağlantısı", name: "catalog", widget: "string", required: false}
               - {label: "Yayında", name: "active", widget: "boolean", default: true}
 
   - name: "works_management"
@@ -84,12 +88,8 @@ collections:
               - {label: "İlçe / konum", name: "location", widget: "string", required: false}
               - {label: "Tarih", name: "date", widget: "datetime", format: "DD.MM.YYYY", date_format: "DD.MM.YYYY", time_format: false, required: false}
               - {label: "Açıklama", name: "text", widget: "text", required: false}
-              - {label: "Öncesi fotoğrafı", name: "beforeImage", widget: "image", required: false}
-              - {label: "Sonrası fotoğrafı", name: "afterImage", widget: "image", required: false}
               - {label: "Kullanılan ürün / cihaz", name: "usedProduct", widget: "string", required: false}
               - {label: "İşlem süresi", name: "duration", widget: "string", required: false}
-              - {label: "Harita bağlantısı", name: "mapUrl", widget: "string", required: false}
-              - {label: "Video bağlantısı", name: "video", widget: "string", required: false}
               - {label: "Yayında", name: "active", widget: "boolean", default: true}
 
   - name: "campaigns_management"
@@ -196,12 +196,6 @@ collections:
           - {label: "WhatsApp mesajı", name: "whatsappMessage", widget: "text"}
           - {label: "Facebook", name: "facebook", widget: "string", required: false}
           - {label: "Instagram", name: "instagram", widget: "string", required: false}
-          - {label: "YouTube", name: "youtube", widget: "string", required: false}
-          - {label: "TikTok", name: "tiktok", widget: "string", required: false}
-          - {label: "E-posta", name: "email", widget: "string", required: false}
-          - {label: "Çalışma saatleri", name: "workingHours", widget: "string", required: false}
-          - {label: "Google yorum bağlantısı", name: "googleReviewUrl", widget: "string", required: false}
-          - {label: "Google harita embed bağlantısı", name: "mapEmbed", widget: "string", required: false}
           - {label: "Adres", name: "addressText", widget: "string"}
           - {label: "Alt bilgi", name: "footerText", widget: "string"}
           - {label: "Ana sayfa küçük başlık", name: "heroEyebrow", widget: "string"}
@@ -241,7 +235,6 @@ collections:
               - {label: "Hizmet bölgeleri", name: "areas", widget: "boolean", default: true}
               - {label: "S.S.S.", name: "faq", widget: "boolean", default: true}
               - {label: "Markalar", name: "brands", widget: "boolean", default: true}
-              - {label: "Öncesi / Sonrası", name: "beforeAfter", widget: "boolean", default: true}
           - label: "Markalar ve referanslar"
             name: "brands"
             widget: "list"
