@@ -112,7 +112,46 @@ $$(".main-nav a").forEach(a=>a.onclick=()=>$(".main-nav").classList.remove("open
 $("#lightboxClose").onclick=()=>$("#lightbox").classList.remove("open");$("#lightbox").onclick=e=>{if(e.target===$("#lightbox"))$("#lightbox").classList.remove("open")};
 $("#lightboxPrev").onclick=()=>{galleryIndex=(galleryIndex-1+currentGallery.length)%currentGallery.length;$("#lightboxImage").src=currentGallery[galleryIndex]};
 $("#lightboxNext").onclick=()=>{galleryIndex=(galleryIndex+1)%currentGallery.length;$("#lightboxImage").src=currentGallery[galleryIndex]};
-fetch(`/content.json?v=${Date.now()}`).then(r=>r.ok?r.json():Promise.reject()).then(render).catch(()=>render(fallback));
+async function loadFolderCollection(folder){
+ const api=`https://api.github.com/repos/armeksuaritma/armek-website/contents/content/${folder}?ref=main`;
+ try{
+  const response=await fetch(api,{headers:{Accept:"application/vnd.github+json"}});
+  if(response.status===404)return [];
+  if(!response.ok)throw new Error(`GitHub API ${response.status}`);
+  const files=await response.json();
+  const jsonFiles=(Array.isArray(files)?files:[]).filter(file=>file.type==="file"&&file.name.endsWith(".json"));
+  const entries=await Promise.all(jsonFiles.map(async file=>{
+   const raw=await fetch(`${file.download_url}${file.download_url.includes("?")?"&":"?"}v=${Date.now()}`);
+   if(!raw.ok)return null;
+   const item=await raw.json();
+   item.__file=file.name;
+   return item;
+  }));
+  return entries.filter(Boolean).filter(item=>item.visible!==false).sort((a,b)=>(Number(a.order)||100)-(Number(b.order)||100));
+ }catch(error){console.warn(`${folder} koleksiyonu yüklenemedi`,error);return []}
+}
+async function boot(){
+ let base=fallback;
+ try{const response=await fetch(`/content.json?v=${Date.now()}`);if(response.ok)base=await response.json()}catch(error){console.warn("content.json yüklenemedi",error)}
+ const [products,works,testimonials,services,campaigns,faqs]=await Promise.all([
+  loadFolderCollection("products"),loadFolderCollection("works"),loadFolderCollection("testimonials"),loadFolderCollection("services"),loadFolderCollection("campaigns"),loadFolderCollection("faqs")
+ ]);
+ const merged={...base};
+ if(products.length)merged.products=products;
+ if(works.length)merged.works=works;
+ if(testimonials.length)merged.testimonials=testimonials;
+ if(services.length)merged.services=services;
+ if(faqs.length)merged.faqs=faqs;
+ if(campaigns.length){
+  const campaign=campaigns[0];
+  merged.campaignTitle=campaign.title||merged.campaignTitle;
+  merged.campaignText=campaign.text||merged.campaignText;
+  merged.campaignImage=campaign.image||merged.campaignImage;
+  merged.prices=campaign.prices||merged.prices;
+ }
+ render(merged);
+}
+boot();
 $$('[data-product-close]').forEach(el=>el.onclick=closeProduct);
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeProduct()});
 $$('[data-product-nav]').forEach(link=>link.addEventListener('click',()=>{setTimeout(()=>window.selectProductCategory&&window.selectProductCategory(link.dataset.productNav),100)}));
