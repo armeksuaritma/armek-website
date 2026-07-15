@@ -1,17 +1,6 @@
 {
   "products": [
     {
-      "featureText": "Malzeme: Yüksek kaliteli pirinç gövde üzerine korozyona dayanıklı parlak krom kaplama.\nKartuş Sistemi: Uzun ömürlü ve damlatma yapmayan seramik diskli salmastra/kartuş yapısı.\nBağlantı: Standart 1/4\" (6 mm) arıtma hortumu bağlantısı ile tüm ev tipi cihazlara %100 uyumludur.\nTasarım: 360° dönebilen yüksek \"Kuğu Boynu\" borusu sayesinde büyük sürahi ve tencereleri kolayca doldurma imkanı sunar.",
-      "active": true,
-      "name": "Lüks  Kuğu Tipi Arıtma Musluğu",
-      "featured": false,
-      "order": 100,
-      "images": [],
-      "image": "/uploads/lüx-musluk.jpg",
-      "features": [],
-      "category": "Diğer"
-    },
-    {
       "featureText": "2 1/2\" Çubuklu Sediment Filtre\n2 1/2\" Çubuklu Gac Karbon Filtre\n2 1/2\" Çubuklu Sediment Filtre\nMembran\nÇubuklu 1840 Post Karbon Filtre\nLüks Musluk\n2,2 Metal TR Tank \nQuick Fittings",
       "active": true,
       "stockStatus": "Stokta",
@@ -58,6 +47,17 @@
       "image": "/uploads/krs-34.png",
       "features": [],
       "category": "Su Arıtma Cihazları"
+    },
+    {
+      "featureText": "Malzeme: Yüksek kaliteli pirinç gövde üzerine korozyona dayanıklı parlak krom kaplama.\nKartuş Sistemi: Uzun ömürlü ve damlatma yapmayan seramik diskli salmastra/kartuş yapısı.\nBağlantı: Standart 1/4\" (6 mm) arıtma hortumu bağlantısı ile tüm ev tipi cihazlara %100 uyumludur.\nTasarım: 360° dönebilen yüksek \"Kuğu Boynu\" borusu sayesinde büyük sürahi ve tencereleri kolayca doldurma imkanı sunar.",
+      "active": true,
+      "name": "Lüks  Kuğu Tipi Arıtma Musluğu",
+      "featured": false,
+      "order": 100,
+      "images": [],
+      "image": "/uploads/lüx-musluk.jpg",
+      "features": [],
+      "category": "Diğer"
     },
     {
       "featureText": "Bu modelde ek bir dış hazne bulunmaz; arıtılan su doğrudan sebilin kendi iç tankına aktarılır. Daha minimalist bir çözüm arayanlar için uygundur.\nYapı: Sadece sebilin üstünü kapatan özel bir kapak ve şamandıra düzeneğinden oluşur.\nBağlantı: Set içeriğinde genellikle 5 metrelik hortum, bağlantı dirseği ve şamandıra bulunur.\nUyum: Piyasada satılan standart üstten damacanalı tüm sebiller ile uyumludur.",
