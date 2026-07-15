@@ -78,7 +78,7 @@
     "works": true,
     "products": true,
     "areas": true,
-    "brands": false,
+    "brands": true,
     "about": true,
     "campaign": true,
     "testimonials": true,
