@@ -1,4 +1,5 @@
 {
+  "heroImage": "/uploads/gemini_generated_image_xmulihxmulihxmul.png",
   "addressText": "Antalya",
   "campaignVisible": true,
   "areas": [
@@ -33,7 +34,10 @@
   ],
   "campaignImage": "/uploads/gemini_generated_image_le45t1le45t1le45.png",
   "businessName": "ARMEK Su Arıtma",
+  "aboutImage": "/uploads/ortimax-600x900w.jpg",
   "heroEyebrow": "ARMEK SU ARITMA SERVİSİ",
+  "logoImage": "/uploads/723844490_122107968009358712_5953829953980177629_n.jpg",
+  "siteLogo": "armek-logo.jpg",
   "instagram": "https://www.instagram.com/aritmamekanik/",
   "phoneDisplay": "0552 522 35 75",
   "whatsappMessage": "Merhaba, su arıtma hizmetleri hakkında bilgi almak istiyorum.",
@@ -98,8 +102,5 @@
       "text": "Su kaçağı, basınç, tank, musluk ve bağlantı sorunlarında servis desteği."
     }
   ],
-  "heroTitle": "Su Arıtma Cihazı Satış, Montaj ve Filtre Değişimi",
-  "siteLogo": "armek-logo.jpg",
-  "heroImage": "/uploads/gemini_generated_image_xmulihxmulihxmul.png",
-  "aboutImage": "/uploads/ortimax-600x900w.jpg"
+  "heroTitle": "Su Arıtma Cihazı Satış, Montaj ve Filtre Değişimi"
 }
