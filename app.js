@@ -39,6 +39,22 @@ function bindAnalyticsClicks(){
   }
  },{capture:true});
 }
+function bindEngagementTracking(){
+ let sent50=false,sent90=false;
+ window.addEventListener("scroll",()=>{
+  const max=Math.max(document.documentElement.scrollHeight-window.innerHeight,1);
+  const percent=Math.round((window.scrollY/max)*100);
+  if(percent>=50&&!sent50){sent50=true;trackEvent("scroll_depth",{percent_scrolled:50,page_location:location.href})}
+  if(percent>=90&&!sent90){sent90=true;trackEvent("scroll_depth",{percent_scrolled:90,page_location:location.href})}
+ },{passive:true});
+ document.addEventListener("click",event=>{
+  const link=event.target.closest("a");if(!link)return;
+  const href=link.href||"";
+  if(href&&link.hostname&&link.hostname!==location.hostname&&!/^https:\/\/wa\.me\//i.test(href)){
+   trackEvent("outbound_click",{link_url:href,link_text:(link.textContent||"").trim(),page_location:location.href});
+  }
+ },{capture:true});
+}
 function stars(n){const v=Math.max(1,Math.min(5,Number(n)||5));return "★".repeat(v)+"☆".repeat(5-v)}
 function productFeatures(product){
  const out=[];
@@ -254,6 +270,7 @@ async function boot(){
  render(merged);
 }
 bindAnalyticsClicks();
+bindEngagementTracking();
 boot();
 $$('[data-product-close]').forEach(el=>el.onclick=closeProduct);
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeProduct()});
