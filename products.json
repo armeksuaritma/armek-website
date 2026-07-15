@@ -1,3 +1,15 @@
 {
-  "products": []
+  "products": [
+    {
+      "featureText": "Ürün Özellikleri:\nTak Çevir Sediment Filtre\n Tak Çevir Gac Karbon Filtre\n Tak Çevir Gac Karbon Filtre\n Noname Membran\n Tak Çevir Post  Karbon Filtre\n Lüks Musluk\n 2,2 Metal TR Tank  \n Quick Fittings",
+      "active": true,
+      "name": "N-RO Pompasız",
+      "featured": false,
+      "order": 100,
+      "images": [],
+      "image": "/uploads/ro-pompasız.png",
+      "features": [],
+      "category": "Su Arıtma Cihazları"
+    }
+  ]
 }
