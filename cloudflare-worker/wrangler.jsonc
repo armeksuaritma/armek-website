@@ -1,0 +1,12 @@
+{
+  "name": "armek-visitor-counter",
+  "main": "worker.js",
+  "compatibility_date": "2026-07-15",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "armek-visitor-counter-db",
+      "database_id": "BURAYA_D1_DATABASE_ID_GELECEK"
+    }
+  ]
+}

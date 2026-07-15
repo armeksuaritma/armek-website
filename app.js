@@ -269,9 +269,45 @@ async function boot(){
  };
  render(merged);
 }
+
+const VISITOR_COUNTER_ENDPOINT="https://armek-visitor-counter.armeksuaritma.workers.dev";
+function getVisitorId(){
+ try{
+  let id=localStorage.getItem("armek_visitor_id");
+  if(!id){id=(crypto.randomUUID?crypto.randomUUID():`${Date.now()}-${Math.random().toString(36).slice(2)}`);localStorage.setItem("armek_visitor_id",id)}
+  return id;
+ }catch(e){return `session-${Date.now()}-${Math.random().toString(36).slice(2)}`}
+}
+function formatVisitorCount(value){return new Intl.NumberFormat("tr-TR").format(Number(value)||0)}
+async function updateVisitorCounter(){
+ const box=$("#visitorCounter");if(!box)return;
+ try{
+  const response=await fetch(`${VISITOR_COUNTER_ENDPOINT}/visit`,{
+   method:"POST",
+   headers:{"Content-Type":"application/json"},
+   body:JSON.stringify({visitorId:getVisitorId(),path:location.pathname}),
+   cache:"no-store"
+  });
+  if(!response.ok)throw new Error("counter unavailable");
+  const stats=await response.json();
+  setText("visitorTotal",formatVisitorCount(stats.total));
+  setText("visitorToday",formatVisitorCount(stats.today));
+  setText("visitorOnline",formatVisitorCount(stats.online));
+  box.hidden=false;
+ }catch(error){
+  box.hidden=true;
+ }
+}
+function startVisitorHeartbeat(){
+ updateVisitorCounter();
+ setInterval(updateVisitorCounter,120000);
+ document.addEventListener("visibilitychange",()=>{if(!document.hidden)updateVisitorCounter()});
+}
+
 bindAnalyticsClicks();
 bindEngagementTracking();
 boot();
+startVisitorHeartbeat();
 $$('[data-product-close]').forEach(el=>el.onclick=closeProduct);
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeProduct()});
 $$('[data-product-nav]').forEach(link=>link.addEventListener('click',()=>{setTimeout(()=>window.selectProductCategory&&window.selectProductCategory(link.dataset.productNav),100)}));

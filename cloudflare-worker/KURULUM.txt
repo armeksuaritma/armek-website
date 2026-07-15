@@ -1,0 +1,25 @@
+ARMEK V12 GERÇEK ZİYARETÇİ SAYACI — CLOUDFLARE KURULUMU
+
+Bu klasörü GitHub'a yüklemeyin. Cloudflare Worker kurulumu içindir.
+
+1. Cloudflare > Workers & Pages > Create application > Start with Hello World.
+2. Worker adı tam olarak: armek-visitor-counter
+3. Worker oluşturulduktan sonra Edit code'a girin.
+4. worker.js dosyasındaki kodun tamamını yapıştırıp Deploy edin.
+5. Cloudflare sol menü: Storage & Databases > D1 SQL Database > Create.
+6. Veritabanı adı: armek-visitor-counter-db
+7. Oluşturulan veritabanında Console bölümünü açın.
+8. schema.sql içeriğinin tamamını yapıştırıp Execute/Run yapın.
+9. Worker > Bindings > Add binding > D1 Database.
+10. Variable name: DB
+11. Database: armek-visitor-counter-db
+12. Save and Deploy yapın.
+13. Şu adresi açarak test edin:
+    https://armek-visitor-counter.armeksuaritma.workers.dev/health
+14. {"ok":true,...} görünürse sayaç hazırdır.
+
+Sayaç mantığı:
+- Toplam: tarayıcı başına tekil ziyaretçi.
+- Bugün: Türkiye saatine göre günlük tekil ziyaretçi.
+- Çevrimiçi: son 5 dakikada açık/aktif olan tarayıcılar.
+- Sayaç iki dakikada bir kendini yeniler.

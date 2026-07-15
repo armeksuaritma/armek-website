@@ -47,3 +47,19 @@
 .hero-slider:has(.hero-video-wrap){background:#071d31}
 @media(max-width:820px){.hero-video,.hero-video-fallback{min-height:390px}}
 @media(max-width:560px){.hero-video,.hero-video-fallback{min-height:335px}.hero-video{object-fit:cover}.hero-video-fallback{padding:8px}}
+
+
+/* V12 gerçek ziyaretçi sayacı */
+.visitor-counter{border-top:1px solid rgba(255,255,255,.1);background:#04182b;color:#d9e9f5}
+.visitor-counter[hidden]{display:none!important}
+.visitor-counter-inner{min-height:76px;display:flex;align-items:center;justify-content:center;gap:34px;flex-wrap:wrap;padding:14px 0}
+.visitor-counter-title{font-size:12px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:#7ebeea}
+.visitor-stat{display:grid;grid-template-columns:10px auto;column-gap:9px;align-items:center}
+.visitor-stat strong{font-size:18px;line-height:1.1;color:#fff}
+.visitor-stat small{grid-column:2;font-size:11px;color:#9fb6c9}
+.visitor-dot{width:8px;height:8px;border-radius:50%;box-shadow:0 0 12px currentColor}
+.visitor-dot.total{color:#4ca8ff;background:currentColor}
+.visitor-dot.today{color:#ffd05a;background:currentColor}
+.visitor-dot.online{color:#31d67b;background:currentColor;animation:visitorPulse 1.8s ease-in-out infinite}
+@keyframes visitorPulse{50%{opacity:.45;transform:scale(.75)}}
+@media(max-width:700px){.visitor-counter-inner{gap:18px 24px;justify-content:flex-start}.visitor-counter-title{width:100%;text-align:center}.visitor-stat{flex:1;min-width:90px}.visitor-stat strong{font-size:16px}}

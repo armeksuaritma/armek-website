@@ -182,7 +182,21 @@
   </div>
   <div id="lightbox" class="lightbox" aria-hidden="true"><button id="lightboxClose" aria-label="Kapat">×</button><button id="lightboxPrev" class="lightbox-nav prev">‹</button><img id="lightboxImage" alt=""><button id="lightboxNext" class="lightbox-nav next">›</button><div id="lightboxCaption"></div></div>
   <a id="floatingWhatsapp" class="floating-whatsapp" aria-label="WhatsApp’tan yaz">✆</a>
-  <footer><div class="container footer-inner"><div class="footer-brand"><img id="footerLogo" src="/armek-logo.jpg" alt="ARMEK"><span id="footerText"></span></div><div class="social-links"><a id="facebookFooter" target="_blank" rel="noopener">Facebook</a><a id="instagramFooter" target="_blank" rel="noopener">Instagram</a></div><small>© <span id="year"></span> Tüm hakları saklıdır.</small></div></footer>
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-brand"><img id="footerLogo" src="/armek-logo.jpg" alt="ARMEK"><span id="footerText"></span></div>
+      <div class="social-links"><a id="facebookFooter" target="_blank" rel="noopener">Facebook</a><a id="instagramFooter" target="_blank" rel="noopener">Instagram</a></div>
+      <small>© <span id="year"></span> Tüm hakları saklıdır.</small>
+    </div>
+    <div id="visitorCounter" class="visitor-counter" aria-live="polite" hidden>
+      <div class="container visitor-counter-inner">
+        <span class="visitor-counter-title">Site İstatistikleri</span>
+        <div class="visitor-stat"><span class="visitor-dot total"></span><strong id="visitorTotal">—</strong><small>Toplam ziyaretçi</small></div>
+        <div class="visitor-stat"><span class="visitor-dot today"></span><strong id="visitorToday">—</strong><small>Bugün</small></div>
+        <div class="visitor-stat"><span class="visitor-dot online"></span><strong id="visitorOnline">—</strong><small>Şu anda çevrimiçi</small></div>
+      </div>
+    </div>
+  </footer>
   <script src="/app.js"></script>
 </body>
 </html>
