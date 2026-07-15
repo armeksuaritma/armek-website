@@ -2,6 +2,17 @@
   "works": [
     {
       "active": true,
+      "text": "Filtre seti yenilendi, bağlantılar kontrol edildi ve cihaz performans testi tamamlandı.",
+      "date": "15.07.2026",
+      "usedProduct": "NFS sertifikalı ürünler kullanıldı",
+      "location": "Milliegemenlik Caddesi",
+      "title": "5 Aşamalı Filtre Değişimi",
+      "images": [],
+      "image": "/uploads/chatgpt-image-16-tem-2026-01_14_31.png",
+      "category": "Filtre Değişimi"
+    },
+    {
+      "active": true,
       "text": "Pompasız Su Arıtma Cihazı ve Arıtma Musluğu Montajı yapıldı. Sağlıklı Günlerde Kullanın",
       "date": "13.07.2026",
       "usedProduct": "Kampanyalı Pompasız Su Arıtma Cihazı",
