@@ -1,6 +1,17 @@
 {
   "products": [
     {
+      "featureText": "Üretim Kapasitesi: Günde yaklaşık 600 - 750 Litre su arıtımına destek verir.\nGüç Tüketimi: Genellikle 60W civarındadır.\nÇalışma Voltajı: 24V DC (Güvenli düşük voltaj).\nUyumlu Membran: 200 GPD kapasiteli membranlar için özel olarak optimize edilmiştir.\nGövde Yapısı: Dayanıklı motor yapısı ve ısınma problemini ortadan kaldıran mühendislik tasarımıyla uzun süreli kullanıma uygundur.",
+      "active": true,
+      "name": "200 GPD Ro Pompa",
+      "featured": false,
+      "order": 100,
+      "images": [],
+      "image": "/uploads/200-gpd-ro-pompa.png",
+      "features": [],
+      "category": "Yedek Parçalar"
+    },
+    {
       "featureText": "Kapasite: 75-100 GPD membranlar ile tam uyumludur.\nÇalışma Voltajı: 24V DC.\nÇalışma Akımı: < 1.2 Amper.\nÇalışma Akışı: Dakikada yaklaşık 1 Litre (≧750ml/dk).Çıkış Basıncı: 80 - 120 PSI arası.\nBağlantı: Standart 1/4\" hortum giriş-çıkışları.",
       "active": true,
       "name": "75 GPD Ro Pompa",
