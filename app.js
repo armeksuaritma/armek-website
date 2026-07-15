@@ -34,13 +34,41 @@ function renderHeroSlides(data){
  $$(".slider-dot").forEach(d=>d.onclick=()=>show(Number(d.dataset.slide)));
  if(slides.length>1)timer=setInterval(()=>show(idx+1),5000);
 }
+function productPhotos(product){
+ const photos=[];
+ if(product.image)photos.push(product.image);
+ (product.images||[]).forEach(x=>{const src=typeof x==="string"?x:x.image;if(src&&!photos.includes(src))photos.push(src)});
+ return photos;
+}
+function openProduct(product){
+ const modal=$("#productModal"), photos=productPhotos(product), first=photos[0]||"/armek-logo.jpg";
+ $("#productModalImage").src=first;
+ $("#productModalImage").alt=product.name||"Ürün";
+ setText("productModalCategory",product.category||"Ürün");
+ setText("productModalName",product.name||"");
+ setText("productModalDescription",product.description||"");
+ setText("productModalPrice",product.price||"Fiyat için arayın");
+ $("#productModalFeatures").innerHTML=(product.features||[]).map(f=>`<li>${typeof f==="string"?f:f.item||""}</li>`).join("");
+ $("#productThumbs").innerHTML=photos.map((src,i)=>`<button class="product-thumb ${i===0?"active":""}" data-product-photo="${src}"><img src="${src}" alt="${product.name||"Ürün"} ${i+1}"></button>`).join("");
+ $$("[data-product-photo]").forEach(btn=>btn.onclick=()=>{$("#productModalImage").src=btn.dataset.productPhoto;$$('.product-thumb').forEach(x=>x.classList.remove('active'));btn.classList.add('active')});
+ $("#productModalWhatsapp").href=whatsapp(DATA.phoneLink,`${product.name||"Ürün"} hakkında bilgi almak istiyorum.`);
+ modal.classList.add("open");modal.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";
+}
+function closeProduct(){const modal=$("#productModal");modal.classList.remove("open");modal.setAttribute("aria-hidden","true");document.body.style.overflow=""}
 function renderProducts(items=[]){
  const root=$("#products"),filters=$("#productFilters"); if(!root)return;
- if(!items.length){root.innerHTML=`<div class="empty-note">Ürünler yönetici panelinden eklendiğinde burada görünecek.</div>`;filters.innerHTML="";return}
+ if(!items.length){root.innerHTML="";filters.innerHTML="";return}
  const cats=["Tümü",...new Set(items.map(x=>x.category||"Diğer"))];
  filters.innerHTML=cats.map((c,i)=>`<button class="filter-tab ${i===0?"active":""}" data-category="${c}">${c}</button>`).join("");
- const draw=cat=>{const list=cat==="Tümü"?items:items.filter(x=>(x.category||"Diğer")===cat);root.innerHTML=list.map(p=>`<article class="product-card reveal">${p.badge?`<span class="product-badge">${p.badge}</span>`:""}<div class="product-image"><img src="${p.image||"/armek-logo.jpg"}" alt="${p.name||"Ürün"}"></div><div class="product-body"><span class="product-category">${p.category||"Ürün"}</span><h3>${p.name||""}</h3><p>${p.description||""}</p><ul class="product-features">${(p.features||[]).map(f=>`<li>${typeof f==="string"?f:f.item||""}</li>`).join("")}</ul><div class="product-footer"><span class="product-price">${p.price||"Fiyat için arayın"}</span><a class="mini-button" href="${whatsapp(DATA.phoneLink,`${p.name||"Ürün"} hakkında bilgi almak istiyorum.`)}" target="_blank">Bilgi Al</a></div></div></article>`).join("");observeReveals()};
- draw("Tümü");$$(".filter-tab",filters).forEach(btn=>btn.onclick=()=>{$$(".filter-tab",filters).forEach(x=>x.classList.remove("active"));btn.classList.add("active");draw(btn.dataset.category)});
+ const draw=cat=>{
+  const list=cat==="Tümü"?items:items.filter(x=>(x.category||"Diğer")===cat);
+  root.innerHTML=list.map((p,i)=>`<article class="product-card reveal" data-product-index="${items.indexOf(p)}">${p.badge?`<span class="product-badge">${p.badge}</span>`:""}<div class="product-image"><img src="${p.image||productPhotos(p)[0]||"/armek-logo.jpg"}" alt="${p.name||"Ürün"}"></div><div class="product-body"><span class="product-category">${p.category||"Ürün"}</span><h3>${p.name||""}</h3><p>${p.description||""}</p><ul class="product-features">${(p.features||[]).slice(0,4).map(f=>`<li>${typeof f==="string"?f:f.item||""}</li>`).join("")}</ul><div class="product-footer"><span class="product-price">${p.price||"Fiyat için arayın"}</span><button class="mini-button" type="button">Ürünü İncele</button></div></div></article>`).join("");
+  $$('[data-product-index]').forEach(card=>card.onclick=e=>{e.preventDefault();openProduct(items[Number(card.dataset.productIndex)])});
+  observeReveals();
+ };
+ draw("Tümü");
+ $$(".filter-tab",filters).forEach(btn=>btn.onclick=()=>{$$(".filter-tab",filters).forEach(x=>x.classList.remove("active"));btn.classList.add("active");draw(btn.dataset.category)});
+ window.selectProductCategory=cat=>{const target=[...filters.querySelectorAll('[data-category]')].find(x=>x.dataset.category===cat);if(target)target.click()};
 }
 function normalizePhotos(work){const photos=[];if(work.image)photos.push(work.image);(work.images||[]).forEach(x=>{const src=typeof x==="string"?x:x.image;if(src&&!photos.includes(src))photos.push(src)});return photos}
 function openLightbox(work,index=0){currentGallery=normalizePhotos(work);if(!currentGallery.length)return;galleryIndex=index;updateLightbox(work);$("#lightbox").classList.add("open");$("#lightbox").setAttribute("aria-hidden","false")}
@@ -85,3 +113,6 @@ $("#lightboxClose").onclick=()=>$("#lightbox").classList.remove("open");$("#ligh
 $("#lightboxPrev").onclick=()=>{galleryIndex=(galleryIndex-1+currentGallery.length)%currentGallery.length;$("#lightboxImage").src=currentGallery[galleryIndex]};
 $("#lightboxNext").onclick=()=>{galleryIndex=(galleryIndex+1)%currentGallery.length;$("#lightboxImage").src=currentGallery[galleryIndex]};
 fetch(`/content.json?v=${Date.now()}`).then(r=>r.ok?r.json():Promise.reject()).then(render).catch(()=>render(fallback));
+$$('[data-product-close]').forEach(el=>el.onclick=closeProduct);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeProduct()});
+$$('[data-product-nav]').forEach(link=>link.addEventListener('click',()=>{setTimeout(()=>window.selectProductCategory&&window.selectProductCategory(link.dataset.productNav),100)}));

@@ -23,7 +23,15 @@
       <button class="menu-button" aria-label="Menüyü aç" aria-expanded="false"><span></span><span></span><span></span></button>
       <nav class="main-nav">
         <a href="#anasayfa">Ana Sayfa</a>
-        <a class="nav-products" href="#urunler">Ürünler</a>
+        <div class="nav-dropdown nav-products">
+          <a href="#urunler" class="nav-dropdown-toggle">Ürünler <span>⌄</span></a>
+          <div class="product-mega-menu">
+            <a href="#urunler" data-product-nav="Su Arıtma Cihazları"><b>Su Arıtma Cihazları</b><small>Açık, kapalı ve direkt akış modelleri</small></a>
+            <a href="#urunler" data-product-nav="Filtreler"><b>Filtreler</b><small>Membran, sediment ve karbon filtreler</small></a>
+            <a href="#urunler" data-product-nav="Tanklar"><b>Tanklar</b><small>Su arıtma tankı seçenekleri</small></a>
+            <a href="#urunler" data-product-nav="Yedek Parçalar"><b>Yedek Parçalar</b><small>Pompa, adaptör, musluk ve bağlantılar</small></a>
+          </div>
+        </div>
         <a class="nav-campaign" href="#kampanya">Kampanya</a>
         <a class="nav-services" href="#hizmetler">Hizmetler</a>
         <a class="nav-works" href="#yaptigimiz-isler">Yaptığımız İşler</a>
@@ -133,6 +141,30 @@
     </section>
   </main>
 
+
+  <div id="productModal" class="product-modal" aria-hidden="true">
+    <div class="product-modal-backdrop" data-product-close></div>
+    <article class="product-modal-card">
+      <button class="product-modal-close" data-product-close aria-label="Ürün detayını kapat">×</button>
+      <div class="product-detail-grid">
+        <div class="product-detail-media">
+          <div class="product-main-image"><img id="productModalImage" alt=""></div>
+          <div id="productThumbs" class="product-thumbs"></div>
+        </div>
+        <div class="product-detail-copy">
+          <span id="productModalCategory" class="product-category"></span>
+          <h2 id="productModalName"></h2>
+          <p id="productModalDescription" class="product-detail-description"></p>
+          <h3>Ürün Özellikleri</h3>
+          <ul id="productModalFeatures" class="product-detail-features"></ul>
+          <div class="product-detail-bottom">
+            <strong id="productModalPrice"></strong>
+            <a id="productModalWhatsapp" class="button primary" target="_blank" rel="noopener">WhatsApp ile bilgi al</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
   <div id="lightbox" class="lightbox" aria-hidden="true"><button id="lightboxClose" aria-label="Kapat">×</button><button id="lightboxPrev" class="lightbox-nav prev">‹</button><img id="lightboxImage" alt=""><button id="lightboxNext" class="lightbox-nav next">›</button><div id="lightboxCaption"></div></div>
   <a id="floatingWhatsapp" class="floating-whatsapp" aria-label="WhatsApp’tan yaz">✆</a>
   <footer><div class="container footer-inner"><div class="footer-brand"><img id="footerLogo" src="/armek-logo.jpg" alt="ARMEK"><span id="footerText"></span></div><div class="social-links"><a id="facebookFooter" target="_blank" rel="noopener">Facebook</a><a id="instagramFooter" target="_blank" rel="noopener">Instagram</a></div><small>© <span id="year"></span> Tüm hakları saklıdır.</small></div></footer>
