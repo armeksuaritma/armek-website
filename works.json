@@ -1,6 +1,18 @@
 {
   "works": [
     {
+      "images": [
+        "/uploads/18022992467848991.jpg",
+        "/uploads/18022992467848991.jpg"
+      ],
+      "active": true,
+      "image": "/uploads/17920478703181668.jpg",
+      "category": "Cihaz Satışı",
+      "location": "Fener Mah. Antalya",
+      "text": "Bugünkü arızamız… 🔧💧\n\nMüşterimizin su yumuşatma sisteminde bulunan difüzör parçası zamanla çatlayarak görevini yerine getiremez hale gelmiş ve bunun sonucunda reçine taneleri bina tesisatına karışmıştır.\n\nArızalı parçayı yenisiyle değiştirerek sistemi tekrar güvenli ve sağlıklı şekilde çalışır hale getirdik.\n\n📌 Su yumuşatma sistemleri de düzenli bakım ister. Küçük bir parçanın zamanında kontrol edilmemesi, tüm bina tesisatını etkileyen büyük sorunlara yol açabilir.\n\n✅ Periyodik bakım\n✅ Arıza tespiti ve onarımı\n✅ Reçine değişimi\n✅ Yedek parça değişimi\n✅ Su arıtma ve su yumuşatma sistemleri\n\nArmek Su Arıtma olarak Antalya genelinde profesyonel servis hizmeti vermekteyiz.\n\n📞 Bilgi ve servis için bizimle iletişime geçebilirsiniz.",
+      "title": "Su Yumuşatma Sistemi Arızası Tespiti ve Giderilmesi"
+    },
+    {
       "active": true,
       "text": "Filtre seti yenilendi, bağlantılar kontrol edildi ve cihaz performans testi tamamlandı.",
       "date": "15.07.2026",
