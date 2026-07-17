@@ -1,3 +1,84 @@
 {
-  "faqs": []
+  "faqs": [
+    {
+      "q": "Su arıtma filtreleri kaç ayda bir değiştirilmelidir?",
+      "a": "Filtre değişim süresi kullanım miktarı ve şebeke suyunun kalitesine göre değişir. Antalya şartlarında sediment, karbon ve post karbon filtrelerin ortalama 6 ayda bir değiştirilmesi tavsiye edilir. Membran filtre ise genellikle 2-3 yıl kullanılabilir."
+    },
+    {
+      "q": "Membran filtre ne zaman değiştirilir?",
+      "a": "Membran filtrenin ömrü ortalama 2-3 yıldır. TDS değerinin yükselmesi, su tadının bozulması veya su üretiminin azalması membran değişim zamanının geldiğini gösterir."
+    },
+    {
+      "q": "Pompalı mı yoksa pompasız su arıtma cihazı almalıyım?",
+      "a": "Şebeke suyu basıncı düşük olan evlerde pompalı cihaz önerilir. Basınç yeterliyse pompasız cihaz daha sessiz çalışır ve elektrik tüketmez."
+    },
+    {
+      "q": "Antalya'nın hangi ilçelerine servis veriyorsunuz?",
+      "a": "Kepez, Muratpaşa, Konyaaltı, Döşemealtı, Aksu başta olmak üzere Antalya'nın tüm ilçelerine montaj, filtre değişimi ve teknik servis hizmeti sunuyoruz."
+    },
+    {
+      "q": "Su arıtma cihazı elektrik tüketir mi?",
+      "a": "Sadece pompalı modeller elektrik kullanır. Elektrik tüketimi oldukça düşüktür ve günlük kullanımda faturaya hissedilir bir yük oluşturmaz."
+    },
+    {
+      "q": "Arıtma cihazının suyu neden yavaş akar?",
+      "a": "Filtrelerin dolmuş olması, tank havasının azalması, membran filtrenin tıkanması veya şebeke basıncının düşük olması suyun yavaş akmasına neden olabilir."
+    },
+    {
+      "q": "Su arıtma cihazının atık su vermesi normal midir?",
+      "a": "Evet. Reverse Osmosis teknolojisiyle çalışan tüm kaliteli cihazlar temiz su üretirken kirli suyu atık hattına gönderir. Bu sistemin normal çalışma şeklidir."
+    },
+    {
+      "q": "Arıtılmış suyun TDS değeri kaç olmalıdır?",
+      "a": "Yeni filtrelerde ideal TDS değeri genellikle 5 ile 70 ppm arasındadır. Kullanılan membran ve şebeke suyuna göre küçük farklılıklar olabilir."
+    },
+    {
+      "q": "Filtre değişimi ne kadar sürer?",
+      "a": "Standart ev tipi su arıtma cihazlarında filtre değişimi ortalama 20-30 dakika sürmektedir."
+    },
+    {
+      "q": "Filtre değişimi yapılmazsa ne olur?",
+      "a": "Eski filtreler suyu yeterince arıtamaz, suyun tadı ve kokusu bozulabilir. Ayrıca membran filtrenin ömrü ciddi şekilde kısalabilir."
+    },
+    {
+      "q": "Su yumuşatma sistemi ne işe yarar?",
+      "a": "Su yumuşatma sistemi sudaki kireç oranını düşürerek kombi, çamaşır makinesi, bulaşık makinesi ve tesisatın kireçlenmesini önlemeye yardımcı olur."
+    },
+    {
+      "q": "Su yumuşatma sistemi bakımı ne zaman yapılmalıdır?",
+      "a": "Yılda en az bir kez genel bakım yapılması tavsiye edilir. Reçine kontrolü, valf temizliği ve sistem ayarları düzenli olarak kontrol edilmelidir."
+    },
+    {
+      "q": "Su yumuşatma cihazına tuz ne zaman eklenmelidir?",
+      "a": "Tuz seviyesi tankın üçte birinin altına düştüğünde kaliteli tablet tuz ilave edilmelidir. Tuz tamamen bitmeden eklenmesi önerilir."
+    },
+    {
+      "q": "Su yumuşatma cihazı neden sürekli su boşaltır?",
+      "a": "Valf arızası, yanlış zamanlama ayarı veya rejenerasyon sırasında olması nedeniyle görülebilir. Sürekli devam ediyorsa teknik servis kontrol etmelidir."
+    },
+    {
+      "q": "Su yumuşatma reçinesi değişir mi?",
+      "a": "Evet. Ortalama kullanım ömrü 8-12 yıl arasındadır. Su kalitesine göre bu süre değişebilir."
+    },
+    {
+      "q": "Su arıtma cihazından kötü koku gelmesinin sebebi nedir?",
+      "a": "Filtrelerin kullanım süresini doldurması, uzun süre kullanılmaması veya bakteriyel oluşumlar kötü kokuya neden olabilir."
+    },
+    {
+      "q": "Arıtılmış su bebekler için uygun mudur?",
+      "a": "Bakımları düzenli yapılan kaliteli su arıtma cihazlarından elde edilen su bebek maması hazırlamada güvenle kullanılabilir."
+    },
+    {
+      "q": "Çay ve kahvenin tadı neden değişiyor?",
+      "a": "Klor ve kireç oranı düştüğü için çay ve kahvenin gerçek aroması ortaya çıkar. Bu nedenle daha yumuşak ve lezzetli bir tat elde edilir."
+    },
+    {
+      "q": "Montaj sırasında mutfak dolabına zarar veriliyor mu?",
+      "a": "Hayır. Montaj işlemleri profesyonel ekipmanlarla yapılır ve gerekli tüm işlemler minimum müdahaleyle gerçekleştirilir."
+    },
+    {
+      "q": "Aynı gün teknik servis hizmeti veriyor musunuz?",
+      "a": "Yoğunluğa bağlı olarak Antalya merkezde mümkün olduğunca aynı gün servis vermeye çalışıyoruz. Acil durumlarda öncelikli randevu oluşturulabilir."
+    }
+  ]
 }
