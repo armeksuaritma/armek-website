@@ -81,8 +81,14 @@ collections:
                 default: []
                 field: {label: "Fotoğraf", name: "image", widget: "image", required: false}
               - {label: "Ürün adı", name: "name", widget: "string"}
+              - {label: "SEO adresi (isteğe bağlı)", name: "slug", widget: "string", required: false, hint: "Boş bırakırsanız ürün adından otomatik oluşturulur. Örn: n-ro-pompasiz"}
               - {label: "Kategori", name: "category", widget: "select", options: ["Su Arıtma Cihazları", "Filtreler", "Tanklar", "Yedek Parçalar", "Diğer"]}
               - {label: "Kısa açıklama", name: "description", widget: "text", required: false}
+              - {label: "Detaylı ürün açıklaması", name: "longDescription", widget: "markdown", required: false, hint: "Kimler için uygun, kullanım alanı, bakım ve avantajlar gibi özgün bilgiler yazın."}
+              - {label: "Google başlığı", name: "seoTitle", widget: "string", required: false, hint: "Boş bırakılırsa otomatik oluşturulur."}
+              - {label: "Google açıklaması", name: "seoDescription", widget: "text", required: false, hint: "Boş bırakılırsa ürün bilgilerinden otomatik oluşturulur."}
+              - {label: "Marka", name: "brand", widget: "string", required: false}
+              - {label: "Model", name: "model", widget: "string", required: false}
               - label: "Ürün özellikleri"
                 name: "featureText"
                 widget: "text"
@@ -115,10 +121,14 @@ collections:
                 default: []
                 field: {label: "Fotoğraf", name: "image", widget: "image", required: false}
               - {label: "Başlık", name: "title", widget: "string"}
+              - {label: "SEO adresi (isteğe bağlı)", name: "slug", widget: "string", required: false, hint: "Boş bırakırsanız başlıktan otomatik oluşturulur."}
               - {label: "Kategori", name: "category", widget: "select", options: ["Montaj", "Filtre Değişimi", "Teknik Servis", "Cihaz Satışı", "Diğer"]}
               - {label: "İlçe / konum", name: "location", widget: "string", required: false}
               - {label: "Tarih", name: "date", widget: "datetime", format: "DD.MM.YYYY", date_format: "DD.MM.YYYY", time_format: false, required: false}
               - {label: "Açıklama", name: "text", widget: "text", required: false}
+              - {label: "Detaylı çalışma açıklaması", name: "longDescription", widget: "markdown", required: false, hint: "Yapılan işlem, kullanılan ürün, sorun ve çözüm gibi özgün ayrıntılar ekleyin."}
+              - {label: "Google başlığı", name: "seoTitle", widget: "string", required: false}
+              - {label: "Google açıklaması", name: "seoDescription", widget: "text", required: false}
               - {label: "Yayında", name: "active", widget: "boolean", default: true}
 
   - name: "campaigns_management"
@@ -204,6 +214,30 @@ collections:
               - {label: "Cevap", name: "a", widget: "text"}
               - {label: "Yayında", name: "active", widget: "boolean", default: true}
 
+  - name: "articles_management"
+    label: "Bilgi Yazıları"
+    files:
+      - name: "articles"
+        label: "SEO Bilgi Yazıları"
+        file: "articles.json"
+        format: "json"
+        fields:
+          - label: "Yazılar"
+            name: "articles"
+            widget: "list"
+            add_to_top: true
+            summary: "{{fields.title}}"
+            fields:
+              - {label: "Başlık", name: "title", widget: "string"}
+              - {label: "SEO adresi", name: "slug", widget: "string", required: false}
+              - {label: "Kapak görseli", name: "image", widget: "image", required: false}
+              - {label: "Kısa özet", name: "summary", widget: "text"}
+              - {label: "Yazı içeriği", name: "body", widget: "markdown"}
+              - {label: "Google başlığı", name: "seoTitle", widget: "string", required: false}
+              - {label: "Google açıklaması", name: "seoDescription", widget: "text", required: false}
+              - {label: "Yayın tarihi", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, required: false}
+              - {label: "Yayında", name: "active", widget: "boolean", default: true}
+
   - name: "settings_management"
     label: "Site Ayarları"
     files:
@@ -221,6 +255,11 @@ collections:
           - {label: "Facebook", name: "facebook", widget: "string", required: false}
           - {label: "Instagram", name: "instagram", widget: "string", required: false}
           - {label: "Adres / hizmet alanı", name: "addressText", widget: "string", required: false}
+          - {label: "Açık adres", name: "streetAddress", widget: "string", required: false}
+          - {label: "İlçe", name: "addressDistrict", widget: "string", required: false}
+          - {label: "Posta kodu", name: "postalCode", widget: "string", required: false}
+          - {label: "E-posta", name: "email", widget: "string", required: false}
+          - {label: "Çalışma saatleri", name: "openingHours", widget: "string", required: false, hint: "Örn: Mo-Sa 09:00-19:00"}
           - {label: "Alt bilgi", name: "footerText", widget: "string", required: false}
           - {label: "Hizmet bölgeleri", name: "areas", widget: "list", required: false, field: {label: "Bölge", name: "item", widget: "string"}}
           - label: "Bölüm görünürlükleri"

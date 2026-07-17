@@ -107,6 +107,10 @@ function renderHeroMedia(data){
 
  slider.innerHTML=`<div class="hero-slide active"><img src="${data.heroImage||fallback.heroImage}" alt="${data.heroTitle||"ARMEK Su Arıtma"}"></div>`;
 }
+
+function seoSlug(value){
+ return String(value||"").toLocaleLowerCase("tr-TR").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/ı/g,"i").replace(/ğ/g,"g").replace(/ü/g,"u").replace(/ş/g,"s").replace(/ö/g,"o").replace(/ç/g,"c").replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"")||"detay";
+}
 function productPhotos(product){
  const photos=[];
  if(product.image)photos.push(product.image);
@@ -140,8 +144,8 @@ function renderProducts(items=[]){
  filters.innerHTML=cats.map((c,i)=>`<button class="filter-tab ${i===0?"active":""}" data-category="${c}">${c}</button>`).join("");
  const draw=cat=>{
   const list=cat==="Tümü"?items:items.filter(x=>(x.category||"Diğer")===cat);
-  root.innerHTML=list.map((p,i)=>`<article class="product-card reveal" data-product-index="${items.indexOf(p)}">${p.badge?`<span class="product-badge">${p.badge}</span>`:""}<div class="product-image"><img src="${p.image||productPhotos(p)[0]||"/armek-logo.jpg"}" alt="${p.name||"Ürün"}"></div><div class="product-body"><span class="product-category">${p.category||"Ürün"}</span><h3>${p.name||""}</h3><ul class="product-features">${productFeatures(p).map(f=>`<li>${f}</li>`).join("")}</ul><div class="product-footer"><a class="product-whatsapp-button" href="${whatsapp(DATA.phoneLink,`${p.name||"Ürün"} için fiyat bilgisi almak istiyorum.`)}" target="_blank" rel="noopener">Fiyat Sor</a></div></div></article>`).join("");
-  $$('[data-product-index]').forEach(card=>card.onclick=e=>{if(e.target.closest('.product-whatsapp-button'))return;e.preventDefault();openProduct(items[Number(card.dataset.productIndex)])});
+  root.innerHTML=list.map((p,i)=>`<article class="product-card reveal" data-product-index="${items.indexOf(p)}">${p.badge?`<span class="product-badge">${p.badge}</span>`:""}<a class="product-image" href="/urun/${p.slug||seoSlug(p.name)}/" aria-label="${p.name||"Ürün"} detayını aç"><img src="${p.image||productPhotos(p)[0]||"/armek-logo.jpg"}" alt="${p.name||"Ürün"}"></a><div class="product-body"><span class="product-category">${p.category||"Ürün"}</span><h3><a href="/urun/${p.slug||seoSlug(p.name)}/">${p.name||""}</a></h3><ul class="product-features">${productFeatures(p).map(f=>`<li>${f}</li>`).join("")}</ul><div class="product-footer"><a class="product-whatsapp-button" href="${whatsapp(DATA.phoneLink,`${p.name||"Ürün"} için fiyat bilgisi almak istiyorum.`)}" target="_blank" rel="noopener">Fiyat Sor</a></div></div></article>`).join("");
+  // Ürün görseli ve adı ayrı SEO sayfasına gider; WhatsApp butonu doğrudan mesaj açar.
   observeReveals();
  };
  draw("Tümü");
@@ -157,7 +161,7 @@ function renderWorks(items=[]){
  if(!items.length){root.innerHTML="";filters.innerHTML="";return}
  const cats=["Tümü",...new Set(items.map(x=>x.category||"Diğer"))];
  filters.innerHTML=cats.map((c,i)=>`<button class="filter-tab ${i===0?"active":""}" data-work-category="${c}">${c}</button>`).join("");
- const draw=cat=>{const list=cat==="Tümü"?items:items.filter(x=>(x.category||"Diğer")===cat);root.innerHTML=list.map((w,i)=>{const photos=normalizePhotos(w);return `<article class="work-card reveal"><div class="work-cover" data-work-index="${items.indexOf(w)}"><img src="${photos[0]||"/armek-logo.jpg"}" alt="${w.title||"Yaptığımız iş"}">${photos.length>1?`<span class="photo-count">▣ ${photos.length} fotoğraf</span>`:""}</div><div class="work-body"><h3>${w.title||""}</h3><div class="work-meta"><span>${w.category||""}</span>${w.location?`<span>📍 ${w.location}</span>`:""}${w.date?`<span>🗓 ${w.date}</span>`:""}</div>${w.text?`<p>${w.text}</p>`:""}</div></article>`}).join("");$$("[data-work-index]").forEach(el=>el.onclick=()=>openLightbox(items[Number(el.dataset.workIndex)]));observeReveals()};
+ const draw=cat=>{const list=cat==="Tümü"?items:items.filter(x=>(x.category||"Diğer")===cat);root.innerHTML=list.map((w,i)=>{const photos=normalizePhotos(w);return `<article class="work-card reveal"><a class="work-cover" href="/isler/${w.slug||seoSlug(w.title)}/"><img src="${photos[0]||"/armek-logo.jpg"}" alt="${w.title||"Yaptığımız iş"}">${photos.length>1?`<span class="photo-count">▣ ${photos.length} fotoğraf</span>`:""}</a><div class="work-body"><h3><a href="/isler/${w.slug||seoSlug(w.title)}/">${w.title||""}</a></h3><div class="work-meta"><span>${w.category||""}</span>${w.location?`<span>📍 ${w.location}</span>`:""}${w.date?`<span>🗓 ${w.date}</span>`:""}</div>${w.text?`<p>${w.text}</p>`:""}</div></article>`}).join("");$$("[data-work-index]").forEach(el=>el.onclick=()=>openLightbox(items[Number(el.dataset.workIndex)]));observeReveals()};
  draw("Tümü");$$("[data-work-category]").forEach(btn=>btn.onclick=()=>{$$("[data-work-category]").forEach(x=>x.classList.remove("active"));btn.classList.add("active");draw(btn.dataset.workCategory)});
 }
 
