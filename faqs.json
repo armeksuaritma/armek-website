@@ -2,83 +2,98 @@
   "faqs": [
     {
       "q": "Su arıtma filtreleri kaç ayda bir değiştirilmelidir?",
-      "a": "Filtre değişim süresi kullanım miktarı ve şebeke suyunun kalitesine göre değişir. Antalya şartlarında sediment, karbon ve post karbon filtrelerin ortalama 6 ayda bir değiştirilmesi tavsiye edilir. Membran filtre ise genellikle 2-3 yıl kullanılabilir."
-    },
-    {
-      "q": "Membran filtre ne zaman değiştirilir?",
-      "a": "Membran filtrenin ömrü ortalama 2-3 yıldır. TDS değerinin yükselmesi, su tadının bozulması veya su üretiminin azalması membran değişim zamanının geldiğini gösterir."
+      "a": "Filtre değişim süresi kullanım miktarı ve şebeke suyunun kalitesine göre değişir. Antalya şartlarında sediment, karbon ve post karbon filtrelerin ortalama 6 ayda bir değiştirilmesi tavsiye edilir. Membran filtre ise genellikle 2-3 yıl kullanılabilir.",
+      "active": true
     },
     {
       "q": "Pompalı mı yoksa pompasız su arıtma cihazı almalıyım?",
-      "a": "Şebeke suyu basıncı düşük olan evlerde pompalı cihaz önerilir. Basınç yeterliyse pompasız cihaz daha sessiz çalışır ve elektrik tüketmez."
+      "a": "Şebeke suyu basıncı düşük olan evlerde pompalı cihaz önerilir. Basınç yeterliyse pompasız cihaz daha sessiz çalışır ve elektrik tüketmez.",
+      "active": true
     },
     {
       "q": "Antalya'nın hangi ilçelerine servis veriyorsunuz?",
-      "a": "Kepez, Muratpaşa, Konyaaltı, Döşemealtı, Aksu başta olmak üzere Antalya'nın tüm ilçelerine montaj, filtre değişimi ve teknik servis hizmeti sunuyoruz."
+      "a": "Kepez, Muratpaşa, Konyaaltı, Döşemealtı, Aksu başta olmak üzere Antalya'nın tüm ilçelerine montaj, filtre değişimi ve teknik servis hizmeti sunuyoruz.",
+      "active": true
     },
     {
       "q": "Su arıtma cihazı elektrik tüketir mi?",
-      "a": "Sadece pompalı modeller elektrik kullanır. Elektrik tüketimi oldukça düşüktür ve günlük kullanımda faturaya hissedilir bir yük oluşturmaz."
+      "a": "Sadece pompalı modeller elektrik kullanır. Elektrik tüketimi oldukça düşüktür ve günlük kullanımda faturaya hissedilir bir yük oluşturmaz.",
+      "active": true
     },
     {
       "q": "Arıtma cihazının suyu neden yavaş akar?",
-      "a": "Filtrelerin dolmuş olması, tank havasının azalması, membran filtrenin tıkanması veya şebeke basıncının düşük olması suyun yavaş akmasına neden olabilir."
+      "a": "Filtrelerin dolmuş olması, tank havasının azalması, membran filtrenin tıkanması veya şebeke basıncının düşük olması suyun yavaş akmasına neden olabilir.",
+      "active": true
     },
     {
       "q": "Su arıtma cihazının atık su vermesi normal midir?",
-      "a": "Evet. Reverse Osmosis teknolojisiyle çalışan tüm kaliteli cihazlar temiz su üretirken kirli suyu atık hattına gönderir. Bu sistemin normal çalışma şeklidir."
+      "a": "Evet. Reverse Osmosis teknolojisiyle çalışan tüm kaliteli cihazlar temiz su üretirken kirli suyu atık hattına gönderir. Bu sistemin normal çalışma şeklidir.",
+      "active": true
     },
     {
       "q": "Arıtılmış suyun TDS değeri kaç olmalıdır?",
-      "a": "Yeni filtrelerde ideal TDS değeri genellikle 5 ile 70 ppm arasındadır. Kullanılan membran ve şebeke suyuna göre küçük farklılıklar olabilir."
+      "a": "Yeni filtrelerde ideal TDS değeri genellikle 5 ile 70 ppm arasındadır. Kullanılan membran ve şebeke suyuna göre küçük farklılıklar olabilir.",
+      "active": true
     },
     {
       "q": "Filtre değişimi ne kadar sürer?",
-      "a": "Standart ev tipi su arıtma cihazlarında filtre değişimi ortalama 20-30 dakika sürmektedir."
+      "a": "Standart ev tipi su arıtma cihazlarında filtre değişimi ortalama 20-30 dakika sürmektedir.",
+      "active": true
     },
     {
       "q": "Filtre değişimi yapılmazsa ne olur?",
-      "a": "Eski filtreler suyu yeterince arıtamaz, suyun tadı ve kokusu bozulabilir. Ayrıca membran filtrenin ömrü ciddi şekilde kısalabilir."
+      "a": "Eski filtreler suyu yeterince arıtamaz, suyun tadı ve kokusu bozulabilir. Ayrıca membran filtrenin ömrü ciddi şekilde kısalabilir.",
+      "active": true
     },
     {
       "q": "Su yumuşatma sistemi ne işe yarar?",
-      "a": "Su yumuşatma sistemi sudaki kireç oranını düşürerek kombi, çamaşır makinesi, bulaşık makinesi ve tesisatın kireçlenmesini önlemeye yardımcı olur."
+      "a": "Su yumuşatma sistemi sudaki kireç oranını düşürerek kombi, çamaşır makinesi, bulaşık makinesi ve tesisatın kireçlenmesini önlemeye yardımcı olur.",
+      "active": true
     },
     {
       "q": "Su yumuşatma sistemi bakımı ne zaman yapılmalıdır?",
-      "a": "Yılda en az bir kez genel bakım yapılması tavsiye edilir. Reçine kontrolü, valf temizliği ve sistem ayarları düzenli olarak kontrol edilmelidir."
+      "a": "Yılda en az bir kez genel bakım yapılması tavsiye edilir. Reçine kontrolü, valf temizliği ve sistem ayarları düzenli olarak kontrol edilmelidir.",
+      "active": true
     },
     {
       "q": "Su yumuşatma cihazına tuz ne zaman eklenmelidir?",
-      "a": "Tuz seviyesi tankın üçte birinin altına düştüğünde kaliteli tablet tuz ilave edilmelidir. Tuz tamamen bitmeden eklenmesi önerilir."
+      "a": "Tuz seviyesi tankın üçte birinin altına düştüğünde kaliteli tablet tuz ilave edilmelidir. Tuz tamamen bitmeden eklenmesi önerilir.",
+      "active": true
     },
     {
       "q": "Su yumuşatma cihazı neden sürekli su boşaltır?",
-      "a": "Valf arızası, yanlış zamanlama ayarı veya rejenerasyon sırasında olması nedeniyle görülebilir. Sürekli devam ediyorsa teknik servis kontrol etmelidir."
+      "a": "Valf arızası, yanlış zamanlama ayarı veya rejenerasyon sırasında olması nedeniyle görülebilir. Sürekli devam ediyorsa teknik servis kontrol etmelidir.",
+      "active": true
     },
     {
       "q": "Su yumuşatma reçinesi değişir mi?",
-      "a": "Evet. Ortalama kullanım ömrü 8-12 yıl arasındadır. Su kalitesine göre bu süre değişebilir."
+      "a": "Evet. Ortalama kullanım ömrü 8-12 yıl arasındadır. Su kalitesine göre bu süre değişebilir.",
+      "active": true
     },
     {
       "q": "Su arıtma cihazından kötü koku gelmesinin sebebi nedir?",
-      "a": "Filtrelerin kullanım süresini doldurması, uzun süre kullanılmaması veya bakteriyel oluşumlar kötü kokuya neden olabilir."
+      "a": "Filtrelerin kullanım süresini doldurması, uzun süre kullanılmaması veya bakteriyel oluşumlar kötü kokuya neden olabilir.",
+      "active": true
     },
     {
       "q": "Arıtılmış su bebekler için uygun mudur?",
-      "a": "Bakımları düzenli yapılan kaliteli su arıtma cihazlarından elde edilen su bebek maması hazırlamada güvenle kullanılabilir."
+      "a": "Bakımları düzenli yapılan kaliteli su arıtma cihazlarından elde edilen su bebek maması hazırlamada güvenle kullanılabilir.",
+      "active": true
     },
     {
       "q": "Çay ve kahvenin tadı neden değişiyor?",
-      "a": "Klor ve kireç oranı düştüğü için çay ve kahvenin gerçek aroması ortaya çıkar. Bu nedenle daha yumuşak ve lezzetli bir tat elde edilir."
+      "a": "Klor ve kireç oranı düştüğü için çay ve kahvenin gerçek aroması ortaya çıkar. Bu nedenle daha yumuşak ve lezzetli bir tat elde edilir.",
+      "active": true
     },
     {
       "q": "Montaj sırasında mutfak dolabına zarar veriliyor mu?",
-      "a": "Hayır. Montaj işlemleri profesyonel ekipmanlarla yapılır ve gerekli tüm işlemler minimum müdahaleyle gerçekleştirilir."
+      "a": "Hayır. Montaj işlemleri profesyonel ekipmanlarla yapılır ve gerekli tüm işlemler minimum müdahaleyle gerçekleştirilir.",
+      "active": true
     },
     {
       "q": "Aynı gün teknik servis hizmeti veriyor musunuz?",
-      "a": "Yoğunluğa bağlı olarak Antalya merkezde mümkün olduğunca aynı gün servis vermeye çalışıyoruz. Acil durumlarda öncelikli randevu oluşturulabilir."
+      "a": "Yoğunluğa bağlı olarak Antalya merkezde mümkün olduğunca aynı gün servis vermeye çalışıyoruz. Acil durumlarda öncelikli randevu oluşturulabilir.",
+      "active": true
     }
   ]
 }
