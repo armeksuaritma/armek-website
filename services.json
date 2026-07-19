@@ -1,3 +1,31 @@
 {
-  "services": []
+  "services": [
+    {
+      "title": "Antalya Hidrofor Kurulum, Bakım ve Teknik Servisi",
+      "slug": "antalya-hidrofor-servisi",
+      "text": "Villa, apartman, iş yeri ve müstakil yapılarda ihtiyaca uygun hidrofor seçimi, montajı, basınç ayarı, bakım ve arıza tespiti.",
+      "longDescription": "Su basıncının yetersiz olduğu yapılarda kullanım ihtiyacına göre doğru hidrofor kapasitesini belirliyor; montaj, devreye alma, basınç tankı kontrolü, basınç şalteri ayarı ve periyodik bakım işlemlerini gerçekleştiriyoruz. Mevcut sistemlerde düzensiz çalışma, sık devreye girme, basınç düşmesi, su kaçırma ve motor arızası gibi sorunlarda teknik servis desteği sağlıyoruz.",
+      "seoTitle": "Antalya Hidrofor Servisi, Montaj ve Bakım | ARMEK",
+      "seoDescription": "Antalya hidrofor servisi, montajı, bakımı ve arıza tespiti. Villa, apartman ve iş yerleri için doğru hidrofor çözümleri.",
+      "active": true
+    },
+    {
+      "title": "Antalya Su Yumuşatma Sistemleri",
+      "slug": "antalya-su-yumusatma-sistemleri",
+      "text": "Kireçli suya karşı ev, villa, apartman, otel ve işletmeler için kapasiteye uygun otomatik su yumuşatma sistemi kurulumu ve servisi.",
+      "longDescription": "Suyun sertlik değerine ve günlük tüketim miktarına göre uygun reçine hacmi ve kontrol valfi seçilerek otomatik su yumuşatma sistemi kurulumu yapıyoruz. Sistem; tesisat, armatür, duşakabin, rezistans, kombi ve endüstriyel ekipmanlarda kireç oluşumunu azaltmaya yardımcı olur. Tuz ayarı, rejenerasyon programı, reçine kontrolü ve periyodik bakım desteği sunuyoruz.",
+      "seoTitle": "Antalya Su Yumuşatma Sistemi Kurulumu | ARMEK",
+      "seoDescription": "Antalya su yumuşatma sistemleri; villa, apartman, otel ve işletmeler için keşif, kurulum, ayar ve teknik servis hizmeti.",
+      "active": true
+    },
+    {
+      "title": "Antalya Ön Filtrasyon ve Merkezi Filtrasyon Sistemleri",
+      "slug": "antalya-filtrasyon-sistemleri",
+      "text": "Su yumuşatma ve bina giriş sistemleri için tortu, kum, çamur, koku ve klor yükünü azaltmaya yönelik ön filtrasyon çözümleri.",
+      "longDescription": "Su yumuşatma sisteminin verimli ve uzun ömürlü çalışması için su analizine ve tesisat ihtiyacına uygun ön filtrasyon kurulumu yapıyoruz. Yıkanabilir tortu filtreleri, kartuş filtreler, multimedya filtreleri, aktif karbon sistemleri ve bina giriş filtrasyon çözümleri ile tesisatı ve sonraki arıtma kademelerini korumaya yardımcı oluyoruz.",
+      "seoTitle": "Antalya Filtrasyon Sistemleri ve Bina Giriş Filtresi | ARMEK",
+      "seoDescription": "Antalya ön filtrasyon ve merkezi filtrasyon sistemleri. Su yumuşatma öncesi tortu, kum, klor ve koku giderimine uygun çözümler.",
+      "active": true
+    }
+  ]
 }

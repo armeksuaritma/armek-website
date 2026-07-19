@@ -82,7 +82,7 @@ collections:
                 field: {label: "Fotoğraf", name: "image", widget: "image", required: false}
               - {label: "Ürün adı", name: "name", widget: "string"}
               - {label: "SEO adresi (isteğe bağlı)", name: "slug", widget: "string", required: false, hint: "Boş bırakırsanız ürün adından otomatik oluşturulur. Örn: n-ro-pompasiz"}
-              - {label: "Kategori", name: "category", widget: "select", options: ["Su Arıtma Cihazları", "Filtreler", "Tanklar", "Yedek Parçalar", "Diğer"]}
+              - {label: "Kategori", name: "category", widget: "select", options: ["Su Arıtma Cihazları", "Su Yumuşatma Sistemleri", "Hidrofor Sistemleri", "Filtrasyon Sistemleri", "Filtreler", "Tanklar", "Yedek Parçalar", "Diğer"]}
               - {label: "Kısa açıklama", name: "description", widget: "text", required: false}
               - {label: "Detaylı ürün açıklaması", name: "longDescription", widget: "markdown", required: false, hint: "Kimler için uygun, kullanım alanı, bakım ve avantajlar gibi özgün bilgiler yazın."}
               - {label: "Google başlığı", name: "seoTitle", widget: "string", required: false, hint: "Boş bırakılırsa otomatik oluşturulur."}
@@ -122,7 +122,7 @@ collections:
                 field: {label: "Fotoğraf", name: "image", widget: "image", required: false}
               - {label: "Başlık", name: "title", widget: "string"}
               - {label: "SEO adresi (isteğe bağlı)", name: "slug", widget: "string", required: false, hint: "Boş bırakırsanız başlıktan otomatik oluşturulur."}
-              - {label: "Kategori", name: "category", widget: "select", options: ["Montaj", "Filtre Değişimi", "Teknik Servis", "Cihaz Satışı", "Diğer"]}
+              - {label: "Kategori", name: "category", widget: "select", options: ["Montaj", "Filtre Değişimi", "Teknik Servis", "Cihaz Satışı", "Hidrofor Montajı", "Hidrofor Servisi", "Su Yumuşatma Montajı", "Filtrasyon Sistemi", "Diğer"]}
               - {label: "İlçe / konum", name: "location", widget: "string", required: false}
               - {label: "Tarih", name: "date", widget: "datetime", format: "DD.MM.YYYY", date_format: "DD.MM.YYYY", time_format: false, required: false}
               - {label: "Açıklama", name: "text", widget: "text", required: false}
@@ -193,7 +193,11 @@ collections:
             summary: "{{fields.title}}"
             fields:
               - {label: "Başlık", name: "title", widget: "string"}
-              - {label: "Açıklama", name: "text", widget: "text"}
+              - {label: "SEO adresi (isteğe bağlı)", name: "slug", widget: "string", required: false, hint: "Boş bırakırsanız başlıktan otomatik oluşturulur. Örn: antalya-hidrofor-servisi"}
+              - {label: "Kısa açıklama", name: "text", widget: "text"}
+              - {label: "Detaylı hizmet açıklaması", name: "longDescription", widget: "markdown", required: false, hint: "Hizmet kapsamı, kullanım alanları ve avantajları yazın."}
+              - {label: "Google başlığı", name: "seoTitle", widget: "string", required: false}
+              - {label: "Google açıklaması", name: "seoDescription", widget: "text", required: false}
               - {label: "Yayında", name: "active", widget: "boolean", default: true}
 
   - name: "faqs_management"

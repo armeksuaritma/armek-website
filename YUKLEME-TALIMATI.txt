@@ -1,0 +1,13 @@
+Bu pakette yalnızca değişen dosyalar vardır.
+
+GitHub deposunda ana dizine yükleyin:
+- build.mjs
+- detay.js
+- index.html
+- services.json
+
+admin klasörünün içine yükleyin:
+- admin/config.yml
+
+GitHub sorarsa mevcut dosyaların üzerine yazılmasını onaylayın.
+_site klasörünü veya uploads klasörünü yeniden yüklemeniz gerekmez.
