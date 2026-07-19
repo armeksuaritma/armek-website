@@ -1,17 +1,21 @@
-ARMEK PANEL GELISTIRME V2
+ARMEK YÖNETİM PANELİ V3
 
-GitHub > Add file > Upload files ile bu klasorun ICINDEKI dosyalari yukleyin.
-Klasor yapisini koruyun:
-- app.js
-- styles.css
-- site-control.json
-- admin/config.yml
+Bu paket yalnızca admin/config.yml dosyasını değiştirir.
+Mevcut ürünler, yazılar, sorular, hizmetler, yorumlar ve görseller silinmez.
 
-Commit changes tusuna basin. Yayin tamamlandiktan sonra /admin/ sayfasinda Ctrl+Shift+R yapin.
+EKLENENLER
+- Bilgi yazılarında gelişmiş SEO alanları
+- Sosyal paylaşım başlığı, açıklaması ve görseli
+- Canonical ve index/noindex seçimi
+- Ürün, hizmet, çalışma ve kategorilerde geniş SEO alanları
+- Yazılar için AI içerik brief alanı
+- Global SEO Merkezi genişletmesi
 
-Yeni alanlar Site Kontrol Merkezi icindedir:
-- Hazir Tasarim Sablonu
-- Tarih ve Saat
-- Acilir Duyuru / Popup
+YÜKLEME
+1. ZIP'i açın.
+2. admin klasöründeki config.yml dosyasını GitHub'daki admin/config.yml üzerine yükleyin.
+3. Commit changes yapın.
+4. Yayınlandıktan sonra yönetici panelinde Ctrl+Shift+R yapın.
 
-Mevcut urunler, sorular, hizmetler, yorumlar ve diger icerik JSON dosyalari degistirilmez.
+NOT
+AI alanları içerik üretim özetini saklar. Tek tuşla otomatik AI üretimi için API anahtarını gizleyen ayrı bir güvenli sunucu fonksiyonu gerekir.
