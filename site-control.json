@@ -62,7 +62,7 @@
   "dateTime": {
     "enabled": true,
     "showSeconds": true,
-    "position": "footer",
+    "position": "topbar",
     "showTime": true,
     "showDate": true,
     "background": "#0d2942",
