@@ -13,7 +13,7 @@
     ]
   },
   "themePreset": {
-    "enabled": false,
+    "enabled": true,
     "name": "dark"
   },
   "theme": {
