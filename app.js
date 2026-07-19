@@ -249,18 +249,20 @@ function applySiteControl(control={}){
  renderAnnouncement(control.announcement||{});renderDynamicMenu(control.menu||[]);renderCustomSections(control.customSections||[]);applySectionOrder(control.sectionOrder||[]);renderDateTimeWidget(control.dateTime||{});renderPopup(control.popup||{});applyThemePreset(control.themePreset||{},theme);
  const callTop=document.getElementById('callTop');if(callTop){callTop.textContent=control.header?.callButtonText||'Hemen Ara';callTop.style.display=control.header?.showCallButton===false?'none':''}
 }
-function applyThemePreset(preset={},customTheme={}){
+function applyThemePreset(preset={}){
  const presets={
-  classic:{primaryColor:'#0878c9',secondaryColor:'#0d2942',accentColor:'#18a7d8',pageBackground:'#ffffff',surfaceBackground:'#f6f9fc',textColor:'#17324a',fontFamily:'Inter'},
-  modern:{primaryColor:'#0057b8',secondaryColor:'#061a2e',accentColor:'#00b7d9',pageBackground:'#f4f8fc',surfaceBackground:'#ffffff',textColor:'#11283d',fontFamily:'Montserrat'},
-  dark:{primaryColor:'#21a6df',secondaryColor:'#050b12',accentColor:'#7bd8ff',pageBackground:'#0b1118',surfaceBackground:'#111b25',textColor:'#eef7ff',fontFamily:'Inter'},
-  warm:{primaryColor:'#b85c00',secondaryColor:'#342318',accentColor:'#e89a3d',pageBackground:'#fffaf4',surfaceBackground:'#fff1df',textColor:'#3b2b20',fontFamily:'Georgia'}
+  classic:{primaryColor:'#0878c9',secondaryColor:'#0d2942',accentColor:'#18a7d8',pageBackground:'#ffffff',surfaceBackground:'#f6f9fc',textColor:'#17324a',mutedTextColor:'#66788a',headerBackground:'#ffffff',footerBackground:'#0d2942',fontFamily:'Inter'},
+  modern:{primaryColor:'#0057b8',secondaryColor:'#061a2e',accentColor:'#00b7d9',pageBackground:'#f4f8fc',surfaceBackground:'#ffffff',textColor:'#11283d',mutedTextColor:'#5d7185',headerBackground:'#ffffff',footerBackground:'#061a2e',fontFamily:'Montserrat'},
+  dark:{primaryColor:'#21a6df',secondaryColor:'#050b12',accentColor:'#7bd8ff',pageBackground:'#0b1118',surfaceBackground:'#111b25',textColor:'#eef7ff',mutedTextColor:'#b5c8d8',headerBackground:'#0a1119',footerBackground:'#050b12',fontFamily:'Inter'},
+  warm:{primaryColor:'#b85c00',secondaryColor:'#342318',accentColor:'#e89a3d',pageBackground:'#fffaf4',surfaceBackground:'#fff1df',textColor:'#3b2b20',mutedTextColor:'#796354',headerBackground:'#fffaf4',footerBackground:'#342318',fontFamily:'Georgia'}
  };
  if(preset.enabled!==true||!preset.name||preset.name==='custom')return;
- const t=presets[preset.name];if(!t)return;const root=document.documentElement;
- const map={primaryColor:'--admin-primary',secondaryColor:'--admin-secondary',accentColor:'--admin-accent',pageBackground:'--admin-page-bg',surfaceBackground:'--admin-surface',textColor:'--admin-text'};
- Object.entries(t).forEach(([k,v])=>{if(map[k]&&!customTheme[k])root.style.setProperty(map[k],v)});
- if(!customTheme.fontFamily)document.body.style.fontFamily=t.fontFamily==='Georgia'?'Georgia,serif':`${t.fontFamily},Arial,sans-serif`;
+ const t=presets[preset.name];if(!t)return;
+ const root=document.documentElement;
+ const map={primaryColor:'--admin-primary',secondaryColor:'--admin-secondary',accentColor:'--admin-accent',pageBackground:'--admin-page-bg',surfaceBackground:'--admin-surface',textColor:'--admin-text',mutedTextColor:'--admin-muted',headerBackground:'--admin-header',footerBackground:'--admin-footer'};
+ Object.entries(map).forEach(([key,cssVar])=>root.style.setProperty(cssVar,t[key]));
+ const fonts={Inter:'Inter,Arial,sans-serif',Montserrat:'Montserrat,Arial,sans-serif',Georgia:'Georgia,serif'};
+ document.body.style.fontFamily=fonts[t.fontFamily]||t.fontFamily;
 }
 function renderDateTimeWidget(cfg={}){
  document.getElementById('armekDateTime')?.remove();if(cfg.enabled!==true)return;
@@ -270,9 +272,14 @@ function renderDateTimeWidget(cfg={}){
  if(cfg.position==='footer'){document.querySelector('footer')?.prepend(el)}else if(cfg.position==='floating'){document.body.appendChild(el)}else{const header=document.querySelector('header');header?.prepend(el)}
 }
 function renderPopup(cfg={}){
- document.getElementById('armekPopup')?.remove();if(cfg.enabled!==true||!cfg.title)return;
- const wrap=document.createElement('div');wrap.id='armekPopup';wrap.className='armek-popup';wrap.innerHTML=`<div class="armek-popup-card">${cfg.image?`<img src="${cfg.image}" alt="${cfg.title}">`:''}<button type="button" aria-label="Kapat">×</button><h3>${cfg.title}</h3>${cfg.text?`<p>${String(cfg.text).replace(/\n/g,'<br>')}</p>`:''}${cfg.buttonText?`<a class="button primary" href="${cfg.buttonUrl||'#'}">${cfg.buttonText}</a>`:''}</div>`;
- wrap.querySelector('button').onclick=()=>wrap.remove();wrap.onclick=e=>{if(e.target===wrap)wrap.remove()};setTimeout(()=>document.body.appendChild(wrap),Math.max(0,Number(cfg.delay)||2)*1000);
+ document.getElementById('armekPopup')?.remove();
+ if(cfg.enabled!==true)return;
+ const title=String(cfg.title||'Duyuru').trim()||'Duyuru';
+ const wrap=document.createElement('div');wrap.id='armekPopup';wrap.className='armek-popup';wrap.setAttribute('role','dialog');wrap.setAttribute('aria-modal','true');wrap.setAttribute('aria-label',title);
+ wrap.innerHTML=`<div class="armek-popup-card">${cfg.image?`<img src="${cfg.image}" alt="${title}">`:''}<button type="button" aria-label="Kapat">×</button><h3>${title}</h3>${cfg.text?`<p>${String(cfg.text).replace(/\n/g,'<br>')}</p>`:''}${cfg.buttonText?`<a class="button primary" href="${cfg.buttonUrl||'#'}">${cfg.buttonText}</a>`:''}</div>`;
+ const close=()=>wrap.remove();wrap.querySelector('button').onclick=close;wrap.onclick=e=>{if(e.target===wrap)close()};
+ const delayValue=Number(cfg.delay);const delay=Number.isFinite(delayValue)?Math.max(0,delayValue):2;
+ window.setTimeout(()=>{if(!document.getElementById('armekPopup'))document.body.appendChild(wrap)},delay*1000);
 }
 
 function renderAnnouncement(cfg={}){
