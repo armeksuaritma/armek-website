@@ -246,9 +246,35 @@ function applySiteControl(control={}){
  document.body.style.fontFamily=fonts[theme.fontFamily]||theme.fontFamily||"";
  setVar('--admin-page-bg',theme.pageBackground);setVar('--admin-surface',theme.surfaceBackground);setVar('--admin-primary',theme.primaryColor);setVar('--admin-secondary',theme.secondaryColor);setVar('--admin-accent',theme.accentColor);setVar('--admin-text',theme.textColor);setVar('--admin-muted',theme.mutedTextColor);setVar('--admin-header',theme.headerBackground);setVar('--admin-footer',theme.footerBackground);setVar('--admin-button-radius',theme.buttonRadius,'px');setVar('--admin-card-radius',theme.cardRadius,'px');setVar('--admin-content-width',theme.contentWidth,'px');setVar('--admin-font-size',theme.baseFontSize,'px');setVar('--admin-heading-scale',theme.headingScale);
  const header=document.querySelector('header');if(header)header.style.position=control.header?.sticky===false?'relative':'';
- renderAnnouncement(control.announcement||{});renderDynamicMenu(control.menu||[]);renderCustomSections(control.customSections||[]);applySectionOrder(control.sectionOrder||[]);
+ renderAnnouncement(control.announcement||{});renderDynamicMenu(control.menu||[]);renderCustomSections(control.customSections||[]);applySectionOrder(control.sectionOrder||[]);renderDateTimeWidget(control.dateTime||{});renderPopup(control.popup||{});applyThemePreset(control.themePreset||{},theme);
  const callTop=document.getElementById('callTop');if(callTop){callTop.textContent=control.header?.callButtonText||'Hemen Ara';callTop.style.display=control.header?.showCallButton===false?'none':''}
 }
+function applyThemePreset(preset={},customTheme={}){
+ const presets={
+  classic:{primaryColor:'#0878c9',secondaryColor:'#0d2942',accentColor:'#18a7d8',pageBackground:'#ffffff',surfaceBackground:'#f6f9fc',textColor:'#17324a',fontFamily:'Inter'},
+  modern:{primaryColor:'#0057b8',secondaryColor:'#061a2e',accentColor:'#00b7d9',pageBackground:'#f4f8fc',surfaceBackground:'#ffffff',textColor:'#11283d',fontFamily:'Montserrat'},
+  dark:{primaryColor:'#21a6df',secondaryColor:'#050b12',accentColor:'#7bd8ff',pageBackground:'#0b1118',surfaceBackground:'#111b25',textColor:'#eef7ff',fontFamily:'Inter'},
+  warm:{primaryColor:'#b85c00',secondaryColor:'#342318',accentColor:'#e89a3d',pageBackground:'#fffaf4',surfaceBackground:'#fff1df',textColor:'#3b2b20',fontFamily:'Georgia'}
+ };
+ if(preset.enabled!==true||!preset.name||preset.name==='custom')return;
+ const t=presets[preset.name];if(!t)return;const root=document.documentElement;
+ const map={primaryColor:'--admin-primary',secondaryColor:'--admin-secondary',accentColor:'--admin-accent',pageBackground:'--admin-page-bg',surfaceBackground:'--admin-surface',textColor:'--admin-text'};
+ Object.entries(t).forEach(([k,v])=>{if(map[k]&&!customTheme[k])root.style.setProperty(map[k],v)});
+ if(!customTheme.fontFamily)document.body.style.fontFamily=t.fontFamily==='Georgia'?'Georgia,serif':`${t.fontFamily},Arial,sans-serif`;
+}
+function renderDateTimeWidget(cfg={}){
+ document.getElementById('armekDateTime')?.remove();if(cfg.enabled!==true)return;
+ const el=document.createElement('div');el.id='armekDateTime';el.className=`armek-datetime armek-datetime-${cfg.position||'topbar'}`;
+ el.style.background=cfg.background||'#0d2942';el.style.color=cfg.textColor||'#fff';el.style.fontSize=`${Number(cfg.fontSize)||14}px`;
+ const update=()=>{const now=new Date();const date=cfg.showDate===false?'':now.toLocaleDateString('tr-TR',{weekday:cfg.showDay===false?undefined:'long',day:'2-digit',month:'long',year:'numeric'});const time=cfg.showTime===false?'':now.toLocaleTimeString('tr-TR',{hour:'2-digit',minute:'2-digit',second:cfg.showSeconds?'2-digit':undefined,hour12:false});el.textContent=[date,time].filter(Boolean).join(' • ')};update();setInterval(update,1000);
+ if(cfg.position==='footer'){document.querySelector('footer')?.prepend(el)}else if(cfg.position==='floating'){document.body.appendChild(el)}else{const header=document.querySelector('header');header?.prepend(el)}
+}
+function renderPopup(cfg={}){
+ document.getElementById('armekPopup')?.remove();if(cfg.enabled!==true||!cfg.title)return;
+ const wrap=document.createElement('div');wrap.id='armekPopup';wrap.className='armek-popup';wrap.innerHTML=`<div class="armek-popup-card">${cfg.image?`<img src="${cfg.image}" alt="${cfg.title}">`:''}<button type="button" aria-label="Kapat">×</button><h3>${cfg.title}</h3>${cfg.text?`<p>${String(cfg.text).replace(/\n/g,'<br>')}</p>`:''}${cfg.buttonText?`<a class="button primary" href="${cfg.buttonUrl||'#'}">${cfg.buttonText}</a>`:''}</div>`;
+ wrap.querySelector('button').onclick=()=>wrap.remove();wrap.onclick=e=>{if(e.target===wrap)wrap.remove()};setTimeout(()=>document.body.appendChild(wrap),Math.max(0,Number(cfg.delay)||2)*1000);
+}
+
 function renderAnnouncement(cfg={}){
  const bar=$('#announcementBar'),track=$('#announcementTrack');if(!bar||!track)return;
  const items=(cfg.items||[]).filter(x=>x&&x.active!==false&&x.text);if(cfg.enabled!==true||!items.length){bar.hidden=true;return}

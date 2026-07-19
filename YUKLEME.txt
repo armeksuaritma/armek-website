@@ -1,17 +1,17 @@
-ARMEK DINAMIK ANA SAYFA GUNCELLEMESI
+ARMEK PANEL GELISTIRME V2
 
-Bu paket mevcut ürünleri, soruları, hizmetleri, yorumları veya yapılan işleri silmez.
-Yalnızca ana sayfa bölümlerini yönetilebilir hale getirir.
-
-GitHub ana dizinine klasör yapısını koruyarak yükleyin:
+GitHub > Add file > Upload files ile bu klasorun ICINDEKI dosyalari yukleyin.
+Klasor yapisini koruyun:
 - app.js
-- index.html
-- homepage-builder.json
+- styles.css
+- site-control.json
 - admin/config.yml
 
-GitHub mevcut dosyaları değiştireceğini gösterecektir. Commit changes düğmesine basın.
-Yayın sonrası /admin/ adresini Ctrl+Shift+R ile yenileyin.
-Panelde "Dinamik Ana Sayfa" bölümü görünecektir.
+Commit changes tusuna basin. Yayin tamamlandiktan sonra /admin/ sayfasinda Ctrl+Shift+R yapin.
 
-Bölümleri sürükleyerek sıralayabilir, Bölüm açık seçeneğiyle kapatabilir,
-metin ve görselleri değiştirebilir, "Yeni özel bölüm" türüyle yeni alan ekleyebilirsiniz.
+Yeni alanlar Site Kontrol Merkezi icindedir:
+- Hazir Tasarim Sablonu
+- Tarih ve Saat
+- Acilir Duyuru / Popup
+
+Mevcut urunler, sorular, hizmetler, yorumlar ve diger icerik JSON dosyalari degistirilmez.

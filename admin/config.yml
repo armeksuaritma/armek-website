@@ -414,6 +414,49 @@ collections:
               - {label: "Buton köşe yuvarlaklığı", name: "buttonRadius", widget: "number", min: 0, max: 40, value_type: "int", default: 14}
               - {label: "Kart köşe yuvarlaklığı", name: "cardRadius", widget: "number", min: 0, max: 50, value_type: "int", default: 22}
               - {label: "Site içerik genişliği", name: "contentWidth", widget: "number", min: 960, max: 1500, value_type: "int", default: 1180}
+          - label: "Hazır Tasarım Şablonu"
+            name: "themePreset"
+            widget: "object"
+            fields:
+              - {label: "Hazır tasarımı kullan", name: "enabled", widget: "boolean", default: false}
+              - label: "Tasarım"
+                name: "name"
+                widget: "select"
+                options:
+                  - {label: "ARMEK Klasik", value: "classic"}
+                  - {label: "Modern Mavi", value: "modern"}
+                  - {label: "Koyu Tema", value: "dark"}
+                  - {label: "Sıcak Kurumsal", value: "warm"}
+                  - {label: "Kendi Ayarlarım", value: "custom"}
+                default: "classic"
+          - label: "Tarih ve Saat"
+            name: "dateTime"
+            widget: "object"
+            fields:
+              - {label: "Tarih/saat açık", name: "enabled", widget: "boolean", default: false}
+              - {label: "Tarihi göster", name: "showDate", widget: "boolean", default: true}
+              - {label: "Saati göster", name: "showTime", widget: "boolean", default: true}
+              - {label: "Gün adını göster", name: "showDay", widget: "boolean", default: true}
+              - {label: "Saniyeyi göster", name: "showSeconds", widget: "boolean", default: false}
+              - label: "Konum"
+                name: "position"
+                widget: "select"
+                options: [{label: "Üst menü", value: "topbar"}, {label: "Footer", value: "footer"}, {label: "Sağ alt köşe", value: "floating"}]
+                default: "topbar"
+              - {label: "Arka plan", name: "background", widget: "color", default: "#0d2942"}
+              - {label: "Yazı rengi", name: "textColor", widget: "color", default: "#ffffff"}
+              - {label: "Yazı boyutu", name: "fontSize", widget: "number", min: 11, max: 24, default: 14}
+          - label: "Açılır Duyuru / Popup"
+            name: "popup"
+            widget: "object"
+            fields:
+              - {label: "Popup açık", name: "enabled", widget: "boolean", default: false}
+              - {label: "Başlık", name: "title", widget: "string", required: false}
+              - {label: "Açıklama", name: "text", widget: "text", required: false}
+              - {label: "Görsel", name: "image", widget: "image", required: false}
+              - {label: "Buton yazısı", name: "buttonText", widget: "string", required: false}
+              - {label: "Buton bağlantısı", name: "buttonUrl", widget: "string", required: false}
+              - {label: "Kaç saniye sonra açılsın", name: "delay", widget: "number", min: 0, max: 60, default: 2}
           - label: "Kayan Duyuru"
             name: "announcement"
             widget: "object"

@@ -1,24 +1,24 @@
 {
   "theme": {
-    "primaryColor": "#0878c9",
-    "baseFontSize": 16,
-    "cardRadius": 22,
-    "buttonRadius": 14,
-    "headingScale": 1,
-    "footerBackground": "#0d2942",
-    "mutedTextColor": "#66788a",
-    "contentWidth": 1180,
-    "secondaryColor": "#0d2942",
     "fontFamily": "Inter",
-    "textColor": "#17324a",
-    "accentColor": "#18a7d8",
+    "baseFontSize": 16,
+    "headingScale": 1,
+    "pageBackground": "#ffffff",
     "surfaceBackground": "#f6f9fc",
+    "primaryColor": "#0878c9",
+    "secondaryColor": "#0d2942",
+    "accentColor": "#18a7d8",
+    "textColor": "#17324a",
+    "mutedTextColor": "#66788a",
     "headerBackground": "#ffffff",
-    "pageBackground": "#ffffff"
+    "footerBackground": "#0d2942",
+    "buttonRadius": 14,
+    "cardRadius": 22,
+    "contentWidth": 1180
   },
   "announcement": {
     "enabled": false,
-    "speed": 10,
+    "speed": 22,
     "background": "#0d2942",
     "textColor": "#ffffff",
     "items": [
@@ -75,7 +75,7 @@
       "label": "Yorumlar",
       "url": "#yorumlar",
       "active": true,
-      "newTab": true,
+      "newTab": false,
       "children": []
     },
     {
@@ -104,5 +104,29 @@
     "faq",
     "custom"
   ],
-  "customSections": []
+  "customSections": [],
+  "themePreset": {
+    "enabled": false,
+    "name": "classic"
+  },
+  "dateTime": {
+    "enabled": false,
+    "showDate": true,
+    "showTime": true,
+    "showDay": true,
+    "showSeconds": false,
+    "position": "topbar",
+    "background": "#0d2942",
+    "textColor": "#ffffff",
+    "fontSize": 14
+  },
+  "popup": {
+    "enabled": false,
+    "title": "",
+    "text": "",
+    "image": "",
+    "buttonText": "",
+    "buttonUrl": "#iletisim",
+    "delay": 2
+  }
 }
