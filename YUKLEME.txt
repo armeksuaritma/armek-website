@@ -1,21 +1,9 @@
-ARMEK YÖNETİM PANELİ V3
+SOSYAL MEDYA BUTONLARI KALDIRILDI
 
-Bu paket yalnızca admin/config.yml dosyasını değiştirir.
-Mevcut ürünler, yazılar, sorular, hizmetler, yorumlar ve görseller silinmez.
+1. ZIP dosyasını açın.
+2. İçindeki app.js dosyasını GitHub deponuzun ana dizinine yükleyin.
+3. Var olan app.js dosyasının üzerine yazın (Replace files).
+4. GitHub Pages güncellemesi için 1-3 dakika bekleyin.
+5. Siteyi Ctrl+F5 ile yenileyin.
 
-EKLENENLER
-- Bilgi yazılarında gelişmiş SEO alanları
-- Sosyal paylaşım başlığı, açıklaması ve görseli
-- Canonical ve index/noindex seçimi
-- Ürün, hizmet, çalışma ve kategorilerde geniş SEO alanları
-- Yazılar için AI içerik brief alanı
-- Global SEO Merkezi genişletmesi
-
-YÜKLEME
-1. ZIP'i açın.
-2. admin klasöründeki config.yml dosyasını GitHub'daki admin/config.yml üzerine yükleyin.
-3. Commit changes yapın.
-4. Yayınlandıktan sonra yönetici panelinde Ctrl+Shift+R yapın.
-
-NOT
-AI alanları içerik üretim özetini saklar. Tek tuşla otomatik AI üretimi için API anahtarını gizleyen ayrı bir güvenli sunucu fonksiyonu gerekir.
+Bu güncelleme üst ve alt kısımdaki Instagram ile Facebook butonlarını tamamen kaldırır.

@@ -207,8 +207,7 @@ function render(data){
  const tel=`tel:+${String(DATA.phoneLink).replace(/\D/g,"")}`,wa=whatsapp(DATA.phoneLink,DATA.whatsappMessage);
  ["callTop","callHero","callContact"].forEach(id=>setLink(id,tel,DATA.phoneDisplay));
  ["whatsappHero","whatsappAbout","whatsappContact","floatingWhatsapp"].forEach(id=>setLink(id,wa));
- ["facebookTop","facebookFooter"].forEach(id=>setLink(id,DATA.facebook||"#"));
- ["instagramTop","instagramFooter"].forEach(id=>setLink(id,DATA.instagram||"#"));
+ ["facebookTop","facebookFooter","instagramTop","instagramFooter"].forEach(id=>{const el=$("#"+id);if(el)el.remove()});
  const gv=$("#googleSiteVerification");if(gv)gv.content=DATA.googleSiteVerification||"";const cl=$("#canonicalLink");if(cl)cl.href="https://armeksuaritma.com.tr/";updateStructuredData(DATA);
  renderHeroMedia(DATA);renderProducts(DATA.products||[]);renderWorks(DATA.works||[]);renderBrands(DATA.brands||[]);renderBeforeAfter(DATA.works||[]);
  $("#services").innerHTML=(DATA.services||[]).map((s,i)=>`<article class="service-card reveal"><div class="service-icon">${String(i+1).padStart(2,"0")}</div><h3>${s.title||""}</h3><p>${s.text||""}</p></article>`).join("");
@@ -283,28 +282,37 @@ function renderPopup(cfg={}){
 }
 
 function renderAnnouncement(cfg={}){
- const bar=$('#announcementBar'),track=$('#announcementTrack');if(!bar||!track)return;
- const items=(cfg.items||[]).filter(x=>x&&x.active!==false&&x.text);
- if(cfg.enabled!==true||!items.length){bar.hidden=true;track.innerHTML='';return}
+ let bar=document.getElementById('announcementBar');
+ let track=document.getElementById('announcementTrack');
+ // HTML içinde alan bulunamazsa otomatik oluştur.
+ if(!bar){
+  bar=document.createElement('div');bar.id='announcementBar';bar.className='announcement-bar';
+  track=document.createElement('div');track.id='announcementTrack';track.className='announcement-track';
+  bar.appendChild(track);
+  const header=document.querySelector('header');
+  if(header)header.parentNode.insertBefore(bar,header);else document.body.prepend(bar);
+ }
+ if(!track){track=document.createElement('div');track.id='announcementTrack';track.className='announcement-track';bar.appendChild(track)}
+ const items=(cfg.items||[]).filter(x=>x&&x.active!==false&&String(x.text||'').trim());
+ if(cfg.enabled!==true||!items.length){bar.hidden=true;bar.style.display='none';track.innerHTML='';return}
  bar.hidden=false;
- bar.style.background=cfg.background||'#0d2942';
- bar.style.color=cfg.textColor||'#fff';
+ bar.style.setProperty('display','block','important');
+ bar.style.width='100%';bar.style.overflow='hidden';bar.style.whiteSpace='nowrap';
+ bar.style.background=cfg.background||'#0d2942';bar.style.color=cfg.textColor||'#fff';
  bar.style.setProperty('--ticker-speed',`${Math.max(8,Number(cfg.speed)||22)}s`);
- const itemHtml=items.map(x=>x.url?`<a href="${x.url}">${x.text}</a>`:`<span>${x.text}</span>`).join('');
- // Kısa duyurularda ekranın boş kalmaması için aynı grubu yeterince çoğalt.
+ const esc=v=>String(v||'').replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+ const itemHtml=items.map(x=>{
+  const text=`<span class="announcement-item">${esc(x.text)} <b aria-hidden="true">•</b></span>`;
+  return x.url?`<a href="${esc(x.url)}">${text}</a>`:text;
+ }).join('');
+ track.style.cssText='display:flex;width:max-content;min-width:max-content;align-items:center;gap:3rem;padding:.65rem 0;will-change:transform;';
  track.style.animation='none';
- track.innerHTML=itemHtml;
- requestAnimationFrame(()=>{
-  const viewport=Math.max(bar.clientWidth,window.innerWidth);
-  const baseWidth=Math.max(track.scrollWidth,1);
-  const repeats=Math.max(2,Math.ceil((viewport*1.5)/baseWidth));
-  const group=itemHtml.repeat(repeats);
-  track.innerHTML=group+group;
-  // Tarayıcıya animasyonu yeniden başlatmasını zorla.
-  void track.offsetWidth;
-  track.style.animation='armekTicker var(--ticker-speed,22s) linear infinite';
- });
+ // İki aynı grup kullanılır; -50% hareket kesintisiz döngü sağlar.
+ const group=`<span class="announcement-group" style="display:flex;align-items:center;gap:3rem;padding-right:3rem">${itemHtml.repeat(8)}</span>`;
+ track.innerHTML=group+group;
+ requestAnimationFrame(()=>{void track.offsetWidth;track.style.animation='armekTicker var(--ticker-speed,22s) linear infinite';});
 }
+
 function renderDynamicMenu(items=[]){
  const nav=document.querySelector('[data-dynamic-menu]');if(!nav)return;const list=(items||[]).filter(x=>x&&x.active!==false&&x.label);
  if(!list.length)return;
