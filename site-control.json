@@ -1,7 +1,7 @@
 {
   "announcement": {
     "enabled": true,
-    "speed": 30,
+    "speed": 45,
     "background": "#0d2942",
     "textColor": "#ffffff",
     "items": [
