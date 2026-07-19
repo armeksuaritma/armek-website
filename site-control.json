@@ -75,7 +75,7 @@
       "label": "Yorumlar",
       "url": "#yorumlar",
       "active": true,
-      "newTab": false,
+      "newTab": true,
       "children": []
     },
     {
