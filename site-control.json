@@ -1,28 +1,32 @@
 {
   "theme": {
-    "fontFamily": "Inter",
-    "baseFontSize": 16,
-    "headingScale": 1,
-    "pageBackground": "#ffffff",
-    "surfaceBackground": "#f6f9fc",
     "primaryColor": "#0878c9",
-    "secondaryColor": "#0d2942",
-    "accentColor": "#18a7d8",
-    "textColor": "#17324a",
-    "mutedTextColor": "#66788a",
-    "headerBackground": "#ffffff",
-    "footerBackground": "#0d2942",
-    "buttonRadius": 14,
+    "baseFontSize": 16,
     "cardRadius": 22,
-    "contentWidth": 1180
+    "buttonRadius": 14,
+    "headingScale": 1,
+    "footerBackground": "#0d2942",
+    "mutedTextColor": "#66788a",
+    "contentWidth": 1180,
+    "secondaryColor": "#0d2942",
+    "fontFamily": "Inter",
+    "textColor": "#17324a",
+    "accentColor": "#18a7d8",
+    "surfaceBackground": "#f6f9fc",
+    "headerBackground": "#ffffff",
+    "pageBackground": "#ffffff"
   },
   "announcement": {
-    "enabled": false,
+    "enabled": true,
     "speed": 22,
     "background": "#0d2942",
     "textColor": "#ffffff",
     "items": [
-      {"text": "Antalya geneli ücretsiz keşif ve hızlı servis", "url": "#iletisim", "active": true}
+      {
+        "text": "Antalya geneli ücretsiz keşif ve hızlı servis",
+        "url": "#iletisim",
+        "active": true
+      }
     ]
   },
   "header": {
@@ -32,15 +36,73 @@
     "callButtonText": "Hemen Ara"
   },
   "menu": [
-    {"label":"Ana Sayfa","url":"#anasayfa","active":true,"newTab":false,"children":[]},
-    {"label":"Ürünler","url":"#urunler","active":true,"newTab":false,"children":[]},
-    {"label":"Kampanya","url":"#kampanya","active":true,"newTab":false,"children":[]},
-    {"label":"Hizmetler","url":"#hizmetler","active":true,"newTab":false,"children":[]},
-    {"label":"Yaptığımız İşler","url":"#yaptigimiz-isler","active":true,"newTab":false,"children":[]},
-    {"label":"Yorumlar","url":"#yorumlar","active":true,"newTab":false,"children":[]},
-    {"label":"S.S.S.","url":"#sss","active":true,"newTab":false,"children":[]},
-    {"label":"İletişim","url":"#iletisim","active":true,"newTab":false,"children":[]}
+    {
+      "label": "Ana Sayfa",
+      "url": "#anasayfa",
+      "active": true,
+      "newTab": false,
+      "children": []
+    },
+    {
+      "label": "Ürünler",
+      "url": "#urunler",
+      "active": true,
+      "newTab": false,
+      "children": []
+    },
+    {
+      "label": "Kampanya",
+      "url": "#kampanya",
+      "active": true,
+      "newTab": false,
+      "children": []
+    },
+    {
+      "label": "Hizmetler",
+      "url": "#hizmetler",
+      "active": true,
+      "newTab": false,
+      "children": []
+    },
+    {
+      "label": "Yaptığımız İşler",
+      "url": "#yaptigimiz-isler",
+      "active": true,
+      "newTab": false,
+      "children": []
+    },
+    {
+      "label": "Yorumlar",
+      "url": "#yorumlar",
+      "active": true,
+      "newTab": false,
+      "children": []
+    },
+    {
+      "label": "S.S.S.",
+      "url": "#sss",
+      "active": true,
+      "newTab": false,
+      "children": []
+    },
+    {
+      "label": "İletişim",
+      "url": "#iletisim",
+      "active": true,
+      "newTab": false,
+      "children": []
+    }
   ],
-  "sectionOrder": ["products","campaign","services","works","about","testimonials","areas","faq","custom"],
+  "sectionOrder": [
+    "products",
+    "campaign",
+    "services",
+    "works",
+    "about",
+    "testimonials",
+    "areas",
+    "faq",
+    "custom"
+  ],
   "customSections": []
 }
