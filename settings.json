@@ -1,1 +1,15 @@
-{}
+{
+  "logoImage": "/uploads/723844490_122107968009358712_5953829953980177629_n.jpg",
+  "phoneLink": "0552 522 35 75",
+  "phoneDisplay": "0552 522 35 75",
+  "visibility": {
+    "faq": true,
+    "areas": true,
+    "testimonials": true,
+    "about": true,
+    "works": true,
+    "services": true,
+    "campaign": true,
+    "products": true
+  }
+}
