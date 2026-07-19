@@ -1,0 +1,8 @@
+{
+  "categories": [
+    {"name":"Su Arıtma Cihazları","slug":"su-aritma-cihazlari","description":"Ev ve iş yerleri için su arıtma cihazları","image":"","order":10,"active":true,"children":[{"name":"Tezgah Altı","slug":"tezgah-alti","active":true},{"name":"Tezgah Üstü","slug":"tezgah-ustu","active":true}]},
+    {"name":"Hidrofor Sistemleri","slug":"hidrofor-sistemleri","description":"Pompa ve basınçlandırma çözümleri","image":"","order":20,"active":true,"children":[{"name":"Jet Pompalar","slug":"jet-pompalar","active":true},{"name":"Paket Hidroforlar","slug":"paket-hidroforlar","active":true},{"name":"Dalgıç Pompalar","slug":"dalgic-pompalar","active":true},{"name":"Yedek Parçalar","slug":"hidrofor-yedek-parcalari","active":true}]},
+    {"name":"Su Yumuşatma Sistemleri","slug":"su-yumusatma-sistemleri","description":"Kireç ve sertlik giderme sistemleri","image":"","order":30,"active":true,"children":[{"name":"Ev Tipi","slug":"ev-tipi-yumusatma","active":true},{"name":"Villa Tipi","slug":"villa-tipi-yumusatma","active":true},{"name":"Endüstriyel","slug":"endustriyel-yumusatma","active":true},{"name":"Sarf ve Yedek Parça","slug":"yumusatma-yedek-parca","active":true}]},
+    {"name":"Filtrasyon Sistemleri","slug":"filtrasyon-sistemleri","description":"Ön filtrasyon ve merkezi filtrasyon çözümleri","image":"","order":40,"active":true,"children":[{"name":"Kum Filtresi","slug":"kum-filtresi","active":true},{"name":"Aktif Karbon","slug":"aktif-karbon","active":true},{"name":"Tortu Filtresi","slug":"tortu-filtresi","active":true},{"name":"UV Sistemleri","slug":"uv-sistemleri","active":true}]}
+  ]
+}

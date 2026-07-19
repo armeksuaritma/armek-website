@@ -82,7 +82,8 @@ collections:
                 field: {label: "Fotoğraf", name: "image", widget: "image", required: false}
               - {label: "Ürün adı", name: "name", widget: "string"}
               - {label: "SEO adresi (isteğe bağlı)", name: "slug", widget: "string", required: false, hint: "Boş bırakırsanız ürün adından otomatik oluşturulur. Örn: n-ro-pompasiz"}
-              - {label: "Kategori", name: "category", widget: "select", options: ["Su Arıtma Cihazları", "Su Yumuşatma Sistemleri", "Hidrofor Sistemleri", "Filtrasyon Sistemleri", "Filtreler", "Tanklar", "Yedek Parçalar", "Diğer"]}
+              - {label: "Ana kategori", name: "category", widget: "string", hint: "Kategori Yönetimi bölümündeki ana kategori adını aynen yazın."}
+              - {label: "Alt kategori", name: "subcategory", widget: "string", required: false, hint: "Örn: Jet Pompalar, Paket Hidroforlar, Ev Tipi"}
               - {label: "Kısa açıklama", name: "description", widget: "text", required: false}
               - {label: "Detaylı ürün açıklaması", name: "longDescription", widget: "markdown", required: false, hint: "Kimler için uygun, kullanım alanı, bakım ve avantajlar gibi özgün bilgiler yazın."}
               - {label: "Google başlığı", name: "seoTitle", widget: "string", required: false, hint: "Boş bırakılırsa otomatik oluşturulur."}
@@ -293,3 +294,160 @@ collections:
           - {label: "Sosyal paylaşım görseli", name: "seoImage", widget: "image", required: false}
           - {label: "Google Search Console doğrulama kodu", name: "googleSiteVerification", widget: "string", required: false}
           - {label: "Google Analytics Ölçüm Kimliği", name: "analyticsMeasurementId", widget: "string", required: false, default: "G-DQBRPFTJ5J", hint: "G- ile başlayan kod. Örnek: G-DQBRPFTJ5J"}
+
+
+  - name: "categories_management"
+    label: "Kategori Yönetimi"
+    files:
+      - name: "categories"
+        label: "Ana ve Alt Kategoriler"
+        file: "categories.json"
+        format: "json"
+        fields:
+          - label: "Kategoriler"
+            name: "categories"
+            widget: "list"
+            add_to_top: true
+            summary: "{{fields.name}}"
+            fields:
+              - {label: "Kategori adı", name: "name", widget: "string"}
+              - {label: "Sayfa adresi", name: "slug", widget: "string", required: false}
+              - {label: "Açıklama", name: "description", widget: "text", required: false}
+              - {label: "Kategori görseli", name: "image", widget: "image", required: false}
+              - {label: "Sıralama", name: "order", widget: "number", value_type: "int", default: 100}
+              - {label: "Yayında", name: "active", widget: "boolean", default: true}
+              - label: "Alt kategoriler"
+                name: "children"
+                widget: "list"
+                required: false
+                fields:
+                  - {label: "Alt kategori adı", name: "name", widget: "string"}
+                  - {label: "Sayfa adresi", name: "slug", widget: "string", required: false}
+                  - {label: "Açıklama", name: "description", widget: "text", required: false}
+                  - {label: "Görsel", name: "image", widget: "image", required: false}
+                  - {label: "Yayında", name: "active", widget: "boolean", default: true}
+
+  - name: "site_control_management"
+    label: "Site Kontrol Merkezi"
+    files:
+      - name: "site_control"
+        label: "Tasarım, Menü ve Sayfa Yapısı"
+        file: "site-control.json"
+        format: "json"
+        fields:
+          - label: "Tasarım Ayarları"
+            name: "theme"
+            widget: "object"
+            fields:
+              - label: "Yazı tipi"
+                name: "fontFamily"
+                widget: "select"
+                options: ["Inter", "Arial", "Roboto", "Montserrat", "Poppins", "Georgia"]
+                default: "Inter"
+              - {label: "Normal yazı boyutu", name: "baseFontSize", widget: "number", min: 13, max: 22, value_type: "int", default: 16}
+              - {label: "Başlık büyüklüğü çarpanı", name: "headingScale", widget: "number", min: 0.75, max: 1.5, step: 0.05, value_type: "float", default: 1}
+              - {label: "Sayfa arka plan rengi", name: "pageBackground", widget: "color", default: "#ffffff"}
+              - {label: "Açık bölüm arka planı", name: "surfaceBackground", widget: "color", default: "#f6f9fc"}
+              - {label: "Ana renk", name: "primaryColor", widget: "color", default: "#0878c9"}
+              - {label: "Koyu renk", name: "secondaryColor", widget: "color", default: "#0d2942"}
+              - {label: "Vurgu rengi", name: "accentColor", widget: "color", default: "#18a7d8"}
+              - {label: "Yazı rengi", name: "textColor", widget: "color", default: "#17324a"}
+              - {label: "Soluk yazı rengi", name: "mutedTextColor", widget: "color", default: "#66788a"}
+              - {label: "Üst menü arka planı", name: "headerBackground", widget: "color", default: "#ffffff"}
+              - {label: "Alt bölüm arka planı", name: "footerBackground", widget: "color", default: "#0d2942"}
+              - {label: "Buton köşe yuvarlaklığı", name: "buttonRadius", widget: "number", min: 0, max: 40, value_type: "int", default: 14}
+              - {label: "Kart köşe yuvarlaklığı", name: "cardRadius", widget: "number", min: 0, max: 50, value_type: "int", default: 22}
+              - {label: "Site içerik genişliği", name: "contentWidth", widget: "number", min: 960, max: 1500, value_type: "int", default: 1180}
+          - label: "Kayan Duyuru"
+            name: "announcement"
+            widget: "object"
+            fields:
+              - {label: "Kayan yazı açık", name: "enabled", widget: "boolean", default: false}
+              - {label: "Hız (saniye)", name: "speed", widget: "number", min: 8, max: 60, value_type: "int", default: 22}
+              - {label: "Arka plan", name: "background", widget: "color", default: "#0d2942"}
+              - {label: "Yazı rengi", name: "textColor", widget: "color", default: "#ffffff"}
+              - label: "Duyurular"
+                name: "items"
+                widget: "list"
+                fields:
+                  - {label: "Duyuru metni", name: "text", widget: "string"}
+                  - {label: "Bağlantı", name: "url", widget: "string", required: false, hint: "Örn: #kampanya veya /urunler/"}
+                  - {label: "Yayında", name: "active", widget: "boolean", default: true}
+          - label: "Üst Menü Ayarları"
+            name: "header"
+            widget: "object"
+            fields:
+              - {label: "Menü sabit kalsın", name: "sticky", widget: "boolean", default: true}
+              - {label: "Üst bilgi çubuğu", name: "showTopbar", widget: "boolean", default: true}
+              - {label: "Hemen ara butonu", name: "showCallButton", widget: "boolean", default: true}
+              - {label: "Arama butonu yazısı", name: "callButtonText", widget: "string", default: "Hemen Ara"}
+          - label: "Menü Bağlantıları"
+            name: "menu"
+            widget: "list"
+            summary: "{{fields.label}} → {{fields.url}}"
+            fields:
+              - {label: "Menü adı", name: "label", widget: "string"}
+              - {label: "Bağlantı", name: "url", widget: "string", hint: "Ana sayfa bölümü için #urunler gibi yazabilirsiniz."}
+              - {label: "Yeni sekmede aç", name: "newTab", widget: "boolean", default: false}
+              - {label: "Göster", name: "active", widget: "boolean", default: true}
+              - label: "Alt menüler"
+                name: "children"
+                widget: "list"
+                required: false
+                fields:
+                  - {label: "Alt menü adı", name: "label", widget: "string"}
+                  - {label: "Bağlantı", name: "url", widget: "string"}
+                  - {label: "Yeni sekmede aç", name: "newTab", widget: "boolean", default: false}
+                  - {label: "Göster", name: "active", widget: "boolean", default: true}
+          - label: "Ana Sayfa Bölüm Sırası"
+            name: "sectionOrder"
+            widget: "list"
+            hint: "Sürükleyerek sıralayın. Değerleri değiştirmeyin."
+            field:
+              label: "Bölüm"
+              name: "section"
+              widget: "select"
+              options:
+                - {label: "Ürünler", value: "products"}
+                - {label: "Kampanya", value: "campaign"}
+                - {label: "Hizmetler", value: "services"}
+                - {label: "Yaptığımız İşler", value: "works"}
+                - {label: "Neden ARMEK", value: "about"}
+                - {label: "Müşteri Yorumları", value: "testimonials"}
+                - {label: "Hizmet Bölgeleri", value: "areas"}
+                - {label: "S.S.S.", value: "faq"}
+                - {label: "Özel Bölümler", value: "custom"}
+          - label: "Özel Sayfa Bölümleri"
+            name: "customSections"
+            widget: "list"
+            add_to_top: true
+            summary: "{{fields.title}}"
+            fields:
+              - {label: "Bölüm başlığı", name: "title", widget: "string"}
+              - {label: "Küçük üst başlık", name: "eyebrow", widget: "string", required: false}
+              - {label: "Bölüm bağlantı adı", name: "anchor", widget: "string", required: false, hint: "Örn: referanslar. Menü bağlantısı #referanslar olur."}
+              - {label: "Açıklama", name: "text", widget: "markdown", required: false}
+              - {label: "Ana görsel", name: "image", widget: "image", required: false}
+              - {label: "Görsel açıklaması", name: "imageAlt", widget: "string", required: false}
+              - {label: "Görsel konumu", name: "imagePosition", widget: "select", options: [{label: "Sağ", value: "right"}, {label: "Sol", value: "left"}], default: "right"}
+              - {label: "Yazı hizası", name: "align", widget: "select", options: [{label: "Sol", value: "left"}, {label: "Orta", value: "center"}], default: "left"}
+              - {label: "Arka plan türü", name: "backgroundStyle", widget: "select", options: [{label: "Normal", value: "normal"}, {label: "Açık gri", value: "soft"}], default: "normal"}
+              - {label: "Özel arka plan rengi", name: "backgroundColor", widget: "color", required: false}
+              - {label: "Özel yazı rengi", name: "textColor", widget: "color", required: false}
+              - label: "Butonlar"
+                name: "buttons"
+                widget: "list"
+                required: false
+                fields:
+                  - {label: "Buton yazısı", name: "label", widget: "string"}
+                  - {label: "Bağlantı", name: "url", widget: "string"}
+                  - {label: "Buton tipi", name: "style", widget: "select", options: [{label: "Ana buton", value: "primary"}, {label: "İkinci buton", value: "secondary"}], default: "primary"}
+                  - {label: "Yeni sekmede aç", name: "newTab", widget: "boolean", default: false}
+              - label: "Fotoğraf galerisi"
+                name: "gallery"
+                widget: "list"
+                required: false
+                fields:
+                  - {label: "Fotoğraf", name: "image", widget: "image"}
+                  - {label: "Fotoğraf açıklaması", name: "alt", widget: "string", required: false}
+              - {label: "Yayında", name: "active", widget: "boolean", default: true}

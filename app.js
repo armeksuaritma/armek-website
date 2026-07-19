@@ -238,8 +238,41 @@ function mergeUnique(oldItems=[],newItems=[],key="name"){
  });
  return [...map.values()];
 }
+
+function applySiteControl(control={}){
+ const theme=control.theme||{},root=document.documentElement;
+ const setVar=(name,val,suffix="")=>{if(val!==undefined&&val!==null&&val!=="")root.style.setProperty(name,`${val}${suffix}`)};
+ const fonts={Inter:"Inter,Arial,sans-serif",Arial:"Arial,sans-serif",Roboto:"Roboto,Arial,sans-serif",Montserrat:"Montserrat,Arial,sans-serif",Poppins:"Poppins,Arial,sans-serif",Georgia:"Georgia,serif"};
+ document.body.style.fontFamily=fonts[theme.fontFamily]||theme.fontFamily||"";
+ setVar('--admin-page-bg',theme.pageBackground);setVar('--admin-surface',theme.surfaceBackground);setVar('--admin-primary',theme.primaryColor);setVar('--admin-secondary',theme.secondaryColor);setVar('--admin-accent',theme.accentColor);setVar('--admin-text',theme.textColor);setVar('--admin-muted',theme.mutedTextColor);setVar('--admin-header',theme.headerBackground);setVar('--admin-footer',theme.footerBackground);setVar('--admin-button-radius',theme.buttonRadius,'px');setVar('--admin-card-radius',theme.cardRadius,'px');setVar('--admin-content-width',theme.contentWidth,'px');setVar('--admin-font-size',theme.baseFontSize,'px');setVar('--admin-heading-scale',theme.headingScale);
+ const header=document.querySelector('header');if(header)header.style.position=control.header?.sticky===false?'relative':'';
+ renderAnnouncement(control.announcement||{});renderDynamicMenu(control.menu||[]);renderCustomSections(control.customSections||[]);applySectionOrder(control.sectionOrder||[]);
+ const callTop=document.getElementById('callTop');if(callTop){callTop.textContent=control.header?.callButtonText||'Hemen Ara';callTop.style.display=control.header?.showCallButton===false?'none':''}
+}
+function renderAnnouncement(cfg={}){
+ const bar=$('#announcementBar'),track=$('#announcementTrack');if(!bar||!track)return;
+ const items=(cfg.items||[]).filter(x=>x&&x.active!==false&&x.text);if(cfg.enabled!==true||!items.length){bar.hidden=true;return}
+ bar.hidden=false;bar.style.background=cfg.background||'#0d2942';bar.style.color=cfg.textColor||'#fff';bar.style.setProperty('--ticker-speed',`${Math.max(8,Number(cfg.speed)||22)}s`);
+ const html=items.map(x=>x.url?`<a href="${x.url}">${x.text}</a>`:`<span>${x.text}</span>`).join('');track.innerHTML=html+html;
+}
+function renderDynamicMenu(items=[]){
+ const nav=document.querySelector('[data-dynamic-menu]');if(!nav)return;const list=(items||[]).filter(x=>x&&x.active!==false&&x.label);
+ if(!list.length)return;
+ nav.innerHTML=list.map(item=>{const children=(item.children||[]).filter(x=>x&&x.active!==false&&x.label);const target=item.newTab?' target="_blank" rel="noopener"':'';return `<div class="dynamic-nav-item"><a href="${item.url||'#'}"${target}>${item.label}</a>${children.length?`<div class="dynamic-nav-children">${children.map(c=>`<a href="${c.url||'#'}"${c.newTab?' target="_blank" rel="noopener"':''}>${c.label}</a>`).join('')}</div>`:''}</div>`}).join('')+`<a id="callTop" class="nav-cta" href="tel:${String(DATA.phoneLink||'').replace(/\D/g,'')}">Hemen Ara</a>`;
+ nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+}
+function renderCustomSections(items=[]){
+ const root=$('#customSections');if(!root)return;const list=(items||[]).filter(x=>x&&x.active!==false);
+ root.innerHTML=list.map((s,i)=>{const gallery=(s.gallery||[]).filter(g=>g&&g.image);const image=s.image?`<div class="custom-section-image"><img src="${s.image}" alt="${s.imageAlt||s.title||'ARMEK'}"></div>`:'';const content=`<div class="custom-section-copy">${s.eyebrow?`<span class="section-label">${s.eyebrow}</span>`:''}${s.title?`<h2>${s.title}</h2>`:''}${s.text?`<div class="custom-section-text">${String(s.text).replace(/\n/g,'<br>')}</div>`:''}${(s.buttons||[]).length?`<div class="custom-section-actions">${s.buttons.filter(b=>b&&b.label).map(b=>`<a class="button ${b.style==='secondary'?'secondary':'primary'}" href="${b.url||'#'}"${b.newTab?' target="_blank" rel="noopener"':''}>${b.label}</a>`).join('')}</div>`:''}</div>`;return `<section id="${s.anchor||`ozel-bolum-${i+1}`}" class="custom-section ${s.backgroundStyle==='soft'?'soft':''} ${s.align==='center'?'center':''}" style="${s.backgroundColor?`background:${s.backgroundColor};`:''}${s.textColor?`color:${s.textColor};`:''}"><div class="container"><div class="custom-section-inner ${s.image?'has-image':''}">${s.imagePosition==='left'?image:''}${content}${s.imagePosition!=='left'?image:''}</div>${gallery.length?`<div class="custom-gallery">${gallery.map(g=>`<img src="${g.image}" alt="${g.alt||s.title||'Galeri'}">`).join('')}</div>`:''}</div></section>`}).join('');
+}
+function applySectionOrder(order=[]){
+ if(!order.length)return;const main=document.querySelector('main'),contact=$('#iletisim');if(!main||!contact)return;
+ const map={products:$('#urunler'),campaign:$('#kampanya'),services:$('#hizmetler'),works:$('#yaptigimiz-isler'),about:$('.about-section'),testimonials:$('#yorumlar'),areas:$('.areas-section'),faq:$('#sss'),custom:$('#customSections')};
+ order.map(x=>typeof x==='string'?x:x?.section).filter(Boolean).forEach(key=>{const el=map[key];if(el)main.insertBefore(el,contact)});
+}
+
 async function boot(){
- const [base,homeData,settingsData,seoData,productData,workData,testimonialData,serviceData,campaignData,faqData]=await Promise.all([
+ const [base,homeData,settingsData,seoData,productData,workData,testimonialData,serviceData,campaignData,faqData,siteControl,categoryData]=await Promise.all([
   loadJson('/content.json',{}),
   loadJson('/home.json',{}),
   loadJson('/settings.json',{}),
@@ -249,7 +282,9 @@ async function boot(){
   loadJson('/testimonials.json',{testimonials:[]}),
   loadJson('/services.json',{services:[]}),
   loadJson('/campaigns.json',{campaigns:[]}),
-  loadJson('/faqs.json',{faqs:[]})
+  loadJson('/faqs.json',{faqs:[]}),
+  loadJson('/site-control.json',{}),
+  loadJson('/categories.json',{categories:[]})
  ]);
  const campaigns=(campaignData.campaigns||[]).filter(x=>x&&x.active!==false);
  const currentCampaign=campaigns[0]||{};
@@ -271,7 +306,9 @@ async function boot(){
     campaignVisible:currentCampaign.active!==false
   }:{})
  };
+ merged.categories=categoryData.categories||[];
  render(merged);
+ applySiteControl(siteControl);
 }
 
 const VISITOR_COUNTER_ENDPOINT="https://armek-visitor-counter.armeksuaritma.workers.dev";
