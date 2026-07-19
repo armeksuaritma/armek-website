@@ -17,7 +17,7 @@
     "pageBackground": "#ffffff"
   },
   "announcement": {
-    "enabled": true,
+    "enabled": false,
     "speed": 10,
     "background": "#0d2942",
     "textColor": "#ffffff",
