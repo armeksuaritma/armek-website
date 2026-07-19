@@ -1,14 +1,13 @@
 {
   "announcement": {
     "enabled": true,
-    "speed": 20,
+    "speed": 22,
     "background": "#0d2942",
     "textColor": "#ffffff",
     "items": [
       {
-        "text": "Yılın Son Kampanyası Başladı. Fırsatlardan Yaralanmak İçin Bizimle İletişime Geçin.",
-        "url": "#iletisim",
-        "active": true
+        "active": true,
+        "text": "Yılın Son Kampanyası: Pompalı 5.499 TL • Pompasız 3.999 TL • Filtre Değişimi 1.500 TL • Hemen Bilgi Alın"
       }
     ]
   },
@@ -46,7 +45,7 @@
   ],
   "popup": {
     "enabled": true,
-    "title": "",
+    "title": "Antalya Su Arıtma Kampanyası",
     "text": "💧 Antalya Su Arıtma Kampanyası\n\nSu arıtma cihazlarında sezon fırsatları başladı.\n\n✔️ Pompalı Sistem 5.499 TL\n\n✔️ Pompasız Sistem 3.999 TL\n\n✔️ Filtre Değişimi 1.500 TL\n\n📞 Hemen WhatsApp'tan fiyat alın.",
     "image": "",
     "buttonText": "",
@@ -61,7 +60,7 @@
   },
   "dateTime": {
     "enabled": true,
-    "showSeconds": true,
+    "showSeconds": false,
     "position": "topbar",
     "showTime": true,
     "showDate": true,
