@@ -271,8 +271,36 @@ function applySectionOrder(order=[]){
  order.map(x=>typeof x==='string'?x:x?.section).filter(Boolean).forEach(key=>{const el=map[key];if(el)main.insertBefore(el,contact)});
 }
 
+
+function setBuilderText(root,selector,value){if(value===undefined||value===null||value==='')return;const el=root.querySelector(selector);if(el)el.textContent=value}
+function buildCustomHomepageSection(cfg,index){
+ const section=document.createElement('section');section.className=`section builder-custom-section ${cfg.softBackground?'soft-section':''}`;section.dataset.builderGenerated='true';section.dataset.builderSection=cfg.id||`custom-${index}`;section.id=cfg.anchor||cfg.id||`ozel-bolum-${index}`;
+ const image=cfg.image?`<div class="about-image reveal"><img src="${cfg.image}" alt="${cfg.imageAlt||cfg.title||'ARMEK'}"></div>`:'';
+ const buttons=(cfg.buttons||[]).filter(x=>x&&x.text).map(x=>`<a class="button ${x.style==='secondary'?'secondary':'primary'}" href="${x.url||'#'}"${x.newTab?' target="_blank" rel="noopener"':''}>${x.text}</a>`).join('');
+ const copy=`<div class="about-copy reveal">${cfg.eyebrow?`<span class="section-label">${cfg.eyebrow}</span>`:''}${cfg.title?`<h2>${cfg.title}</h2>`:''}${cfg.text?`<p>${String(cfg.text).replace(/\n/g,'<br>')}</p>`:''}${buttons?`<div class="hero-actions">${buttons}</div>`:''}</div>`;
+ section.innerHTML=`<div class="container about-grid">${cfg.imagePosition==='right'?copy+image:image+copy}</div>`;
+ return section;
+}
+function applyHomepageBuilder(builder={}){
+ const list=Array.isArray(builder.sections)?builder.sections:[];if(!list.length)return;
+ const main=document.querySelector('main');if(!main)return;
+ main.querySelectorAll('[data-builder-generated="true"]').forEach(x=>x.remove());
+ const existing={};main.querySelectorAll('[data-builder-section]').forEach(el=>{existing[el.dataset.builderSection]=el;el.classList.add('section-hidden')});
+ list.forEach((cfg,index)=>{
+  if(!cfg||cfg.enabled===false)return;
+  let el=existing[cfg.type]||existing[cfg.id];
+  if(cfg.type==='custom'){el=buildCustomHomepageSection(cfg,index);main.appendChild(el)}
+  if(!el)return;el.classList.remove('section-hidden');
+  if(cfg.backgroundColor)el.style.background=cfg.backgroundColor;if(cfg.textColor)el.style.color=cfg.textColor;
+  if(cfg.type==='hero'){setBuilderText(el,'#heroEyebrow',cfg.eyebrow);setBuilderText(el,'#heroTitle',cfg.title);setBuilderText(el,'#heroText',cfg.text);if(cfg.image)setImg('heroImage',cfg.image)}
+  else if(cfg.type==='about'){setBuilderText(el,'.section-label',cfg.eyebrow);setBuilderText(el,'#aboutTitle',cfg.title);setBuilderText(el,'#aboutText',cfg.text);if(cfg.image)setImg('aboutImage',cfg.image);if(cfg.imageAlt&&$('#aboutImage'))$('#aboutImage').alt=cfg.imageAlt;setBuilderText(el,'#whatsappAbout',cfg.buttonText)}
+  else {setBuilderText(el,'.section-label',cfg.eyebrow);setBuilderText(el,'h2',cfg.title);if(cfg.text){const ps=[...el.querySelectorAll('.section-heading p,.faq-intro p,.contact-card p')];if(ps[0])ps[0].textContent=cfg.text}}
+  main.appendChild(el);
+ });
+}
+
 async function boot(){
- const [base,homeData,settingsData,seoData,productData,workData,testimonialData,serviceData,campaignData,faqData,siteControl,categoryData]=await Promise.all([
+ const [base,homeData,settingsData,seoData,productData,workData,testimonialData,serviceData,campaignData,faqData,siteControl,categoryData,homepageBuilder]=await Promise.all([
   loadJson('/content.json',{}),
   loadJson('/home.json',{}),
   loadJson('/settings.json',{}),
@@ -284,7 +312,8 @@ async function boot(){
   loadJson('/campaigns.json',{campaigns:[]}),
   loadJson('/faqs.json',{faqs:[]}),
   loadJson('/site-control.json',{}),
-  loadJson('/categories.json',{categories:[]})
+  loadJson('/categories.json',{categories:[]}),
+  loadJson('/homepage-builder.json',{sections:[]})
  ]);
  const campaigns=(campaignData.campaigns||[]).filter(x=>x&&x.active!==false);
  const currentCampaign=campaigns[0]||{};
@@ -309,6 +338,8 @@ async function boot(){
  merged.categories=categoryData.categories||[];
  render(merged);
  applySiteControl(siteControl);
+ applyHomepageBuilder(homepageBuilder);
+ observeReveals();
 }
 
 const VISITOR_COUNTER_ENDPOINT="https://armek-visitor-counter.armeksuaritma.workers.dev";

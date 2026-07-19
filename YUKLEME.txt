@@ -1,19 +1,17 @@
-ARMEK GENİŞ YÖNETİM PANELİ GÜNCELLEMESİ
+ARMEK DINAMIK ANA SAYFA GUNCELLEMESI
 
-Bu pakette 7 dosya vardır. ZIP'i açın ve içindeki dosya/klasör yapısını bozmadan GitHub ana dizinine yükleyin.
+Bu paket mevcut ürünleri, soruları, hizmetleri, yorumları veya yapılan işleri silmez.
+Yalnızca ana sayfa bölümlerini yönetilebilir hale getirir.
 
-Değişecek dosyalar:
+GitHub ana dizinine klasör yapısını koruyarak yükleyin:
 - app.js
 - index.html
-- styles.css
+- homepage-builder.json
 - admin/config.yml
 
-Yeni dosyalar:
-- site-control.json
-- categories.json
+GitHub mevcut dosyaları değiştireceğini gösterecektir. Commit changes düğmesine basın.
+Yayın sonrası /admin/ adresini Ctrl+Shift+R ile yenileyin.
+Panelde "Dinamik Ana Sayfa" bölümü görünecektir.
 
-Yükleme:
-1. GitHub deposunda Add file > Upload files seçin.
-2. ZIP'i değil, ZIP'ten çıkardığınız dosyaları ve admin klasörünü sürükleyin.
-3. Commit changes düğmesine basın.
-4. Yayın tamamlanınca /admin/ panelinde Site Kontrol Merkezi ve Kategori Yönetimi görünecektir.
+Bölümleri sürükleyerek sıralayabilir, Bölüm açık seçeneğiyle kapatabilir,
+metin ve görselleri değiştirebilir, "Yeni özel bölüm" türüyle yeni alan ekleyebilirsiniz.

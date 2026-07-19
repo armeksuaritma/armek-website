@@ -1,0 +1,15 @@
+{
+  "sections": [
+    {"id":"hero","type":"hero","enabled":true,"label":"Ana Kapak"},
+    {"id":"quick","type":"quick","enabled":true,"label":"Hızlı Bilgiler"},
+    {"id":"products","type":"products","enabled":true,"label":"Ürünler","eyebrow":"ÜRÜNLERİMİZ","title":"Su arıtma, yumuşatma, hidrofor ve filtrasyon ürünleri","text":"Evinize ve iş yerinize uygun ürünleri inceleyin."},
+    {"id":"campaign","type":"campaign","enabled":true,"label":"Kampanya","eyebrow":"GÜNCEL FIRSATLAR"},
+    {"id":"services","type":"services","enabled":true,"label":"Hizmetler","eyebrow":"HİZMETLERİMİZ","title":"Su sistemleri için ihtiyacınız olan her şey","text":"Satıştan montaja, bakımdan teknik servise kadar destek."},
+    {"id":"works","type":"works","enabled":true,"label":"Yaptığımız İşler","eyebrow":"SAHADAN GERÇEK ÇALIŞMALAR","title":"Yaptığımız İşler","text":"Montaj, filtre değişimi ve teknik servis çalışmalarımızdan örnekler."},
+    {"id":"about","type":"about","enabled":true,"label":"Neden ARMEK","eyebrow":"NEDEN ARMEK?","title":"Satıştan servise güven veren yaklaşım","text":"","image":"/uploads/ortimax-600x900w.jpg","imageAlt":"Su arıtma cihazı","buttonText":"WhatsApp üzerinden bilgi alın →"},
+    {"id":"testimonials","type":"testimonials","enabled":true,"label":"Müşteri Yorumları","eyebrow":"MÜŞTERİ DENEYİMLERİ","title":"Hizmet alan müşterilerimiz ne diyor?"},
+    {"id":"areas","type":"areas","enabled":true,"label":"Hizmet Bölgeleri","eyebrow":"HİZMET BÖLGELERİ","title":"Antalya genelinde yanınızdayız"},
+    {"id":"faq","type":"faq","enabled":true,"label":"Sık Sorulan Sorular","eyebrow":"MERAK EDİLENLER","title":"Sık Sorulan Sorular","text":"Filtre değişimi, cihaz seçimi ve kullanım hakkında sık sorulan sorular."},
+    {"id":"contact","type":"contact","enabled":true,"label":"İletişim","eyebrow":"İLETİŞİM","title":"Temiz su için bugün iletişime geçin"}
+  ]
+}

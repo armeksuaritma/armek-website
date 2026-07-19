@@ -296,6 +296,62 @@ collections:
           - {label: "Google Analytics Ölçüm Kimliği", name: "analyticsMeasurementId", widget: "string", required: false, default: "G-DQBRPFTJ5J", hint: "G- ile başlayan kod. Örnek: G-DQBRPFTJ5J"}
 
 
+
+  - name: "homepage_builder_management"
+    label: "Dinamik Ana Sayfa"
+    files:
+      - name: "homepage_builder"
+        label: "Ana Sayfa Bölümleri"
+        file: "homepage-builder.json"
+        format: "json"
+        fields:
+          - label: "Sayfa Bölümleri"
+            name: "sections"
+            widget: "list"
+            add_to_top: false
+            summary: "{{fields.label}} — {{fields.type}}"
+            hint: "Bölümleri sürükleyerek sıralayın. Silinen veya kapatılan bölüm sitede görünmez. Ürün, soru, hizmet ve yorum içerikleri silinmez."
+            fields:
+              - {label: "Yönetimde görünen ad", name: "label", widget: "string"}
+              - {label: "Benzersiz kimlik", name: "id", widget: "string", hint: "Boşluk kullanmayın. Örn: jet-pompa-tanitim"}
+              - label: "Bölüm türü"
+                name: "type"
+                widget: "select"
+                options:
+                  - {label: "Ana kapak", value: "hero"}
+                  - {label: "Hızlı bilgi şeridi", value: "quick"}
+                  - {label: "Ürünler", value: "products"}
+                  - {label: "Kampanya", value: "campaign"}
+                  - {label: "Hizmetler", value: "services"}
+                  - {label: "Yaptığımız işler", value: "works"}
+                  - {label: "Neden ARMEK", value: "about"}
+                  - {label: "Müşteri yorumları", value: "testimonials"}
+                  - {label: "Hizmet bölgeleri", value: "areas"}
+                  - {label: "Sık sorulan sorular", value: "faq"}
+                  - {label: "İletişim", value: "contact"}
+                  - {label: "Yeni özel bölüm", value: "custom"}
+              - {label: "Bölüm açık", name: "enabled", widget: "boolean", default: true}
+              - {label: "Küçük üst başlık", name: "eyebrow", widget: "string", required: false}
+              - {label: "Ana başlık", name: "title", widget: "string", required: false}
+              - {label: "Açıklama", name: "text", widget: "markdown", required: false}
+              - {label: "Bölüm bağlantı adı", name: "anchor", widget: "string", required: false, hint: "Örn: jet-pompalar. Menü bağlantısı #jet-pompalar olur."}
+              - {label: "Görsel", name: "image", widget: "image", required: false}
+              - {label: "Görsel açıklaması", name: "imageAlt", widget: "string", required: false}
+              - {label: "Görsel konumu", name: "imagePosition", widget: "select", options: [{label: "Sol", value: "left"}, {label: "Sağ", value: "right"}], default: "left", required: false}
+              - {label: "Buton yazısı", name: "buttonText", widget: "string", required: false}
+              - {label: "Arka plan rengi", name: "backgroundColor", widget: "color", required: false}
+              - {label: "Yazı rengi", name: "textColor", widget: "color", required: false}
+              - {label: "Açık gri arka plan", name: "softBackground", widget: "boolean", default: false, required: false}
+              - label: "Butonlar (özel bölüm için)"
+                name: "buttons"
+                widget: "list"
+                required: false
+                fields:
+                  - {label: "Buton yazısı", name: "text", widget: "string"}
+                  - {label: "Bağlantı", name: "url", widget: "string"}
+                  - {label: "Görünüm", name: "style", widget: "select", options: [{label: "Ana", value: "primary"}, {label: "İkinci", value: "secondary"}], default: "primary"}
+                  - {label: "Yeni sekmede aç", name: "newTab", widget: "boolean", default: false}
+
   - name: "categories_management"
     label: "Kategori Yönetimi"
     files:
