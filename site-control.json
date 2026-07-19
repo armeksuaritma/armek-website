@@ -14,7 +14,7 @@
   },
   "themePreset": {
     "enabled": true,
-    "name": "warm"
+    "name": "dark"
   },
   "theme": {
     "primaryColor": "#0878c9",
@@ -45,10 +45,10 @@
     "custom"
   ],
   "popup": {
-    "enabled": true,
+    "enabled": false,
     "title": "",
     "text": "",
-    "image": "/uploads/chatgpt-image-15-tem-2026-23_26_19.png",
+    "image": "",
     "buttonText": "",
     "buttonUrl": "#iletisim",
     "delay": 2
