@@ -284,9 +284,26 @@ function renderPopup(cfg={}){
 
 function renderAnnouncement(cfg={}){
  const bar=$('#announcementBar'),track=$('#announcementTrack');if(!bar||!track)return;
- const items=(cfg.items||[]).filter(x=>x&&x.active!==false&&x.text);if(cfg.enabled!==true||!items.length){bar.hidden=true;return}
- bar.hidden=false;bar.style.background=cfg.background||'#0d2942';bar.style.color=cfg.textColor||'#fff';bar.style.setProperty('--ticker-speed',`${Math.max(8,Number(cfg.speed)||22)}s`);
- const html=items.map(x=>x.url?`<a href="${x.url}">${x.text}</a>`:`<span>${x.text}</span>`).join('');track.innerHTML=html+html;
+ const items=(cfg.items||[]).filter(x=>x&&x.active!==false&&x.text);
+ if(cfg.enabled!==true||!items.length){bar.hidden=true;track.innerHTML='';return}
+ bar.hidden=false;
+ bar.style.background=cfg.background||'#0d2942';
+ bar.style.color=cfg.textColor||'#fff';
+ bar.style.setProperty('--ticker-speed',`${Math.max(8,Number(cfg.speed)||22)}s`);
+ const itemHtml=items.map(x=>x.url?`<a href="${x.url}">${x.text}</a>`:`<span>${x.text}</span>`).join('');
+ // Kısa duyurularda ekranın boş kalmaması için aynı grubu yeterince çoğalt.
+ track.style.animation='none';
+ track.innerHTML=itemHtml;
+ requestAnimationFrame(()=>{
+  const viewport=Math.max(bar.clientWidth,window.innerWidth);
+  const baseWidth=Math.max(track.scrollWidth,1);
+  const repeats=Math.max(2,Math.ceil((viewport*1.5)/baseWidth));
+  const group=itemHtml.repeat(repeats);
+  track.innerHTML=group+group;
+  // Tarayıcıya animasyonu yeniden başlatmasını zorla.
+  void track.offsetWidth;
+  track.style.animation='armekTicker var(--ticker-speed,22s) linear infinite';
+ });
 }
 function renderDynamicMenu(items=[]){
  const nav=document.querySelector('[data-dynamic-menu]');if(!nav)return;const list=(items||[]).filter(x=>x&&x.active!==false&&x.label);
