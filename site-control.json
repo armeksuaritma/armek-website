@@ -45,10 +45,10 @@
     "custom"
   ],
   "popup": {
-    "enabled": false,
+    "enabled": true,
     "title": "",
     "text": "",
-    "image": "",
+    "image": "/uploads/chatgpt-image-15-tem-2026-23_26_19.png",
     "buttonText": "",
     "buttonUrl": "#iletisim",
     "delay": 2
