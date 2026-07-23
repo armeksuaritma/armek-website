@@ -1,0 +1,14 @@
+ARMEK YASAL GÜNCELLEME - 24.07.2026
+
+Bu paket doğrudan yüklenen armek-website-main(2).zip temel alınarak hazırlanmıştır.
+Yönetici paneli, JSON içerik dosyaları, ürünler, görseller ve çalışan özellikler korunmuştur.
+
+Eklenenler:
+- Gizlilik Politikası
+- Çerez Politikası
+- Kullanım Koşulları
+- Footer yasal bağlantıları
+- Kabul / Reddet çerez penceresi
+- Google Analytics ve ziyaretçi sayacının izin verilene kadar engellenmesi
+
+Şirket/tüzel kişilik kurulmadığı için şirket unvanı, vergi bilgisi veya gerçek dışı ticari kayıt kullanılmamıştır.

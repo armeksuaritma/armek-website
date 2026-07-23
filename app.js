@@ -12,7 +12,23 @@ const whatsapp=(phone,msg)=>`https://wa.me/${String(phone).replace(/\D/g,"")}?te
 function setText(id,val){const el=document.getElementById(id);if(el)el.textContent=safe(val)}
 function setLink(id,href,text){const el=document.getElementById(id);if(!el)return;el.href=href;if(text)el.textContent=text}
 function setImg(id,src){const el=document.getElementById(id);if(el&&src)el.src=src}
+const CONSENT_KEY="armek_cookie_consent_v1";
+function getConsent(){try{return localStorage.getItem(CONSENT_KEY)||"unset"}catch(e){return "unset"}}
+function setConsent(value){try{localStorage.setItem(CONSENT_KEY,value)}catch(e){};applyConsent(value)}
+function applyConsent(value){
+ const banner=$("#cookieBanner");if(banner)banner.hidden=value!=="unset";
+ if(value==="accepted"){loadAnalytics((DATA&&DATA.analyticsMeasurementId)||"G-DQBRPFTJ5J");startVisitorHeartbeat()}
+}
+function initConsent(){
+ const banner=$("#cookieBanner"),accept=$("#cookieAccept"),reject=$("#cookieReject"),settings=$("#cookieSettingsButton");
+ if(accept)accept.onclick=()=>setConsent("accepted");
+ if(reject)reject.onclick=()=>setConsent("rejected");
+ if(settings)settings.onclick=()=>{if(banner)banner.hidden=false};
+ applyConsent(getConsent());
+}
+
 function loadAnalytics(measurementId){
+ if(getConsent()!=="accepted")return;
  const id=String(measurementId||"").trim();
  if(!/^G-[A-Z0-9]+$/i.test(id)||window.__armekAnalyticsLoaded)return;
  window.__armekAnalyticsLoaded=true;
@@ -195,7 +211,6 @@ function updateStructuredData(data){
 }
 function render(data){
  DATA={...fallback,...data,visibility:{...fallback.visibility,...(data.visibility||{})}};
- loadAnalytics(DATA.analyticsMeasurementId||"G-DQBRPFTJ5J");
  document.title=DATA.seoTitle||DATA.businessName||"ARMEK Su Arıtma";
  $("#metaDescription").content=DATA.seoDescription||DATA.heroText||"";
  $("#ogTitle").content=DATA.seoTitle||DATA.businessName||"";
@@ -428,7 +443,10 @@ async function updateVisitorCounter(){
   box.hidden=true;
  }
 }
+let visitorHeartbeatStarted=false;
 function startVisitorHeartbeat(){
+ if(visitorHeartbeatStarted||getConsent()!=="accepted")return;
+ visitorHeartbeatStarted=true;
  updateVisitorCounter();
  setInterval(updateVisitorCounter,120000);
  document.addEventListener("visibilitychange",()=>{if(!document.hidden)updateVisitorCounter()});
@@ -437,7 +455,7 @@ function startVisitorHeartbeat(){
 bindAnalyticsClicks();
 bindEngagementTracking();
 boot();
-startVisitorHeartbeat();
+initConsent();
 $$('[data-product-close]').forEach(el=>el.onclick=closeProduct);
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeProduct()});
 $$('[data-product-nav]').forEach(link=>link.addEventListener('click',()=>{setTimeout(()=>window.selectProductCategory&&window.selectProductCategory(link.dataset.productNav),100)}));
