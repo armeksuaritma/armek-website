@@ -206,8 +206,7 @@ function updateStructuredData(data){
   "address":{"@type":"PostalAddress","addressLocality":data.addressText||"Antalya","addressCountry":"TR"},
   "sameAs":[data.facebook,data.instagram].filter(Boolean)
  }];
- if(products.length){graph.push({"@type":"ItemList","name":"ARMEK Su Arıtma Ürünleri","itemListElement":products.map((p,i)=>({"@type":"ListItem","position":i+1,"item":{"@type":"Product","name":p.name||"Ürün","image":p.image?new URL(p.image,location.origin).href:undefined,"description":productFeatures(p).join(", "),"brand":p.brand?{"@type":"Brand","name":p.brand}:undefined}}))})}
- const node=$("#structuredData");if(node)node.textContent=JSON.stringify({"@context":"https://schema.org","@graph":graph});
+const node=$("#structuredData");if(node)node.textContent=JSON.stringify({"@context":"https://schema.org","@graph":graph});
 }
 function render(data){
  DATA={...fallback,...data,visibility:{...fallback.visibility,...(data.visibility||{})}};
