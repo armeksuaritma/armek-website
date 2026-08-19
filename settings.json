@@ -1,7 +1,7 @@
 {
   "logoImage": "/uploads/723844490_122107968009358712_5953829953980177629_n.jpg",
-  "phoneLink": "https://wa.me/905552013575",
-  "phoneDisplay": "https://wa.me/905552013575",
+  "phoneLink": "905552013575",
+  "phoneDisplay": "0555 201 35 75",
   "visibility": {
     "faq": true,
     "areas": true,
@@ -14,5 +14,6 @@
   },
   "instagram": "https://www.instagram.com/aritmamekanik/",
   "facebook": "https://www.facebook.com/profile.php?id=61591020905834",
-  "email": "armeksuaritma@gmail.com"
+  "email": "armeksuaritma@gmail.com",
+  "whatsappMessage": "Merhaba, ürünleriniz hakkında fiyat bilgisi almak istiyorum."
 }
