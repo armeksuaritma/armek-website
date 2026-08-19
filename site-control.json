@@ -34,7 +34,7 @@
   },
   "sectionOrder": [
     "products",
-    "campaign",
+    "custom",
     "services",
     "works",
     "about",
@@ -50,7 +50,7 @@
     "image": "",
     "buttonText": "",
     "buttonUrl": "#iletisim",
-    "delay": 2
+    "delay": 1
   },
   "header": {
     "sticky": true,
