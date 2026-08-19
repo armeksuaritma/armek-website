@@ -2,9 +2,5 @@
   "heroMediaType": "video",
   "heroVideo": "/uploads/su_yumusatma_ana_sayfa_4x3.mp4",
   "heroVideoPoster": "/uploads/723844490_122107968009358712_5953829953980177629_n.jpg",
-  "heroSlides": [
-    {
-      "image": "/uploads/chatgpt-image-15-tem-2026-23_26_19.png"
-    }
-  ]
+  "heroSlides": []
 }
