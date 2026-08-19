@@ -5,7 +5,7 @@
   "visibility": {
     "faq": true,
     "areas": true,
-    "testimonials": true,
+    "testimonials": false,
     "about": true,
     "works": true,
     "services": true,
