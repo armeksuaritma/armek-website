@@ -3,28 +3,12 @@
     {
       "featured": false,
       "active": true,
-      "title": "Yılın Son Kampanyası",
-      "image": "/uploads/chatgpt-image-15-tem-2026-23_58_22.png",
+      "title": "Sert Su, Cihazlarınızın Ömrünü Kısaltır!",
+      "image": "/uploads/gemini_generated_image_clnzrkclnzrkclnz-4-.jpg",
       "startDate": "15.07.2026",
       "endDate": "31.12.2026",
-      "text": "Temiz suya avantajlı fiyatlarla ulaşmanın tam zamanı! Pompalı ve pompasız su arıtma cihazları ile 5 aşamalı filtre setlerinde yılın en avantajlı nakit kampanyasını kaçırmayın.",
-      "prices": [
-        {
-          "title": "5 Aşamalı Filtre Değişimi",
-          "price": "1.500 TL",
-          "note": "Montaj Dahil"
-        },
-        {
-          "title": "Pompasız Su Arıtma Cihazı",
-          "price": "3.999 TL",
-          "note": "Montaj Dahil"
-        },
-        {
-          "title": "Pompalı Su Arıtma Cihazı",
-          "price": "5.499 TL",
-          "note": "Montaj Dahil"
-        }
-      ]
+      "text": "Su yumuşatma sistemi kullanılmadığında sudaki kalsiyum ve magnezyum; rezistans, boru ve armatürlerde yoğun kireç tabakası oluşturur. Bu birikim:\n\nEnerji tüketimini artırır.\nIsıtma performansını düşürür.\nArıza ve bakım masraflarını yükseltir.\nÇamaşır ve bulaşıklarda leke bırakır.\nCihazların kullanım ömrünü kısaltır.\n\nSu yumuşatma sistemiyle kireci önleyin; cihazlarınızı ve bütçenizi koruyun.",
+      "prices": []
     }
   ]
 }
