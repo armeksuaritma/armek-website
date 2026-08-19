@@ -1,7 +1,7 @@
 {
   "logoImage": "/uploads/723844490_122107968009358712_5953829953980177629_n.jpg",
-  "phoneLink": "0552 522 35 75",
-  "phoneDisplay": "0552 522 35 75",
+  "phoneLink": "0552 522 35 75 - 0555 201 35 75",
+  "phoneDisplay": "0552 522 35 75 - 0555 201 35 75",
   "visibility": {
     "faq": true,
     "areas": true,
@@ -11,5 +11,8 @@
     "services": true,
     "campaign": true,
     "products": true
-  }
+  },
+  "instagram": "https://www.instagram.com/aritmamekanik/",
+  "facebook": "https://www.facebook.com/profile.php?id=61591020905834",
+  "email": "armeksuaritma@gmail.com"
 }
